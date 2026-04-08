@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropAFar - Offer Your Dream Property</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
+        <div class="container-xxl px-3">
+            <a class="navbar-brand" href="/">
+                <img src="assets/images/footer_logo2.png" alt="PropAFar">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="find-real-estate.html">Find real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="offer-real-estate.html">Offer real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon"> English
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon me-2"> English</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">German</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">Hungarian</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                      <div class="user-icon" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                          <i class="bi bi-person"></i>
+                      </div>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="/login">Login</a></li>
+                          <li><a class="dropdown-item" href="/signup">Sign up</a></li>
+                      </ul>
+                  </div>
+                    
+                    <a href="/list-property" class="btn btn-list-property">
+                        List a Property
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section hero-section-offer">
+        <!-- Background Slider -->
+        <div class="swiper heroBackgroundSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url(assets/images/offer-real-estate-hero.jpg);"></div>
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url('assets/images/offer-real-estate-slideshow-2.jpg');"></div>
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url('assets/images/offer-real-estate-slideshow-3.jpg');"></div>
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url('assets/images/offer-real-estate-slideshow-4.jpg');"></div>
+            </div>
+            <!-- Pagination Dots (NEW) -->
+            <div class="swiper-pagination hero-bg-pagination"></div>
+        </div>
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Hero Titles -->
+                    <div class="hero-content">
+                        <h1 class="hero-title">Increase your global appeal</h1>
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div>
+                                    <p class="hero-subtitle">Find a buyer or tenant from any country in the world!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-lg-6 ms-auto"> 
+                    <!-- Search Box -->
+                    <div class="search-box-modern">
+                        <!-- Radio Buttons HTML -->
+                        <div class="search-tabs-modern">
+                            <div class="tab-option">
+                                <input type="radio" id="forSale" name="propertyType" value="sale" checked>
+                                <label for="forSale">
+                                    <span class="radio-icon">
+                                        <i class="bi bi-check-circle-fill checked-icon"></i>
+                                        <i class="bi bi-circle unchecked-icon"></i>
+                                    </span>
+                                    <span class="radio-text">Property for sale</span>
+                                </label>
+                            </div>
+                            <div class="tab-option">
+                                <input type="radio" id="toLet" name="propertyType" value="rent">
+                                <label for="toLet">
+                                    <span class="radio-icon">
+                                        <i class="bi bi-check-circle-fill checked-icon"></i>
+                                        <i class="bi bi-circle unchecked-icon"></i>
+                                    </span>
+                                    <span class="radio-text">Property for rent</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Form -->
+                        <div class="search-form-container">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <i class="bi bi-info-circle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Original Price" data-bs-original-title="Original Price"></i></p>
+                            <div class="row g-2 align-items-end">
+                                <!-- Currency -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <input type="text" class="form-control-search" placeholder="Price...">
+                                </div>
+                                
+                                <!-- Area Unit -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <div class="lang-currency-selector">
+                                        <div class="dropdown w-100">
+                                            <button class="dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-6">
+                                    <select class="form-select-search">
+                                        <option>Real estate type *</option>
+                                        <option value="">Apartment / Condo</option>
+                                        <option value="">Commercial Property</option>
+                                        <option value="">House</option>
+                                        <option value="">Industrial Real estate</option>
+                                        <option value="">Office Space</option>
+                                        <option value="">Other</option>
+                                        <option value="">Plot</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-6">
+                                    <select class="form-select-search">
+                                        <option>Property Subcategory *</option>
+                                        <option value="">Semi-detached house</option>
+                                        <option value="">Holiday Home</option>
+                                        <option value="">Villa</option>
+                                        <option value="">Castle</option>
+                                        <option value="">Mansion</option>
+                                        <option value="">Detached house</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="position-relative">
+                                        <div class="">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-6 mb-6">
+                                                    <input type="hidden" id="latitude" name="latitude">
+                                                    <input type="hidden" id="longitude" name="longitude">
+                                                    <input type="hidden" id="country" name="country" >
+                                                    <input type="hidden" id="state" name="state">
+                                                    <input type="hidden" id="city" name="city">
+                                                    <input type="hidden" id="zipcode" name="postal_Code">
+                                                    <input type="hidden" id="street" name="street">
+                                                    <div class="pac-card" id="pac-card">
+                                                          <input id="pac-input" type="text" placeholder="Search..." required data-error="{{ trans('property.enterStreet') }} {{ trans('validation.isRequired') }}" />
+                                                    </div>
+                                                    <div id="map" style="width: 100%; height: 195px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Detailed Search Link -->
+                            <div class="detailed-search-link">
+                                <a href="#">
+                                    Next
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose PropAFar Section -->
+    <section class="why-choose-section">
+        <div class="container-xxl px-3">
+            <!-- Features Grid -->
+            <div class="row">
+                <!-- Feature 1: Work with Us -->
+                <div class="col-lg-7 mx-auto">
+                    
+                    <div class="feature-card-modern py-4">
+                        <div class="feature-icon-box">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <div class="section-header text-center mb-2">
+                            <h2 class="section-title">Booming international property market instead of sluggish domestic demand</h2>
+                        </div>
+                        <p class="feature-description">Are you tired of the dull domestic real estate market, or local buyers who don't see the potential in your property? It's time to reach the whole world! A foreign buyer or tenant may have a fresh approach and consider your property a rare treasure, whether they choose to own it or invest in it for business purposes.</p>
+                        <p class="feature-description pb-4">Got an apartment, house, or industrial property for sale or rent? Have your real estate listed here today and it will appear in several languages around the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Slider Section -->
+    <section class="cta-section">
+        <div class="container-xxl px-3">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <h2 class="section-title text-white mb-1">Ready to Find Your Dream Property?</h2>
+                <p class="section-subtitle text-white">Ready to Find Your Dream Property?</p>
+            </div>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper mediaSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 - Video -->
+                    <div class="swiper-slide">
+                        <div class="media-card video-card">
+                            <div class="video-wrapper">
+                                <iframe width="100%" height="285" src="https://www.youtube.com/embed/a6vVgwrbiQA?si=47FeFEum2YtenQfX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-content">
+                                <div class="media-meta">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>Property Tour</span>
+                                </div>
+                                <h4 class="media-title">Luxury Villa in DHA Phase 6</h4>
+                                <p class="media-description">Take a virtual tour of this stunning property</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 - Video -->
+                    <div class="swiper-slide">
+                        <div class="media-card video-card">
+                            <div class="video-wrapper">
+                                <iframe width="100%" height="285" src="https://www.youtube.com/embed/HDj-6iYQirc?si=cvCitvsPKur2QRB0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-content">
+                                <div class="media-meta">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>Property Tour</span>
+                                </div>
+                                <h4 class="media-title">Modern Apartment in Bahria Town</h4>
+                                <p class="media-description">Experience luxury living in this modern space</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 - Social Post (Instagram Style) -->
+                    <div class="swiper-slide">
+                        <div class="media-card social-card">
+                            <div class="social-header">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="PropAFar" class="social-avatar">
+                                <div class="social-info">
+                                    <h5>PropAFar</h5>
+                                    <p>Karachi, Pakistan</p>
+                                </div>
+                                <img src="assets/images/instagram.png" alt="facebook">
+                            </div>
+                            <div class="social-image">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Property">
+                            </div>
+                            <div class="social-actions">
+                                <div class="action-buttons">
+                                    <i class="bi bi-heart"></i>
+                                    <i class="bi bi-chat"></i>
+                                    <i class="bi bi-send"></i>
+                                </div>
+                                <i class="bi bi-bookmark"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4 class="media-title">Modern Apartment in Bahria Town</h4>
+                                <p class="time">2 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 - Social Post (Facebook Style) -->
+                    <div class="swiper-slide">
+                        <div class="media-card social-card facebook-card">
+                            <div class="social-header">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="PropAFar" class="social-avatar">
+                                <div class="social-info">
+                                    <h5>PropAFar</h5>
+                                    <p>3 hours ago · <i class="bi bi-globe"></i></p>
+                                </div>
+                                <img src="assets/images/facebook.png" alt="facebook">
+                            </div>
+                            <div class="social-image">
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Property">
+                            </div>
+                            <div class="social-stats">
+                                <div class="reactions">
+                                    <span class="reaction-icons">👍❤️😍</span>
+                                    <span>156</span>
+                                </div>
+                                <div class="comments-shares">
+                                    <span>28 comments</span>
+                                    <span>12 shares</span>
+                                </div>
+                            </div>
+                            <h4 class="media-title px-3 pt-2">Modern Apartment in Bahria Town</h4>
+                            <div class="social-actions facebook-actions">
+                                <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+                                <button><i class="bi bi-chat"></i> Comment</button>
+                                <button><i class="bi bi-share"></i> Share</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5 - Video -->
+                    <div class="swiper-slide">
+                        <div class="media-card video-card">
+                            <div class="video-wrapper">
+                                <iframe width="100%" height="285" src="https://www.youtube.com/embed/a6vVgwrbiQA?si=KAdtjQ4oGV3aHqJW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-content">
+                                <div class="media-meta">
+                                    <i class="bi bi-play-circle"></i>
+                                    <span>Customer Story</span>
+                                </div>
+                                <h4 class="media-title">Success Story: Finding Home</h4>
+                                <p class="media-description">Hear from our happy customers</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6 - Social Post -->
+                    <div class="swiper-slide">
+                        <div class="media-card social-card">
+                            <div class="social-header">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="PropAFar" class="social-avatar">
+                                <div class="social-info">
+                                    <h5>PropAFar</h5>
+                                    <p>Islamabad, Pakistan</p>
+                                </div>
+                                <img src="assets/images/instagram.png" alt="facebook">
+                            </div>
+                            <div class="social-image">
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Property">
+                            </div>
+                            <div class="social-actions">
+                                <div class="action-buttons">
+                                    <i class="bi bi-heart"></i>
+                                    <i class="bi bi-chat"></i>
+                                    <i class="bi bi-send"></i>
+                                </div>
+                                <i class="bi bi-bookmark"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4 class="media-title">Modern Apartment in Bahria Town</h4>
+                                <p class="time">5 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="properties-section set-our-updates">
+        <div class="container-xxl px-3">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <div class="mb-3 mb-lg-5">
+                <h2 class="section-title mb-1">Give your property </h2>
+                <p class="section-subtitle m-0">A leg up on the international market</p>
+              </div>
+            </div>
+            <div class="col-lg-5 ms-auto text-end">
+              <a href="#" class="btn btn-list-property d-inline-block w-auto ms-auto">
+                List my property <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/1624.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">Break free of the domestic mainstream! </h3>
+                                <div class="property-location mt-2 pb-2">List your property for sale or rent on the international property market, even at no cost. Capitalize on the vast opportunities in the international real estate market as opposed to facing the constraints of the domestic market.
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/2151918221.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">List a wide range of real estate categories</h3>
+                                <div class="property-location mt-2 pb-2">Interested in listing a historical building or one that is just being built? Are you about to list your real estate for residential, commercial, or industrial purposes? You'll find a wide number of real estate categories on our website - and in return, the opportunities will find you!
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/2148014620.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">International property transactions done right </h3>
+                                <div class="property-location mt-2 pb-2">Our mission is to build mutual trust by providing foreign buyers and tenants with complete and reliable information about listed properties, in order for them to close a successful sale or sign a rental contract as swiftly as possible.
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <!-- Section Header -->
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">The world opens up in a few clicks</h2>
+            </div>
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/2149173354.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">List your property easily, even at no cost!</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Listing your property is a breeze with our intuitive interface: following a quick and simple registration process, a range of options help you create a straightforward, targeted listing.</p>
+                        <strong class="about-description">Let us save your time!</strong>
+                        <p class="about-description">Rather than advertising simultaneously on various real estate websites in multiple countries and platforms, country by country, let us save you significant time and effort with a single listing, for multiple target groups in different countries at once. With us, you reach a significantly larger group of potential property seekers from all over the world. Thus, you can list your property for sale or to rent to a vast number of foreign tenants or buyers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 2 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6 order-lg-2">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/2147880527.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6 order-lg-1">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Receive inquiries at your convenience</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Your potential customers from all over the world see in their local time zone your availability for inquiries related to the property you listed on our website.</p>
+                        <p class="about-description">Deal with a large amount of demand on a daily basis whenever feasible in your agenda. Receive inquiries from customers in different time zones related to the property you listed on our website.</p>
+                        <p class="about-description">Your pre-scheduled, personalized time slots will appear in your ad and be automatically converted into your customer's local time zone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 3 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/18941.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Remain anonymous</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Are you worried about fraudulent misuse of your personal contact data or that your future customers might pester you with inappropriate questions via email or on the phone?</p>
+                        <strong class="about-description">Feel free to post your property anonymously!</strong>
+                        <p class="about-description">As a result, your phone/email contact details will remain hidden from the greater public. Enjoy the privilege of picking your customers and responding to them whenever you choose.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 4 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6 order-lg-2">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/2569031_370590-PBC4PJ-490.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6 order-lg-1">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Multilingual property listings</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Most parameters of your property are  automatically translated into a number of languages free of charge, in order for you to reach your potential customers abroad in their own language(s). </p>
+                        <strong class="about-description">Elaborate on your listing!</strong>
+                        <p class="about-description">Boost your chances by presenting your ad more informative,  and add a more detailed description to your ad. As a result, your individual real estate description will be translated into many local languages by professional interpreters at a low cost. </p>
+                        <p class="about-description">In terms of communication channels maintained with your customers, you will also have the option to specify the language(s) you wish to use for upcoming correspondence with property seekers. This feature might be helpful to by-pass potential language barriers, while conducting business and negotiating with your counterpart from abroad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 5 -->
+    <section class="about-section mb-5">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/134037.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">List multiple properties, or advertise your products / services in one go</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Our portal is available for all individuals, corporations with a property portfolio, and even real estate agents. Just sign up and list your own property or the portfolio on behalf of your clients. </p>
+                        <p class="about-description">Highlight your services and products related to certain real estate: </p>
+                        <p class="about-description">Avail yourself of “pay as you go” online banner advertisements and link your products or services to a number of property listings via customized filters. </p>
+                        <p class="about-description">Feature your property’s listing by forward ranked positions.</p>
+                        <p class="about-description">Check out our packages for extended options to further increase your potential sales chances abroad. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Packages Section -->
+    <section class="pricing-packages-section">
+        <div class="container-custom px-3">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <h2 class="section-title">Choose Your Package</h2>
+                <p class="section-subtitle">Select the perfect plan for your real estate listing needs</p>
+            </div>
+            
+            <!-- Pricing Table -->
+            <div class="pricing-table-wrapper">
+                <div class="pricing-table">
+                    <!-- Table Header -->
+                    <div class="pricing-header">
+                        <div class="feature-column">
+                            <h3 class="mb-0">Features</h3>
+                        </div>
+                        <div class="package-column basic-package">
+                            <h3>Basic Package</h3>
+                            <div class="package-toggle">
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="package-column premium-package">
+                            <h3>Premium Package</h3>
+                            <div class="package-toggle">
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="package-column brand-package">
+                            <h3>Brand Package</h3>
+                            <div class="package-toggle">
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="package-column custom-package">
+                            <h3 class="text-black">Custom Package</h3>
+                            <div class="package-toggle">
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature Rows -->
+                    <!-- Row 1: Multilingual Listings -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Multilingual listings</strong>
+                            <p>Expose to your customers worldwide your multilingual real estate listings. No particular language skill is needed to post your online real estate listing thus a multilingual input controls are being used</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2: Number of Ads -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Number of ads available for 30 days</strong>
+                            <p>Make known your real estate to foreign buyers or tenants on a 30 days basis or on a 360 days basis depending on the package you pick. Expiry is extendable</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."Z" db szám...</span>
+                            <small>Admin adja meg</small>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."Z" + xxx...</span>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."Z" + xxx...</span>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">Unlimited</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3: Photos -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Photos</strong>
+                            <p>The Maximum number of real estate photos per listing (max xxx MB per photo)</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."A" db szám...</span>
+                            <small>Admin adja meg</small>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."A" + xxx...</span>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."A" + xxx...</span>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">Unlimited</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 4: Individual Title -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Individual multilingual title</strong>
+                            <p>Add a title to your real estate listing up to 70 characters. Discount apply depending on the package you are in.</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."B" összeg...</span>
+                            <small>Admin adja meg</small>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."B" + xxx...</span>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."B" + xxx...</span>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 5: Individual Description -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Individual description</strong>
+                            <p>Add your detailed individual description to your real estate listing upto 2 000 characters. Discount apply depending on the package you are in.</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."C" összeg...</span>
+                            <small>Admin adja meg</small>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."C" + xxx...</span>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."C" + xxx...</span>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 6: Promo Video -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Promo video to your listing</strong>
+                            <p>Add a video/video carousel video to your listed real estate. Show more details to your potential customers than photos could ever do.</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."D" összeg...</span>
+                            <small>Admin adja meg</small>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."D" + xxx...</span>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."D" + xxx...</span>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 7: Forward Ranked Listing -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Forward ranked listing</strong>
+                            <p>Rank your real estate to the top of the listing in a red frame in order to be more visible. Pick your target group by language</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."E" összeg...</span>
+                            <small>Admin adja meg</small>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."E" + xxx...</span>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <span class="package-value">..."E" + xxx...</span>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 8: Landing Page -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Landing page for your brand and co-workers</strong>
+                            <p>Are you a professional working in a real estate industry? Distinguish yourself from the crowd with your brand. Bring together up to... business associates under a single umbrella and uncover a new horizon in multilingual real estate market. Uncover all associated real estates on an entirely multilingual, multicurrency landing page.</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-x-circle-fill text-danger"></i>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-x-circle-fill text-danger"></i>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 9: Listing Page -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Listing page for your real estates and co-workers</strong>
+                            <p>Showcase your professional background and services while organizing and attaching real estate listings to your customers. Allocate listing pages to each of fellow members individually, to which their professional BIO profiles are linked.</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-x-circle-fill text-danger"></i>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-x-circle-fill text-danger"></i>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 10: Own Your Space -->
+                    <div class="feature-row">
+                        <div class="feature-column" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <strong>Own your space</strong>
+                            <p>Boost your associated services or products on an international scale with UNLIMITED number of free clickable banner places for no additional charges. Clickable banners can be placed on you or your fellow member space, including banner placement to all real estate listing pages held by fellow members.</p>
+                        </div>
+                        <div class="package-column basic-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-x-circle-fill text-danger"></i>
+                        </div>
+                        <div class="package-column premium-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-x-circle-fill text-danger"></i>
+                        </div>
+                        <div class="package-column brand-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                        <div class="package-column custom-package" data-bs-toggle="tooltip" data-bs-title="xyz dummy text xyz full dummy text">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pricing Footer -->
+            <div class="pricing-footer">
+                <div></div>
+                <div class="price-card basic-price">
+                    <div class="price-label">Free of charge</div>
+                    <div class="price-detail">up to 1 online classified ad</div>
+                    <div class="duration">30 days</div>
+                    <button class="btn-select-package mt-4">Select Plan</button>
+                </div>
+                
+                <div class="price-card premium-price">
+                    <div class="price-amount">HUF 5 600</div>
+                    <div class="price-currency">(EUR 160)</div>
+                    <div class="duration">30 days <span class="divider">|</span> 360 Days</div>
+                    <div class="form-check form-switch my-2">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    </div>
+                    <button class="btn-select-package">Select Plan</button>
+                </div>
+                
+                <div class="price-card brand-price">
+                    <div class="price-amount">HUF 10 800</div>
+                    <div class="price-currency">(EUR 160)</div>
+                    <div class="duration">30 Days <span class="divider">|</span> 360 Days</div>
+                    <div class="form-check form-switch my-2">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    </div>
+                    <button class="btn-select-package">Select Plan</button>
+                </div>
+                
+                <div class="price-card custom-price">
+                    <div class="price-label">Custom Quote</div>
+                    <div class="price-detail">Tailored to your needs</div>
+                    <div class="duration">Flexible Duration</div>
+                    <button class="btn-select-package btn-custom mt-4">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-xxl px-3">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="assets/images/footer_logo2.png" alt="PropAFar" style="height: 72px; filter: brightness(0) invert(1);" class="mb-3">
+                    <p style="color: rgba(255, 255, 255, 0.7);">Your trusted partner in finding the perfect property across Pakistan.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Agents</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Buy Property</a></li>
+                        <li><a href="#">Rent Property</a></li>
+                        <li><a href="#">List Property</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-12">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-facebook"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-twitter"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-instagram"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PropAFar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button (Fixed Bottom Right) -->
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-sun-fill theme-icon-light"></i>
+        <i class="bi bi-moon-fill theme-icon-dark"></i>
+    </button>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&language={{ app()->getLocale() }}&region={{ strtoupper(app()->getLocale()) }}" async defer></script>
+    <script>
+        // Search tabs functionality
+        document.querySelectorAll('.search-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+      // Radio button change event
+      document.addEventListener('DOMContentLoaded', function() {
+          const radioButtons = document.querySelectorAll('input[name="propertyType"]');
+          
+          radioButtons.forEach(radio => {
+              radio.addEventListener('change', function() {
+                  const propertyType = this.value;
+                  console.log('Selected property type:', propertyType);
+                  
+                  // You can add additional functionality here
+                  // For example, update form fields based on selection
+              });
+          });
+      });
+    </script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.mediaSwiper', {
+            // Show 3 slides at a time
+            slidesPerView: 3,
+            spaceBetween: 30,
+            
+            // Enable loop
+            loop: true,
+            
+            // Auto height
+            autoHeight: false,
+            
+            // Autoplay
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            // Pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            
+            // Responsive breakpoints
+            breakpoints: {
+                // Mobile
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // Tablet
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+                // Desktop
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+    <script>
+          let map, marker, geocoder, autocomplete;
+
+          function initMap() {
+            const defaultPos = { lat: 40.749933, lng: -73.98633 }; // Default center (NYC)
+
+            map = new google.maps.Map(document.getElementById("map"), {
+              center: defaultPos,
+              zoom: 13,
+            });
+
+            geocoder = new google.maps.Geocoder();
+
+            marker = new google.maps.Marker({
+              map,
+              position: defaultPos,
+              draggable: true,
+            });
+            map.addListener("click", function (e) {
+              const pos = e.latLng;
+              $('#latitude').val(pos.lat());
+              $('#longitude').val(pos.lng());
+              marker.setPosition(pos);
+              map.panTo(pos);
+
+              geocoder.geocode({ location: pos }, (results, status) => {
+                if (status === "OK" && results[0]) {
+                  document.getElementById("pac-input").value =
+                    results[0].formatted_address;
+                  fillAddressFields(results[0]);
+                }
+              });
+            });
+
+            const input = document.getElementById("pac-input");
+            autocomplete = new google.maps.places.Autocomplete(input, {
+              fields: ["formatted_address","address_components", "geometry","name"],
+              types: [],
+            });
+            autocomplete.bindTo("bounds", map);
+
+            autocomplete.addListener("place_changed", () => {
+              const place = autocomplete.getPlace();
+              if (!place.geometry) return;
+
+              map.panTo(place.geometry.location);
+              map.setZoom(17);
+              marker.setPosition(place.geometry.location);
+
+              fillAddressFields(place);
+            });
+
+            // When user drags the marker, get address again
+            marker.addListener("dragend", function () {
+              const pos = marker.getPosition();
+              map.panTo(pos);
+              geocoder.geocode({ location: pos }, (results, status) => {
+                if (status === "OK" && results[0]) {
+                  document.getElementById("pac-input").value =
+                    results[0].formatted_address;
+                  fillAddressFields(results[0]);
+                }
+              });
+            });
+          }
+
+          function fillAddressFields(place) {
+            const address = {
+              street: "",
+              city: "",
+              state: "",
+              country: "",
+              zipcode: "",
+            };
+            var addr = place.formatted_address;
+            if (addr) {
+              addr = addr
+                .split(',')
+                .filter(part => !part.trim().includes('+'))
+                .join(',')
+                .trim();
+            } 
+            if(place.name){     
+                address.street = place.name + ", " + address.street;
+                addr = place.name+", "+addr;
+            }
+            if (place.address_components) {
+              place.address_components.forEach((comp) => {
+                const types = comp.types;
+                if (types.includes("street_number"))
+                  address.street = comp.long_name + " " + address.street;
+                if (types.includes("route"))
+                  address.street += comp.long_name;
+                if (types.includes("locality"))
+                  address.city = comp.long_name;
+                if (types.includes("administrative_area_level_1"))
+                  address.state = comp.long_name;
+                if (types.includes("country"))
+                  address.country = comp.long_name;
+                if (types.includes("postal_code"))
+                  address.zipcode = comp.long_name;
+              });
+            }
+
+
+            $('#country').val(address.country);
+            $('#street').val(address.street);
+            $('#city').val(address.city);
+            $('#state').val(address.state);
+            $('#zipcode').val(address.zipcode);
+            $('#addressDetails').html(addr);
+
+            const lat =
+              place.geometry?.location?.lat() ??
+              marker.getPosition().lat();
+            const lng =
+              place.geometry?.location?.lng() ??
+              marker.getPosition().lng();
+
+            $('#latitude').val(place.geometry.location.lat());
+            $('#longitude').val(place.geometry.location.lng());
+          }
+          window.initMap = initMap;
+    </script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            // Apply saved theme on page load
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                // Save preference to localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+    <script>
+        // Initialize Hero Background Swiper
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroBackgroundSwiper = new Swiper('.heroBackgroundSwiper', {
+                // Loop
+                loop: true,
+                
+                // Speed
+                speed: 1500,
+                
+                // Effect
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                
+                // Autoplay
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                
+                // Pagination
+                pagination: {
+                    el: '.hero-bg-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
+</body>
+</html>

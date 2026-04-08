@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Detail — PropAfar</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════
+           TOKENS
+        ═══════════════════════════════ */
+        :root {
+            --red:        #dd2328;
+            --red-dark:   #b91c2c;
+            --brown-grad: linear-gradient(135deg,#502305 0%,#261000 100%);
+            --dark:       #1a1a2e;
+            --grey:       #6c757d;
+            --border:     #e5e7eb;
+            --bg:         #f7f8fa;
+            --white:      #ffffff;
+            --font:       'Jost', sans-serif;
+            --radius:     10px;
+            --shadow:     0 2px 12px rgba(0,0,0,0.07);
+        }
+
+        *, body { box-sizing: border-box; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--dark);
+            font-size: 14px;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* ── Breadcrumb ── */
+        .page-topbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 9px 0;
+        }
+        .breadcrumb { margin: 0; font-size: 16px; }
+        .breadcrumb-item + .breadcrumb-item::before { color: var(--grey); }
+        .breadcrumb-item a { color: var(--grey); }
+        .breadcrumb-item.active { color: var(--dark); font-weight: 600; }
+
+        /* ── Full-width title bar ── */
+        .title-bar {
+            padding: 10px 6px;
+            border-top: 1px solid #d7d7d7;
+            border-radius: 12px 12px 0px 0px;
+            margin-top: 12px;
+            background: #fff;
+        }
+        .prop-main-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.25;
+            margin: 0;
+        }
+
+        /* ════════════════════════════════════
+           LEFT COL COMPONENTS
+        ════════════════════════════════════ */
+        .left-card {
+            background: var(--white);
+            /*border: 1px solid var(--border);*/
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 10px;
+        }
+
+        /* Meta info rows */
+        .meta-block { padding: 14px 14px 10px; }
+        .meta-id {
+            font-size: 14px; font-weight: 700; color: var(--grey);
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .meta-row {
+            display: flex; justify-content: space-between;
+            font-size: 15px; padding: 4px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .meta-row:last-child { border-bottom: none; }
+        .meta-row .ml { color: var(--grey); }
+        .meta-row .mv { color: var(--dark); font-weight: 700; text-align: right; }
+        .price-line {
+            padding: 10px 14px 12px;
+            border-top: 1px solid var(--border);
+        }
+        .price-main { font-size: 17px; font-weight: 800; color: var(--red); margin: 0; }
+        .price-sub  { font-size: 12px; color: var(--grey); margin: 0; }
+
+        /* Icon action buttons row (inside left col) */
+        .icon-row {
+            display: flex; gap: 6px;
+            padding: 10px 14px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .icon-btn {
+            flex: 1; min-width: 30px;
+            height: 32px;
+            border: 1.5px solid var(--border);
+            border-radius: 7px;
+            background: var(--white);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: var(--grey);
+            cursor: pointer; transition: all 0.18s;
+        }
+        .icon-btn:hover { border-color: var(--red); color: var(--red); background: #fff5f5; }
+
+        /* Nav tabs */
+        .nav-tab-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 9px 14px; font-size: 12.5px; font-weight: 600;
+            color: var(--grey); border-bottom: 1px solid var(--border);
+            transition: all 0.15s; cursor: pointer;
+        }
+        .nav-tab-link:last-child { border-bottom: none; }
+        .nav-tab-link:hover { color: var(--red); background: #fff5f5; }
+        .nav-tab-link.active { color: var(--red); background: #fff5f5; font-weight: 700; }
+        .nav-tab-link i { font-size: 14px; }
+
+        /* Specs section */
+        .specs-block { padding: 0 14px 12px; }
+        .specs-hdr {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-size: 10.5px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.7px;
+            padding: 5px 9px; border-radius: 5px;
+            margin: 10px 0 6px;
+        }
+        .spec-row {
+            display: flex; justify-content: space-between;
+            padding: 4px 2px; font-size: 14px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-row .sl { color: var(--grey); }
+        .spec-row .sv { color: var(--dark); font-weight: 600; text-align: right; }
+
+        /* Show all button */
+        .btn-show-all {
+            width: 100%; padding: 7px 10px;
+            border: 1.5px solid #6c757d;
+            border-radius: 7px; background: #6c757d;
+            font-family: var(--font); font-size: 12px; font-weight: 600;
+            color: #fff; cursor: pointer; transition: all 0.18s;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            margin-top: 10px;
+        }
+        .btn-show-all:hover { border-color: var(--red); background: var(--red); }
+
+        /* Map */
+        .map-frame {
+            border-radius: 0 0 var(--radius) var(--radius);
+            overflow: hidden;
+            height: 288px;
+            background: #e5e7eb;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--grey); font-size: 13px; gap: 8px;
+        }
+        .map-actions {
+            display: flex; gap: 6px; padding: 8px 14px;
+            border-top: 1px solid var(--border);
+        }
+        .map-btn {
+            flex: 1; padding: 6px;
+            border: 1.5px solid var(--border); border-radius: 6px;
+            background: var(--white); font-family: var(--font);
+            font-size: 11.5px; font-weight: 600; color: var(--grey);
+            cursor: pointer; transition: all 0.15s;
+            display: flex; align-items: center; justify-content: center; gap: 4px;
+        }
+        .map-btn:hover { border-color: var(--red); color: var(--red); }
+
+        /* Post Ad btn */
+        .btn-post-ad {
+            background: var(--red); color: #fff;
+            border: none; border-radius: 7px;
+            padding: 7px 16px;
+            font-family: var(--font); font-size: 12.5px; font-weight: 700;
+            cursor: pointer; transition: background 0.18s; white-space: nowrap;
+        }
+        .btn-post-ad:hover { background: var(--red-dark); }
+
+        /* ════════════════════════════════════
+           RIGHT COL — GALLERY
+        ════════════════════════════════════ */
+        /* ── Gallery slider ── */
+        .gallery-wrap {
+            border-radius: 12px;
+            overflow: hidden; margin-bottom: 6px;
+            position: relative; background: #1a1a2e;
+            aspect-ratio: 16/9;
+        }
+
+        /* Slides container */
+        .gallery-slides {
+            display: flex;
+            width: 100%; height: 100%;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+        }
+        .gallery-slide {
+            min-width: 100%; height: 100%; flex-shrink: 0;
+        }
+        .gallery-slide img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+
+        /* Prev / Next arrows */
+        .gallery-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 36px; height: 36px;
+            background: rgba(0,0,0,0.45);
+            border: none; border-radius: 50%;
+            color: #fff; font-size: 16px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 5;
+            transition: background 0.2s;
+        }
+        .gallery-arrow:hover { background: rgba(0,0,0,0.75); }
+        .gallery-arrow.prev { left: 10px; }
+        .gallery-arrow.next { right: 10px; }
+
+        .gallery-badge {
+            position: absolute; top: 10px; left: 10px; z-index: 5;
+            background: var(--red); color: #fff;
+            font-size: 10px; font-weight: 700;
+            padding: 3px 9px; border-radius: 4px;
+            text-transform: uppercase; letter-spacing: 0.4px;
+        }
+        .gallery-count {
+            position: absolute; bottom: 10px; right: 10px; z-index: 5;
+            background: rgba(0,0,0,0.55); color: #fff;
+            font-size: 11px; font-weight: 600;
+            padding: 3px 9px; border-radius: 5px;
+            display: flex; align-items: center; gap: 4px;
+        }
+
+        /* Dot indicators */
+        .gallery-dots {
+            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 5px; z-index: 5;
+        }
+        .gdot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            cursor: pointer; transition: all 0.2s;
+            border: none; padding: 0;
+        }
+        .gdot.active { background: #fff; transform: scale(1.3); }
+
+        /* Thumbnails */
+        .thumbs-row {
+            display: grid; grid-template-columns: repeat(4,1fr); gap: 5px;
+        }
+        .thumb-item {
+            border-radius: 6px; overflow: hidden;
+            aspect-ratio: 4/3; cursor: pointer; position: relative;
+            border: 2.5px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .thumb-item img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.25s;
+        }
+        .thumb-item:hover img { transform: scale(1.06); }
+        .thumb-item.active { border-color: var(--red); }
+
+        /* Last thumb overlay: shows "+N more" */
+        .thumb-item.more-overlay::after {
+            content: attr(data-more);
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.52); color: #fff;
+            font-size: 15px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 4px;
+        }
+
+        /* Lightbox overlay */
+        .lightbox {
+            display: none;
+            position: fixed; inset: 0; z-index: 9999;
+            background: rgba(0,0,0,0.92);
+            align-items: center; justify-content: center;
+            flex-direction: column;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox-img {
+            max-width: 90vw; max-height: 80vh;
+            object-fit: contain; border-radius: 8px;
+            display: block;
+        }
+        .lightbox-close {
+            position: absolute; top: 16px; right: 20px;
+            background: none; border: none; color: #fff;
+            font-size: 28px; cursor: pointer; line-height: 1;
+        }
+        .lightbox-nav {
+            position: absolute; top: 45%; transform: translateY(-50%);
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.15); border: none;
+            border-radius: 50%; color: #fff; font-size: 20px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+        .lightbox-nav.prev { left: 20px; }
+        .lightbox-nav.next { right: 20px; }
+        .lightbox-counter {
+            margin-top: 14px; color: rgba(255,255,255,0.6);
+            font-size: 13px; font-weight: 600;
+        }
+
+        /* ════════════════════════════════════
+           vCARD  (col-lg-8 below photos)
+        ════════════════════════════════════ */
+        .vcard {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden; box-shadow: var(--shadow);
+            height: 100%;
+        }
+
+        /* Horizontal header row */
+        .vcard-hdr {
+            background: var(--brown-grad);
+            padding: 10px 12px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .vcard-avatar {
+            width: 72px; height: 72px; border-radius: 50%;
+            border: 2.5px solid rgba(255,255,255,0.35);
+            object-fit: cover; flex-shrink: 0;
+        }
+        .vcard-hdr-right { flex: 1; min-width: 0;    flex-direction: row;
+    display: flex;
+    gap: 20px;
+    align-items: self-start; }
+        .vcard-brand {
+            display: flex; align-items: center; gap: 6px;
+            margin-bottom: 4px;
+        }
+        .vcard-brand-logo {
+            font-size: 15px; font-weight: 800; color: #fff;
+            letter-spacing: -0.3px;
+        }
+        .vcard-brand-logo span { color: rgba(255,255,255,0.6); }
+        .vcard-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 1px; }
+        .vcard-role { font-size: 11px; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
+        .vcard-flags { display: flex; gap: 4px; }
+        .flag-img {
+            width: 20px; height: 14px; border-radius: 2px;
+            object-fit: cover; border: 1px solid rgba(255,255,255,0.2);
+        }
+        /* small icon actions in vcard header */
+        .vcard-hdr-icons {
+            display: flex; gap: 5px; margin-left: auto; flex-shrink: 0;flex-direction: column;
+        }
+        .vcard-icon-btn {
+            width: 30px; height: 30px;
+            border-radius: 6px; background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: rgba(255,255,255,0.8);
+            cursor: pointer; transition: background 0.15s;
+        }
+        .vcard-icon-btn:hover { background: rgba(255,255,255,0.3); }
+
+        /* vCard body */
+        .vcard-body { padding: 12px 14px; }
+        .vcard-note {
+            font-size: 12px; color: var(--grey);
+            font-style: italic; margin-bottom: 10px;
+        }
+        .vcard-desc {
+            font-size: 12.5px; color: #4b5563;
+            line-height: 1.55; margin-bottom: 10px;
+        }
+
+        /* CTA buttons grid */
+        .vcard-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+        .btn-v-outline {
+            padding: 9px 8px; border: 1.5px solid var(--border);
+            border-radius: 7px; background: var(--white);
+            font-family: var(--font); font-size: 13px; font-weight: 600;
+            color: var(--dark); cursor: pointer; transition: all 0.18s;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .btn-v-outline:hover { border-color: var(--red); color: var(--red); }
+        .btn-v-solid {
+            padding: 9px 8px; border: none;
+            border-radius: 7px; background: var(--red);
+            font-family: var(--font); font-size: 13px; font-weight: 700;
+            color: #fff; cursor: pointer; transition: background 0.18s;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .btn-v-solid:hover { background: var(--red-dark); }
+
+        /* Other listings slider */
+        .slider-label {
+            font-size: 11px; font-weight: 700; color: var(--grey);
+            text-transform: uppercase; letter-spacing: 0.6px;
+            margin-bottom: 7px;
+        }
+        .slider-nav { display: flex; gap: 5px; margin-bottom: 6px; }
+        .slider-arrow {
+            width: 24px; height: 24px; border-radius: 5px;
+            border: 1.5px solid var(--border); background: var(--white);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; color: var(--grey); cursor: pointer; transition: all 0.15s;
+        }
+        .slider-arrow:hover { border-color: var(--red); color: var(--red); }
+        .listing-slider {
+            display: flex; gap: 8px;
+            overflow-x: auto; scroll-behavior: smooth;
+            scrollbar-width: none; padding-bottom: 4px;
+        }
+        .listing-slider::-webkit-scrollbar { display: none; }
+        .mini-card { flex-shrink: 0; width: 96px; cursor: pointer; }
+        .mini-card img {
+            width: 100%; aspect-ratio: 4/3; object-fit: cover;
+            border-radius: 6px; border: 1px solid var(--border);
+            display: block; transition: transform 0.2s;
+        }
+        .mini-card:hover img { transform: scale(1.03); }
+        .mini-price { font-size: 10.5px; font-weight: 700; color: var(--dark); margin-top: 3px; }
+        .mini-loc   { font-size: 10px; color: var(--grey); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .btn-view-all {
+            width: 100%; padding: 7px;
+            border: 1.5px solid #6c757d; border-radius: 7px;
+            background: #6c757d; font-family: var(--font);
+            font-size: 12px; font-weight: 600; color: #fff;
+            cursor: pointer; transition: all 0.18s; margin-top: 8px;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-view-all:hover { border-color: var(--red); background: var(--red); }
+
+        /* ════════════════════════════════════
+           VERTICAL AD  col-lg-4
+        ════════════════════════════════════ */
+        .ad-vertical {
+            background: repeating-linear-gradient(
+            45deg, #f3f4f6 0px, #f3f4f6 10px, #e9eaec 10px, #e9eaec 20px);
+            border-radius: var(--radius);
+            height: 100%; min-height: 535px;min-width: 250px;max-width: 300px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 10px; position: relative;
+        }
+        .ad-label-tag {
+            position: absolute; top: 8px; right: 10px;
+            font-size: 9px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: #000;
+        }
+        .ad-size-pill {
+            background: rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(0,0,0,0.75);
+            font-size: 11px; font-weight: 700;
+            padding: 5px 14px; border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .ad-vertical small { color: rgba(0,0,0,0.4); font-size: 10px; }
+
+        /* ════════════════════════════════════
+           BELOW — Description, Panorama, Similar
+        ════════════════════════════════════ */
+        .section-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            box-shadow: var(--shadow);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.7px;
+            color: var(--grey); margin-bottom: 10px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 7px;
+        }
+        .section-title i { color: var(--red); font-size: 14px; }
+        .desc-text { font-size: 13.5px; color: #4b5563; line-height: 1.75; }
+
+        /* Panorama */
+        .panorama-ad {
+            background: repeating-linear-gradient(
+            45deg, #f3f4f6 0px, #f3f4f6 10px, #e9eaec 10px, #e9eaec 20px
+          );
+            border-radius: var(--radius);
+            height: 120px; margin-bottom: 12px;
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; position: relative;
+            color: rgba(255,255,255,0.5);
+        }
+        .panorama-ad .ad-label-tag { position:absolute; top:7px; right:10px; }
+        .panorama-ad .ad-size-pill {
+            background: rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: rgba(0,0,0,0.55);
+        }
+
+        /* Similar */
+        .sim-card {
+            background: var(--white); border: 1px solid var(--border);
+            border-radius: var(--radius); overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .sim-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .sim-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+        .sim-body { padding: 9px 11px; }
+        .sim-price { font-size: 13px; font-weight: 800; color: var(--dark); margin-bottom: 1px; }
+        .sim-sub   { font-size: 11px; color: var(--grey); }
+
+        /* ════════════════════════════════════
+           MODALS
+        ════════════════════════════════════ */
+        .modal-content {
+            border: none; border-radius: 14px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            font-family: var(--font);
+        }
+        .modal-header {
+            border-bottom: 1px solid var(--border); padding: 14px 18px;
+            background: var(--white);
+        }
+        .modal-title { font-size: 15px; font-weight: 700; color: var(--dark); display: flex; align-items: center; gap: 7px; }
+        .modal-title i { color: var(--red); }
+        .modal-body { padding: 16px 18px; }
+        .modal-footer { border-top: 1px solid var(--border); padding: 11px 18px; }
+
+        .form-label { font-size: 12px; font-weight: 600; color: var(--grey); margin-bottom: 4px; }
+        .form-control, .form-select {
+            border: 1.5px solid var(--border); border-radius: 7px;
+            font-family: var(--font); font-size: 13.5px; padding: 8px 11px; color: var(--dark);
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--red); box-shadow: 0 0 0 3px rgba(221,35,40,0.1);
+        }
+        .btn-modal-primary {
+            background: var(--red); color: #fff; border: none; border-radius: 7px;
+            padding: 9px 20px; font-family: var(--font); font-size: 13.5px;
+            font-weight: 700; cursor: pointer; transition: background 0.18s;
+        }
+        .btn-modal-primary:hover { background: var(--red-dark); color: #fff; }
+        .btn-modal-secondary {
+            background: var(--bg); color: var(--dark);
+            border: 1.5px solid var(--border); border-radius: 7px;
+            padding: 9px 18px; font-family: var(--font);
+            font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.18s;
+        }
+        .btn-modal-secondary:hover { border-color: var(--grey); }
+
+        /* Share icons */
+        .share-icons { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 10px; }
+        .sh-icon {
+            width: 36px; height: 36px; border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; color: #fff; cursor: pointer;
+        }
+        .sh-icon:hover { opacity: 0.82; }
+        .sh-fb { background: #1877F2; } .sh-tw { background: #1DA1F2; }
+        .sh-wa { background: #25D366; } .sh-em { background: var(--grey); }
+        .sh-li { background: #0A66C2; }
+
+        /* Folder options */
+        .folder-opt {
+            border: 1.5px solid var(--border); border-radius: 7px;
+            padding: 8px 12px; cursor: pointer; margin-bottom: 7px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 600; color: var(--dark); transition: all 0.18s;
+        }
+        .folder-opt:hover { border-color: var(--red); background: #fff5f5; color: var(--red); }
+        .folder-opt i { font-size: 15px; }
+
+        /* Report options */
+        .report-opt {
+            border: 1.5px solid var(--border); border-radius: 7px;
+            padding: 8px 11px; cursor: pointer; margin-bottom: 7px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12.5px; transition: all 0.18s;
+        }
+        .report-opt:hover { border-color: var(--red); background: #fff5f5; }
+        .report-opt input { accent-color: var(--red); }
+
+        /* Booking */
+        .step-bar { display: flex; gap: 3px; margin-bottom: 16px; }
+        .sdot {
+            flex: 1; height: 4px; border-radius: 2px;
+            background: var(--border); transition: background 0.3s;
+        }
+        .sdot.active { background: var(--red); }
+        .sdot.done   { background: #16a34a; }
+
+        .book-opt {
+            border: 1.5px solid var(--border); border-radius: 9px;
+            padding: 12px 13px; cursor: pointer; margin-bottom: 8px;
+            display: flex; align-items: center; gap: 11px; transition: all 0.18s;
+        }
+        .book-opt:hover, .book-opt.selected { border-color: var(--red); background: #fff5f5; }
+        .book-opt-icon {
+            width: 38px; height: 38px; border-radius: 8px;
+            background: var(--bg); display: flex; align-items: center; justify-content: center;
+            font-size: 17px; flex-shrink: 0;
+        }
+        .book-opt h6 { margin: 0 0 2px; font-size: 13px; font-weight: 700; }
+        .book-opt p  { margin: 0; font-size: 12px; color: var(--grey); }
+
+        .date-grid-wrap .hdr-row, .date-grid-wrap .day-row {
+            display: grid; grid-template-columns: repeat(7,1fr); gap: 2px;
+        }
+        .cal-hdr { text-align: center; font-size: 10px; font-weight: 700; color: var(--grey); padding: 3px 0; }
+        .cal-day {
+            text-align: center; padding: 5px 0; border-radius: 5px;
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            color: var(--dark); transition: all 0.15s;
+        }
+        .cal-day:hover  { background: #fff5f5; color: var(--red); }
+        .cal-day.sel    { background: var(--red); color: #fff; }
+        .cal-day.today  { border: 1.5px solid var(--red); }
+        .cal-day.off    { color: #d1d5db; cursor: not-allowed; }
+
+        .time-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; margin-top: 8px; }
+        .t-slot {
+            border: 1.5px solid var(--border); border-radius: 6px;
+            padding: 7px 3px; text-align: center;
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            color: var(--dark); transition: all 0.15s;
+        }
+        .t-slot:hover   { border-color: var(--red); color: var(--red); }
+        .t-slot.sel     { background: var(--red); color: #fff; border-color: var(--red); }
+        .t-slot.off     { opacity: 0.35; cursor: not-allowed; }
+
+        .confirm-box {
+            background: var(--bg); border-radius: 8px;
+            padding: 11px 13px; margin-bottom: 13px;
+        }
+        .c-row {
+            display: flex; justify-content: space-between;
+            padding: 4px 0; font-size: 12.5px;
+            border-bottom: 1px solid var(--border);
+        }
+        .c-row:last-child { border-bottom: none; }
+        .c-row .cl { color: var(--grey); }
+        .c-row .cv { font-weight: 700; color: var(--dark); }
+
+        .success-block { text-align: center; padding: 14px 0; }
+        .suc-circle {
+            width: 58px; height: 58px; border-radius: 50%;
+            background: #f0fdf4; border: 2px solid #16a34a;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 25px; color: #16a34a; margin: 0 auto 12px;
+        }
+        .success-block h5 { font-weight: 800; color: var(--dark); margin-bottom: 5px; }
+        .success-block p  { font-size: 13px; color: var(--grey); line-height: 1.6; }
+
+        /* QR box */
+        .qr-box { background: var(--bg); border-radius: 9px; padding: 16px; text-align: center; }
+
+        /* Package options */
+        .pkg-opt {
+            border: 1.5px solid var(--border); border-radius: 8px;
+            padding: 10px; text-align: center; cursor: pointer;
+            transition: all 0.18s;
+        }
+        .pkg-opt:hover, .pkg-opt.selected { border-color: var(--red); background: #fff5f5; }
+        .pkg-opt strong { display: block; font-size: 13px; margin-bottom: 2px; }
+        .pkg-opt small { color: var(--grey); font-size: 11.5px; }
+
+        @media (max-width: 992px) {
+            .ad-vertical { min-height: 280px; }
+        }
+        @media (max-width: 768px) {
+            .thumbs-row { grid-template-columns: repeat(4,1fr); }
+            .vcard-btns { grid-template-columns: 1fr; }
+        }
+        .desc-collapse {
+                        position: relative;
+                        max-height: 125px;       /* ~3 lines collapsed */
+                        overflow: hidden;
+                        transition: max-height 0.45s ease;
+                    }
+                    .desc-collapse.expanded {
+                        max-height: 600px;
+                    }
+                    /* White fade-out gradient at bottom */
+                    .desc-fade {
+                        position: absolute;
+                        bottom: 0; left: 0; right: 0;
+                        height: 52px;
+                        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+                        pointer-events: none;
+                        transition: opacity 0.3s ease;
+                    }
+                    .desc-collapse.expanded .desc-fade {
+                        opacity: 0;
+                    }
+                    /* Chevron toggle button */
+                    .desc-toggle {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 6px;
+                        cursor: pointer;
+                    }
+                    .desc-toggle i {
+                        font-size: 22px;
+                        color: #dd2328;          /* green chevron as in screenshot */
+                        font-weight: 900;
+                        transition: transform 0.35s ease;
+                        filter: drop-shadow(0 1px 3px rgba(22,163,74,0.25));
+                    }
+                    .desc-toggle i.flipped {
+                        transform: rotate(180deg);
+                    }
+        .set-lightbox-gallery-ad {
+            display: flex;
+            gap: 12px;
+        }
+        @media only screen and (max-width: 991px) {
+            .set-lightbox-gallery-ad {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═════════════════════════
+         BREADCRUMB
+    ═════════════════════════ -->
+    <div class="page-topbar">
+        <div class="container-xxl">
+            <nav><ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Find Real Estate</a></li>
+                <li class="breadcrumb-item"><a href="#">Budapest</a></li>
+                <li class="breadcrumb-item active">Beautiful Red Rooftop Castle</li>
+            </ol></nav>
+        </div>
+    </div>
+    <!-- ═════════════════════════
+         MAIN CONTENT
+    ═════════════════════════ -->
+    <div class="container-xxl py-3">
+        <div class="row g-3">
+
+            <!-- ══════════════════
+                 LEFT: col-lg-3
+            ══════════════════ -->
+            <div class="col-lg-4">
+
+                <!-- ID + basic meta -->
+                <div class="left-card">
+                    <div class="meta-block">
+                        <div class="meta-id">#ID: 013695</div>
+                        <div class="meta-row"><span class="ml">Type</span><span class="mv">For Sale</span></div>
+                        <div class="meta-row"><span class="ml">Category</span><span class="mv">Dummy</span></div>
+                        <div class="meta-row"><span class="ml">Subcategory</span><span class="mv">Dummy</span></div>
+                        <div class="meta-row"><span class="ml">Country</span><span class="mv">Hungary</span></div>
+                        <div class="meta-row"><span class="ml">City</span><span class="mv">Budapest</span></div>
+                        <div class="meta-row"><span class="ml">Area</span><span class="mv">70.21 m²</span></div>
+                        <div class="meta-row"><span class="ml">Price/m²</span><span class="mv">500,000 HUF</span></div>
+                    </div>
+                    <div class="price-line d-flex align-items-center gap-2">
+                        <p class="price-main d-inline-block">35,000,000 HUF</p>
+                        <p class="price-sub d-inline-block">(≈ €90,000 EUR)</p>
+                    </div>
+
+                    <!-- Icon action buttons — INSIDE left col per Figma -->
+                    <div class="icon-row">
+                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalFavourite" title="Favourite"><i class="bi bi-heart"></i></button>
+                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalShare"    title="Share"><i class="bi bi-share"></i></button>
+                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalQR"       title="QR Code"><i class="bi bi-qr-code"></i></button>
+                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalPDF"      title="Download PDF"><i class="bi bi-file-pdf"></i></button>
+                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalReport"   title="Report"><i class="bi bi-flag"></i></button>
+                    </div>
+                </div>
+
+                <!-- Specs -->
+                <div class="left-card" style="padding:0 0 12px;">
+                    <div class="specs-block">
+
+                        <!-- 2-column sub-grid: Property Type | Rooms -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="specs-hdr">Property Type</div>
+                                <div class="spec-row"><span class="sl">Eladó lakás</span></div>
+                                <div class="spec-row"><span class="sl">Alkategória</span></div>
+                                <div class="spec-row"><span class="sl">Eladó családi ház</span></div>
+                            </div>
+                            <div class="col-12">
+                                <div class="specs-hdr">Rooms</div>
+                                <div class="spec-row"><span class="sl">Hálószoba</span><span class="sv">2 db.</span></div>
+                                <div class="spec-row"><span class="sl">Fürdőszoba</span><span class="sv">1 db.</span></div>
+                                <div class="spec-row"><span class="sl">Konyha</span><span class="sv">1 db.</span></div>
+                                <div class="spec-row"><span class="sl">Nappali</span><span class="sv">2 db.</span></div>
+                            </div>
+                        </div>
+
+                        <div class="specs-hdr">Construction</div>
+                        <div class="spec-row"><span class="sl">Year Built</span><span class="sv">2010</span></div>
+                        <div class="spec-row"><span class="sl">Condition</span><span class="sv">Excellent</span></div>
+                        <div class="spec-row"><span class="sl">Availability</span><span class="sv">Immediate</span></div>
+
+                        <div class="specs-hdr">Surroundings</div>
+                        <div class="spec-row"><span class="sl">Metro Stop</span><span class="sv">Yes</span></div>
+                        <div class="spec-row"><span class="sl">Schools</span><span class="sv">Yes</span></div>
+                        <div class="spec-row"><span class="sl">Hospital</span><span class="sv">Yes</span></div>
+
+                        <button class="btn-show-all" data-bs-toggle="modal" data-bs-target="#modalAllSpecs">
+                            <i class="bi bi-eye"></i> Show all 43 attributes
+                        </button>
+                    </div>
+                </div>
+                <div class="left-card bg-transparent shadow-none">
+                    <div class="ad-vertical mx-auto">
+                        <span class="ad-label-tag">Advertisement</span>
+                        <i class="bi bi-badge-ad" style="font-size:26px;color:rgba(0,0,0,0.5);"></i>
+                        <div class="ad-size-pill">300 × 600 px</div>
+                        <small>Large Skyscraper (Half-page)</small>
+                    </div>
+                </div>
+            </div><!-- /col-lg-3 -->
+
+
+            <!-- ══════════════════
+                 RIGHT: col-lg-9
+            ══════════════════ -->
+            <div class="col-lg-8">
+
+                <!-- ── Main photo SLIDER ── -->
+                <div class="gallery-wrap" id="galleryWrap">
+                    <div class="gallery-slides" id="gallerySlides">
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=80" alt="Photo 1"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt="Photo 2"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80" alt="Photo 3"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80" alt="Photo 4"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80" alt="Photo 5"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=80" alt="Photo 6"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=900&q=80" alt="Photo 7"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=900&q=80" alt="Photo 8"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=900&q=80" alt="Photo 9"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=900&q=80" alt="Photo 10"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=900&q=80" alt="Photo 11"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80" alt="Photo 12"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80" alt="Photo 13"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=900&q=80" alt="Photo 14"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Photo 15"></div>
+                        <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="Photo 16"></div>
+                    </div>
+                    <button class="gallery-arrow prev" onclick="galMove(-1)" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+                    <button class="gallery-arrow next" onclick="galMove(1)"  aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+                    <span class="gallery-badge">For Sale</span>
+                    <div class="gallery-dots" id="galDots"></div>
+                    <div class="gallery-count"><i class="bi bi-images"></i> <span id="galCounter">1 / 16</span></div>
+                </div>
+
+                <!-- ── 4 Thumbnails (first 3 go to that slide; 4th opens lightbox) ── -->
+                <div class="thumbs-row mb-3">
+                    <div class="thumb-item active" data-index="0" onclick="galGoTo(0)">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=300&q=80" alt="">
+                    </div>
+                    <div class="thumb-item" data-index="1" onclick="galGoTo(1)">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=300&q=80" alt="">
+                    </div>
+                    <div class="thumb-item" data-index="2" onclick="galGoTo(2)">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=300&q=80" alt="">
+                    </div>
+                    <div class="thumb-item more-overlay" data-index="3" data-more="+12 more" onclick="openLightbox(3)">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&q=80" alt="">
+                    </div>
+                </div>
+
+                <!-- ── LIGHTBOX ── -->
+                <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+                    <button class="lightbox-close" onclick="closeLightbox()"><i class="bi bi-x-lg"></i></button>
+                    <button class="lightbox-nav prev" onclick="lbMove(-1)"><i class="bi bi-chevron-left"></i></button>
+                    <div class="set-lightbox-gallery-ad">
+                        <img class="lightbox-img" id="lbImg" src="" alt="">
+                        <div class="ad-vertical">
+                            <span class="ad-label-tag">Advertisement</span>
+                            <i class="bi bi-badge-ad" style="font-size:26px;color:rgba(0,0,0,0.5);"></i>
+                            <div class="ad-size-pill">300 × 600 px</div>
+                            <small>Large Skyscraper (Half-page)</small>
+                        </div>
+                    </div>
+                    <button class="lightbox-nav next" onclick="lbMove(1)"><i class="bi bi-chevron-right"></i></button>
+                    <div class="lightbox-counter" id="lbCounter"></div>
+                </div>
+
+                <!-- vCard + Ad row -->
+                <div class="row g-3 mb-3">
+
+                    <!-- vCard col-lg-8 -->
+                    <div class="col-lg-8">
+                        <div class="vcard">
+
+                            <!-- Horizontal header -->
+                            <div class="vcard-hdr">
+                                <img src="https://i.pravatar.cc/150?img=47" class="vcard-avatar" alt="Agent">
+                                <div class="vcard-hdr-right">
+                                    <div>
+                                        <!-- Brand name like "Circle" in Figma -->
+                                        <div class="vcard-brand">
+                                            <img src="https://7c6b6aykjh.ufs.sh/f/iPhT0launHLIoHZbGaxcpTCAyJQxX1L9Rjt7eqYrDFOd8HU3" alt="logo" class="rounded-2" height="25px">
+                                        </div>
+                                        <div class="vcard-name">Kiss Melinda</div>
+                                    </div>
+                                    <div>
+                                        <div class="vcard-role">értékesítő munkatársa</div>
+                                        <div class="vcard-flags mt-1">
+                                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE">
+                                            <img src="https://flagcdn.com/w40/hu.png" class="flag-img" alt="HU">
+                                            <img src="https://flagcdn.com/w40/fr.png" class="flag-img" alt="FR">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- QR + Share icons in header -->
+                                <div class="vcard-hdr-icons">
+                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalQR" title="QR Code"><i class="bi bi-qr-code"></i></div>
+                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalShare" title="Share"><i class="bi bi-share"></i></div>
+                                </div>
+                            </div>
+
+                            <!-- Body -->
+                            <div class="vcard-body">
+                                <p class="vcard-note">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Do not search for agents — search or browse directly.
+                                </p>
+
+                                <!-- Description snippet -->
+                                <p class="vcard-desc">
+                                    István fills in the property description and the agent manages all inquiries through the PropAfar inbox. Verified agent profile.
+                                </p>
+
+                                <!-- CTA buttons -->
+                                <div class="vcard-btns">
+                                    <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalContact">
+                                        <i class="bi bi-envelope"></i> Inmail
+                                    </button>
+                                    <button class="btn-v-solid" data-bs-toggle="modal" data-bs-target="#modalBookCall">
+                                        <i class="bi bi-telephone-fill"></i> Book a Call
+                                    </button>
+                                    <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalContact">
+                                        <i class="bi bi-journal-check"></i> Appointment 
+                                    </button>
+                                </div>
+                                <div class="map-frame">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.83988672632!2d-0.26640348487948917!3d51.52873980502969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2s!4v1775550481436!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div><!-- /vcard -->
+
+                    <!-- Vertical Ad col-lg-4 -->
+                    <div class="col-lg-4">
+                        <div class="ad-vertical">
+                            <span class="ad-label-tag">Advertisement</span>
+                            <i class="bi bi-badge-ad" style="font-size:26px;color:rgba(0,0,0,0.5);"></i>
+                            <div class="ad-size-pill">300 × 600 px</div>
+                            <small>Large Skyscraper (Half-page)</small>
+                        </div>
+                    </div>
+
+                </div><!-- /vcard+ad row -->
+
+                <!-- Description -->
+                <div class="section-card">
+                    <div class="section-title"><i class="bi bi-text-paragraph"></i> Description</div>
+                    <!-- Collapsible description wrapper -->
+                    <div class="desc-collapse" id="descCollapse">
+                        <p class="desc-text">
+                            This stunning property sits atop one of Budapest's most prestigious streets, offering panoramic
+                            views of the Danube and the historic city skyline. The beautifully restored castle-style residence
+                            combines original architectural details with modern comfort — featuring high ceilings, restored
+                            parquet floors, and an expansive wraparound terrace.
+                        </p>
+                        <p class="desc-text mt-2">
+                            The open-plan living area flows seamlessly into a fully equipped kitchen with premium appliances.
+                            Three spacious bedrooms and two modern bathrooms complete this exceptional home. The building
+                            offers 24-hour concierge service, underground parking, and a private gym.
+                        </p>
+                        <!-- Fade overlay — hidden when expanded -->
+                        <div class="desc-fade" id="descFade"></div>
+                    </div>
+                    <!-- Expand / collapse toggle -->
+                    <div class="desc-toggle" id="descToggle" onclick="toggleDesc()">
+                        <i class="bi bi-chevron-down" id="descArrow"></i>
+                    </div>
+                </div>
+
+                <!-- Panorama Ad -->
+                <div class="panorama-ad">
+                    <span class="ad-label-tag">Advertisement</span>
+                    <i class="bi bi-badge-ad" style="font-size:20px;opacity:0.3;"></i>
+                    <div class="text-center">
+                        <div class="ad-size-pill">980 × 120 px — Panorama Banner</div>
+                        <div style="font-size:10px;margin-top:3px;color:rgba(0,0,0,0.3);">Your ad placeholder</div>
+                    </div>
+                </div>
+
+                <!-- Similar Properties -->
+                <div class="section-card">
+                    <div class="section-title"><i class="bi bi-houses"></i> Similar Properties for Sale</div>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <div class="sim-card">
+                                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80" alt="">
+                                <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Apartment</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="sim-card">
+                                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=300&q=80" alt="">
+                                <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Townhouse</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="sim-card">
+                                <img src="https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=300&q=80" alt="">
+                                <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Villa</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="sim-card">
+                                <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=300&q=80" alt="">
+                                <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Manor</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /col-lg-9 -->
+
+        </div><!-- /main row -->
+    </div><!-- /container-xxl -->
+
+
+    <!-- ═══════════════════════════════════
+         MODALS
+    ═══════════════════════════════════ -->
+
+    <!-- 1. Share -->
+    <div class="modal fade" id="modalShare" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-share-fill"></i> Share Property</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label">Copy link</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="shareUrl" value="https://propafar.com/property/013695" readonly>
+                        <button class="btn btn-secondary btn-sm px-3" onclick="copyLink()"><i class="bi bi-copy"></i></button>
+                    </div>
+                    <label class="form-label">Send to email</label>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="recipient@email.com">
+                        <button style="background:var(--red);color:#fff;border:none;padding:0 14px;border-radius:0 7px 7px 0;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;">Send</button>
+                    </div>
+                    <label class="form-label">Share on</label>
+                    <div class="share-icons">
+                        <div class="sh-icon sh-fb"><i class="bi bi-facebook"></i></div>
+                        <div class="sh-icon sh-tw"><i class="bi bi-twitter-x"></i></div>
+                        <div class="sh-icon sh-wa"><i class="bi bi-whatsapp"></i></div>
+                        <div class="sh-icon sh-em"><i class="bi bi-envelope-fill"></i></div>
+                        <div class="sh-icon sh-li"><i class="bi bi-linkedin"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Favourite -->
+    <div class="modal fade" id="modalFavourite" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-heart-fill"></i> Save to Favourites</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size:13px;color:var(--grey);margin-bottom:12px;">Choose a folder to save this listing:</p>
+                    <div class="folder-opt"><i class="bi bi-folder-fill" style="color:#d97706;"></i> Budapest Dream Homes <span class="ms-auto badge bg-secondary rounded-pill">8</span></div>
+                    <div class="folder-opt"><i class="bi bi-folder-fill" style="color:#3b82f6;"></i> Investment Options   <span class="ms-auto badge bg-secondary rounded-pill">3</span></div>
+                    <div class="folder-opt"><i class="bi bi-folder-fill" style="color:#16a34a;"></i> City Apartments      <span class="ms-auto badge bg-secondary rounded-pill">5</span></div>
+                    <hr style="border-color:var(--border);">
+                    <div class="folder-opt" style="color:var(--red);border-color:var(--red);" onclick="toggleFolder()">
+                        <i class="bi bi-folder-plus" style="color:var(--red);"></i> Create New Folder
+                    </div>
+                    <div id="folderBox" style="display:none;" class="mt-2">
+                        <input type="text" class="form-control" placeholder="Folder name...">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn-modal-primary">Add to Folder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. QR -->
+    <div class="modal fade" id="modalQR" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-qr-code-scan"></i> QR Code</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="qr-box">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://propafar.com/property/013695&color=1a1a2e" alt="QR" style="width:180px;border-radius:8px;">
+                        <p style="font-size:12px;color:var(--grey);margin-top:10px;margin-bottom:0;">Scan to view on mobile</p>
+                    </div>
+                    <a href="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://propafar.com/property/013695" download
+                       class="btn-modal-primary d-inline-flex align-items-center gap-2 mt-3" style="border-radius:7px;text-decoration:none;">
+                        <i class="bi bi-download"></i> Download QR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. PDF -->
+    <div class="modal fade" id="modalPDF" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-file-earmark-pdf-fill"></i> Download PDF</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label">Language</label>
+                    <select class="form-select mb-3">
+                        <option>English</option><option>German</option>
+                        <option>Hungarian</option><option>French</option>
+                    </select>
+                    <label class="form-label">Include sections</label>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" checked><label class="form-check-label" style="font-size:13px;">Property Details</label></div></div>
+                        <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" checked><label class="form-check-label" style="font-size:13px;">Photo Gallery</label></div></div>
+                        <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox" checked><label class="form-check-label" style="font-size:13px;">Location Map</label></div></div>
+                        <div class="col-6"><div class="form-check"><input class="form-check-input" type="checkbox"><label class="form-check-label" style="font-size:13px;">Agent Contact</label></div></div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn-modal-primary flex-fill"><i class="bi bi-download me-1"></i> Download</button>
+                        <button class="btn-modal-secondary flex-fill" onclick="document.getElementById('pdfEmailBox').style.display='block'"><i class="bi bi-share me-1"></i> Send Email</button>
+                    </div>
+                    <div id="pdfEmailBox" style="display:none;" class="mt-3">
+                        <input type="email" class="form-control mb-2" placeholder="your@email.com">
+                        <button class="btn-modal-primary w-100">Send PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Report -->
+    <div class="modal fade" id="modalReport" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-flag-fill"></i> Report Listing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size:13px;color:var(--grey);margin-bottom:12px;">Select a reason:</p>
+                    <label class="report-opt"><input type="radio" name="rep" class="me-2"> Incorrect information</label>
+                    <label class="report-opt"><input type="radio" name="rep" class="me-2"> Duplicate listing</label>
+                    <label class="report-opt"><input type="radio" name="rep" class="me-2"> Spam / advertisement</label>
+                    <label class="report-opt"><input type="radio" name="rep" class="me-2"> Offensive content</label>
+                    <label class="report-opt"><input type="radio" name="rep" class="me-2"> Property no longer available</label>
+                    <label class="report-opt"><input type="radio" name="rep" class="me-2"> Other</label>
+                    <label class="form-label mt-2">Notes (optional)</label>
+                    <textarea class="form-control mb-3" rows="2" placeholder="Describe the issue..."></textarea>
+                    <label class="form-label">Your email or User ID</label>
+                    <input type="text" class="form-control mb-3" placeholder="email@example.com or USR-1234">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="notRobot">
+                        <label class="form-check-label" for="notRobot" style="font-size:13px;">I am not a robot</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn-modal-primary">Submit Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Contact -->
+    <div class="modal fade" id="modalContact" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-envelope-fill"></i> Send Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">Your Name <span style="color:var(--red);">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Message <span style="color:var(--red);">*</span></label>
+                            <textarea class="form-control" rows="4" placeholder="Hello, I am interested in this property..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text">@</span>
+                                <input type="email" class="form-control" placeholder="your@email.com">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size:11.5px;color:var(--grey);margin-top:10px;margin-bottom:0;">
+                        <i class="bi bi-shield-check me-1" style="color:#16a34a;"></i> Message sent securely via PropAfar InMail
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn-modal-primary"><i class="bi bi-send me-1"></i> Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Book a Call (5 steps) -->
+    <div class="modal fade" id="modalBookCall" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-telephone-fill"></i> Book a Call</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="step-bar">
+                        <div class="sdot active" id="sd1"></div>
+                        <div class="sdot" id="sd2"></div>
+                        <div class="sdot" id="sd3"></div>
+                        <div class="sdot" id="sd4"></div>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div id="bS1">
+                        <p style="font-size:13px;color:var(--grey);margin-bottom:12px;">How would you like to connect?</p>
+                        <div class="book-opt" onclick="pickBType('personal',this)">
+                            <div class="book-opt-icon"><i class="bi bi-person-check" style="color:var(--red);"></i></div>
+                            <div><h6>Personal Visit</h6><p>Schedule an in-person property viewing</p></div>
+                        </div>
+                        <div class="book-opt" onclick="pickBType('phone',this)">
+                            <div class="book-opt-icon"><i class="bi bi-telephone" style="color:var(--red);"></i></div>
+                            <div><h6>Phone Call</h6><p>Speak directly with the agent</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Calendar -->
+                    <div id="bS2" style="display:none;">
+                        <p style="font-size:13px;color:var(--grey);margin-bottom:8px;">Select a date:</p>
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <button class="map-btn" style="flex:none;width:auto;padding:4px 10px;" onclick="chMo(-1)"><i class="bi bi-chevron-left"></i></button>
+                            <strong style="font-size:14px;" id="moLabel">February 2026</strong>
+                            <button class="map-btn" style="flex:none;width:auto;padding:4px 10px;" onclick="chMo(1)"><i class="bi bi-chevron-right"></i></button>
+                        </div>
+                        <div class="date-grid-wrap">
+                            <div class="hdr-row">
+                                <div class="cal-hdr">Mo</div><div class="cal-hdr">Tu</div><div class="cal-hdr">We</div>
+                                <div class="cal-hdr">Th</div><div class="cal-hdr">Fr</div><div class="cal-hdr">Sa</div><div class="cal-hdr">Su</div>
+                            </div>
+                            <div class="day-row" id="calDays"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Time -->
+                    <div id="bS3" style="display:none;">
+                        <p style="font-size:13px;color:var(--grey);margin-bottom:4px;">Available times for <strong id="selDateLbl">—</strong>:</p>
+                        <div class="time-grid">
+                            <div class="t-slot" onclick="pickT(this)">09:00</div>
+                            <div class="t-slot" onclick="pickT(this)">09:30</div>
+                            <div class="t-slot off">10:00</div>
+                            <div class="t-slot" onclick="pickT(this)">10:30</div>
+                            <div class="t-slot" onclick="pickT(this)">11:00</div>
+                            <div class="t-slot off">11:30</div>
+                            <div class="t-slot" onclick="pickT(this)">12:00</div>
+                            <div class="t-slot" onclick="pickT(this)">13:00</div>
+                            <div class="t-slot" onclick="pickT(this)">14:00</div>
+                            <div class="t-slot off">14:30</div>
+                            <div class="t-slot" onclick="pickT(this)">15:00</div>
+                            <div class="t-slot" onclick="pickT(this)">16:00</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirm -->
+                    <div id="bS4" style="display:none;">
+                        <div class="confirm-box">
+                            <div class="c-row"><span class="cl">Type</span><span class="cv" id="cType">—</span></div>
+                            <div class="c-row"><span class="cl">Date</span><span class="cv" id="cDate">—</span></div>
+                            <div class="c-row"><span class="cl">Time</span><span class="cv" id="cTime">—</span></div>
+                            <div class="c-row"><span class="cl">Agent</span><span class="cv">Kiss Melinda</span></div>
+                        </div>
+                        <label class="form-label">Your Name <span style="color:var(--red);">*</span></label>
+                        <input type="text" class="form-control mb-2" placeholder="Enter your name">
+                        <label class="form-label">Email <span style="color:var(--red);">*</span></label>
+                        <input type="email" class="form-control mb-2" placeholder="your@email.com">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-control" placeholder="+1 234 567 890">
+                    </div>
+
+                    <!-- Step 5: Success -->
+                    <div id="bS5" style="display:none;">
+                        <div class="success-block">
+                            <div class="suc-circle"><i class="bi bi-check-lg"></i></div>
+                            <h5>Booking Confirmed!</h5>
+                            <p>Your appointment is scheduled.<br>A confirmation has been sent to your email.<br><strong>Kiss Melinda</strong> will be in touch shortly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-secondary" id="bBtnBack" onclick="bPrev()" style="display:none;">Back</button>
+                    <button class="btn-modal-primary ms-auto" id="bBtnNext" onclick="bNext()">Next <i class="bi bi-arrow-right ms-1"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Post Ad -->
+    <div class="modal fade" id="modalPostAd" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-plus-circle-fill"></i> Post an Advertisement</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label">Ad Type</label>
+                    <select class="form-select mb-3">
+                        <option>Property for Sale</option><option>Property for Rent</option>
+                        <option>Real Estate Service</option><option>Banner Advertisement</option>
+                    </select>
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control mb-3" placeholder="Beautiful apartment in Budapest...">
+                    <label class="form-label">Price (HUF)</label>
+                    <input type="number" class="form-control mb-3" placeholder="35000000">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control mb-3" rows="3" placeholder="Describe your property..."></textarea>
+                    <label class="form-label">Package</label>
+                    <div class="row g-2">
+                        <div class="col-4"><div class="pkg-opt"><strong>Basic</strong><small>Free</small></div></div>
+                        <div class="col-4"><div class="pkg-opt selected"><strong>Premium</strong><small>HUF 5,600</small></div></div>
+                        <div class="col-4"><div class="pkg-opt"><strong>Brand</strong><small>HUF 10,800</small></div></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn-modal-primary"><i class="bi bi-rocket me-1"></i> Submit Ad</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. All Specs -->
+    <div class="modal fade" id="modalAllSpecs" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-list-check"></i> All 43 Property Attributes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="max-height:68vh;overflow-y:auto;">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="specs-hdr">1. Property Type</div>
+                            <div class="spec-row"><span class="sl">Type</span><span class="sv">For Sale</span></div>
+                            <div class="spec-row"><span class="sl">Category</span><span class="sv">Flat / Apartment</span></div>
+                            <div class="spec-row"><span class="sl">Base area</span><span class="sv">70.25 m²</span></div>
+                            <div class="spec-row"><span class="sl">View</span><span class="sv">Panoramic</span></div>
+                            <div class="spec-row"><span class="sl">Floor</span><span class="sv">4th (of 6)</span></div>
+                            <div class="spec-row"><span class="sl">Lift</span><span class="sv">Yes</span></div>
+                            <div class="specs-hdr">2. Location</div>
+                            <div class="spec-row"><span class="sl">Country</span><span class="sv">Hungary</span></div>
+                            <div class="spec-row"><span class="sl">City</span><span class="sv">Budapest</span></div>
+                            <div class="spec-row"><span class="sl">District</span><span class="sv">V. District</span></div>
+                            <div class="spec-row"><span class="sl">Total area</span><span class="sv">3,507.66 m²</span></div>
+                            <div class="specs-hdr">3. Furnishings</div>
+                            <div class="spec-row"><span class="sl">Fitted Kitchen</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Washing Machine</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Smart Home</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Air Conditioning</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Private Parking</span><span class="sv">Underground</span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="specs-hdr">4. Surroundings</div>
+                            <div class="spec-row"><span class="sl">Metro Stop</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Schools</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Shopping Centre</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Hospital</span><span class="sv">Yes</span></div>
+                            <div class="specs-hdr">5. Construction</div>
+                            <div class="spec-row"><span class="sl">Availability</span><span class="sv">Immediate</span></div>
+                            <div class="spec-row"><span class="sl">Year Built</span><span class="sv">2010</span></div>
+                            <div class="spec-row"><span class="sl">Condition</span><span class="sv">Excellent</span></div>
+                            <div class="spec-row"><span class="sl">Renovated</span><span class="sv">2022</span></div>
+                            <div class="specs-hdr">6. Utilities</div>
+                            <div class="spec-row"><span class="sl">Heating</span><span class="sv">Gas Heating</span></div>
+                            <div class="spec-row"><span class="sl">Electricity</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Sewage</span><span class="sv">Connected</span></div>
+                            <div class="spec-row"><span class="sl">Internet</span><span class="sv">50–100 Mb/s</span></div>
+                            <div class="specs-hdr">7. Other</div>
+                            <div class="spec-row"><span class="sl">Security System</span><span class="sv">Yes</span></div>
+                            <div class="spec-row"><span class="sl">Concierge</span><span class="sv">24/7</span></div>
+                            <div class="spec-row"><span class="sl">Pet Friendly</span><span class="sv">On request</span></div>
+                            <div class="spec-row"><span class="sl">Solar Panels</span><span class="sv">No</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn-modal-primary"><i class="bi bi-download me-1"></i> Download PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* ══════ BOOKING ══════ */
+        var bSt=1, bType='', bDate='', bTime='';
+        var moY=2026, moM=1;
+        var moNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+        function bNext(){
+            if(bSt===1&&!bType){alert('Please choose a contact method.');return;}
+            if(bSt===2&&!bDate){alert('Please select a date.');return;}
+            if(bSt===3&&!bTime){alert('Please select a time slot.');return;}
+            if(bSt===4){goBS(5);document.getElementById('bBtnNext').style.display='none';document.getElementById('bBtnBack').style.display='none';return;}
+            goBS(bSt+1);
+        }
+        function bPrev(){if(bSt>1)goBS(bSt-1);}
+
+        function goBS(n){
+            for(var i=1;i<=5;i++){var el=document.getElementById('bS'+i);if(el)el.style.display=(i===n)?'block':'none';}
+            bSt=n;
+            for(var d=1;d<=4;d++){var dot=document.getElementById('sd'+d);if(dot)dot.className='sdot'+(d<n?' done':d===n?' active':'');}
+            document.getElementById('bBtnBack').style.display=(n>1&&n<5)?'inline-block':'none';
+            document.getElementById('bBtnNext').style.display=n<5?'inline-block':'none';
+            document.getElementById('bBtnNext').innerHTML=n===4?'<i class="bi bi-check-circle me-1"></i> Confirm Booking':'Next <i class="bi bi-arrow-right ms-1"></i>';
+            if(n===2)buildCal();
+            if(n===4){document.getElementById('cType').textContent=bType==='personal'?'Personal Visit':'Phone Call';document.getElementById('cDate').textContent=bDate;document.getElementById('cTime').textContent=bTime;}
+        }
+
+        function pickBType(t,el){bType=t;document.querySelectorAll('.book-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
+        function pickT(el){document.querySelectorAll('.t-slot:not(.off)').forEach(function(t){t.classList.remove('sel');});el.classList.add('sel');bTime=el.textContent;}
+
+        function chMo(d){moM+=d;if(moM>11){moM=0;moY++;}if(moM<0){moM=11;moY--;}buildCal();}
+
+        function buildCal(){
+            document.getElementById('moLabel').textContent=moNames[moM]+' '+moY;
+            var grid=document.getElementById('calDays');grid.innerHTML='';
+            var first=new Date(moY,moM,1).getDay();
+            var offset=first===0?6:first-1;
+            var days=new Date(moY,moM+1,0).getDate();
+            for(var p=0;p<offset;p++){var b=document.createElement('div');grid.appendChild(b);}
+            for(var d=1;d<=days;d++){
+                var cell=document.createElement('div');
+                var dow=new Date(moY,moM,d).getDay();
+                var off=(dow===0||dow===6);
+                var today=(d===12&&moM===1&&moY===2026);
+                cell.className='cal-day'+(off?' off':'')+(today?' today':'');
+                cell.textContent=d;
+                if(!off){(function(day){cell.onclick=function(){
+                    document.querySelectorAll('.cal-day').forEach(function(c){c.classList.remove('sel');});
+                    cell.classList.add('sel');
+                    bDate=moNames[moM]+' '+day+', '+moY;
+                    document.getElementById('selDateLbl').textContent=bDate;
+                };})(d);}
+                grid.appendChild(cell);
+            }
+        }
+
+        document.getElementById('modalBookCall').addEventListener('hidden.bs.modal',function(){
+            bSt=1;bType='';bDate='';bTime='';
+            goBS(1);
+            document.getElementById('bBtnBack').style.display='none';
+            document.getElementById('bBtnNext').style.display='inline-block';
+            document.getElementById('bBtnNext').innerHTML='Next <i class="bi bi-arrow-right ms-1"></i>';
+        });
+
+        /* ══════ UTILS ══════ */
+        function copyLink(){var el=document.getElementById('shareUrl');el.select();document.execCommand('copy');alert('Link copied!');}
+        function toggleFolder(){var b=document.getElementById('folderBox');b.style.display=b.style.display==='none'?'block':'none';}
+        function slideL(){document.getElementById('lSlider').scrollBy({left:-120,behavior:'smooth'});}
+        function slideR(){document.getElementById('lSlider').scrollBy({left:120,behavior:'smooth'});}
+        document.getElementById('modalPDF').addEventListener('hidden.bs.modal',function(){document.getElementById('pdfEmailBox').style.display='none';});
+
+        /* ══════ GALLERY SLIDER ══════ */
+        var galIndex  = 0;
+        var galTotal  = document.querySelectorAll('.gallery-slide').length;
+        var galImages = (function(){
+            var imgs = [];
+            document.querySelectorAll('.gallery-slide img').forEach(function(img){ imgs.push(img.src); });
+            return imgs;
+        }());
+
+        /* Build dots (show up to 5, with ellipsis via opacity for rest) */
+        (function buildDots(){
+            var dotsEl = document.getElementById('galDots');
+            var show   = Math.min(galTotal, 5);
+            for(var i = 0; i < show; i++){
+                var btn = document.createElement('button');
+                btn.className = 'gdot' + (i === 0 ? ' active' : '');
+                btn.setAttribute('data-i', i);
+                btn.onclick = (function(idx){ return function(){ galGoTo(idx); }; })(i);
+                dotsEl.appendChild(btn);
+            }
+        }());
+
+        function galUpdateUI(){
+            /* Slide the strip */
+            document.getElementById('gallerySlides').style.transform = 'translateX(-' + (galIndex * 100) + '%)';
+
+            /* Counter */
+            document.getElementById('galCounter').textContent = (galIndex + 1) + ' / ' + galTotal;
+
+            /* Dots (cycle through first 5 positions) */
+            var dots = document.querySelectorAll('.gdot');
+            dots.forEach(function(d, i){
+                d.classList.toggle('active', parseInt(d.getAttribute('data-i')) === galIndex % 5);
+            });
+
+            /* Thumbnail active state (only first 3 real thumbs) */
+            document.querySelectorAll('.thumb-item:not(.more-overlay)').forEach(function(th){
+                var idx = parseInt(th.getAttribute('data-index'));
+                th.classList.toggle('active', idx === galIndex);
+            });
+        }
+
+        function galMove(dir){
+            galIndex = (galIndex + dir + galTotal) % galTotal;
+            galUpdateUI();
+        }
+
+        function galGoTo(idx){
+            galIndex = idx;
+            galUpdateUI();
+        }
+
+        /* Keyboard arrow navigation */
+        document.addEventListener('keydown', function(e){
+            if(document.getElementById('lightbox').classList.contains('open')) return; /* handled by lightbox */
+            if(e.key === 'ArrowLeft')  galMove(-1);
+            if(e.key === 'ArrowRight') galMove(1);
+        });
+
+        /* Touch / swipe support on main slider */
+        (function(){
+            var wrap  = document.getElementById('galleryWrap');
+            var startX = 0;
+            wrap.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+            wrap.addEventListener('touchend',   function(e){
+                var diff = startX - e.changedTouches[0].clientX;
+                if(Math.abs(diff) > 40) galMove(diff > 0 ? 1 : -1);
+            }, {passive:true});
+        }());
+
+        /* ══════ LIGHTBOX ══════ */
+        var lbIndex = 0;
+
+        function openLightbox(startIdx){
+            lbIndex = startIdx || 0;
+            lbShow();
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function lbShow(){
+            document.getElementById('lbImg').src = galImages[lbIndex];
+            document.getElementById('lbCounter').textContent = (lbIndex + 1) + ' / ' + galTotal;
+        }
+
+        function lbMove(dir){
+            lbIndex = (lbIndex + dir + galTotal) % galTotal;
+            lbShow();
+        }
+
+        function closeLightbox(){
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOutside(e){
+            if(e.target === document.getElementById('lightbox')) closeLightbox();
+        }
+
+        /* ══════ DESCRIPTION EXPAND ══════ */
+        function toggleDesc(){
+            var col   = document.getElementById('descCollapse');
+            var arrow = document.getElementById('descArrow');
+            col.classList.toggle('expanded');
+            arrow.classList.toggle('flipped');
+        }
+
+        /* Keyboard inside lightbox */
+        document.addEventListener('keydown', function(e){
+            if(!document.getElementById('lightbox').classList.contains('open')) return;
+            if(e.key === 'ArrowLeft')  lbMove(-1);
+            if(e.key === 'ArrowRight') lbMove(1);
+            if(e.key === 'Escape')     closeLightbox();
+        });
+
+        /* Also make main slider images click to open lightbox */
+        document.getElementById('gallerySlides').addEventListener('click', function(){
+            openLightbox(galIndex);
+        });
+        document.getElementById('gallerySlides').style.cursor = 'zoom-in';
+    </script>
+
+</body>
+</html>

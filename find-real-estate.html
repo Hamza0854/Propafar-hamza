@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropAFar - Find Your Dream Property</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
+        <div class="container-xxl px-3">
+            <a class="navbar-brand" href="/">
+                <img src="assets/images/footer_logo2.png" alt="PropAFar">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="find-real-estate.html">Find real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offer-real-estate.html">Offer real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon"> English
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon me-2"> English</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">German</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">Hungarian</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                      <div class="user-icon" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                          <i class="bi bi-person"></i>
+                      </div>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="/login">Login</a></li>
+                          <li><a class="dropdown-item" href="/signup">Sign up</a></li>
+                      </ul>
+                  </div>
+                    
+                    <a href="/list-property" class="btn btn-list-property">
+                        List a Property
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section hero-section-find">
+        <!-- Background Slider -->
+        <div class="swiper heroBackgroundSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url(assets/images/hero-find-real-estate.jpg);"></div>
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url('assets/images/find-real-estate-slideshow-2.jpg');"></div>
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url('assets/images/find-real-estate-slideshow-3.jpg');"></div>
+                <div class="swiper-slide hero-bg-slide" style="background-image: linear-gradient(135deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 11%) 100%),url('assets/images/find-real-estate-slideshow-4.jpg');"></div>
+            </div>
+            <!-- Pagination Dots (NEW) -->
+            <div class="swiper-pagination hero-bg-pagination"></div>
+        </div>
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Hero Titles -->
+                    <div class="hero-content">
+                        <h1 class="hero-title">Find the property of your dreams abroad</h1>
+                        <div class="row">
+                            <div class="col-lg-11">
+                                <div>
+                                    <p class="hero-subtitle">Browse property abroad with ease, offered  both by private individuals and real estate professionals. Shortlist items flawlessly, based on search criteria, set in your mother tongue.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-lg-6 ms-auto"> 
+                    <!-- Search Box -->
+                    <div class="search-box-modern">
+                        <!-- Radio Buttons HTML -->
+                        <div class="search-tabs-modern">
+                            <div class="tab-option">
+                                <input type="radio" id="forSale" name="propertyType" value="sale" checked>
+                                <label for="forSale">
+                                    <span class="radio-icon">
+                                        <i class="bi bi-check-circle-fill checked-icon"></i>
+                                        <i class="bi bi-circle unchecked-icon"></i>
+                                    </span>
+                                    <span class="radio-text">Property for sale</span>
+                                </label>
+                            </div>
+                            <div class="tab-option">
+                                <input type="radio" id="toLet" name="propertyType" value="rent">
+                                <label for="toLet">
+                                    <span class="radio-icon">
+                                        <i class="bi bi-check-circle-fill checked-icon"></i>
+                                        <i class="bi bi-circle unchecked-icon"></i>
+                                    </span>
+                                    <span class="radio-text">Property for rent</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Form -->
+                        <div class="search-form-container">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <i class="bi bi-info-circle text-primary" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Original Price" data-bs-original-title="Original Price"></i></p>
+                            <div class="row g-2 align-items-center">
+                                <!-- Price From -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <input type="text" class="form-control-search" placeholder="Price-from">
+                                </div>
+                                
+                                <!-- Price To -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <input type="text" class="form-control-search" placeholder="Price-to">
+                                </div>
+                                <!-- Currency -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <div class="lang-currency-selector">
+                                        <div class="dropdown w-100">
+                                            <button class="dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Area From -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <input type="text" class="form-control-search" placeholder="Area-from">
+                                </div>
+                                
+                                <!-- Area To -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <input type="text" class="form-control-search" placeholder="Area-to">
+                                </div>
+                                
+                                <!-- Area Unit -->
+                                <div class="col-lg-2 col-md-6 col-6">
+                                    <select class="form-select-search">
+                                        <option value="sqm">m²</option>
+                                        <option value="sqft">ft²</option>
+                                        <option value="yd">yd²</option>
+                                        <option value="marla">Marla</option>
+                                        <option value="kanal">Kanal</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    <select class="form-select-search">
+                                        <option>Real estate type *</option>
+                                        <option value="">Apartment / Condo</option>
+                                        <option value="">Commercial Property</option>
+                                        <option value="">House</option>
+                                        <option value="">Industrial Real estate</option>
+                                        <option value="">Office Space</option>
+                                        <option value="">Other</option>
+                                        <option value="">Plot</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    <select class="form-select-search">
+                                        <option>Property Subcategory *</option>
+                                        <option value="">Semi-detached house</option>
+                                        <option value="">Holiday Home</option>
+                                        <option value="">Villa</option>
+                                        <option value="">Castle</option>
+                                        <option value="">Mansion</option>
+                                        <option value="">Detached house</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-8 text-center">
+                                    <input type="range" class="form-range h-auto" min="0" max="100" value="50" id="range4">
+                                    <output for="range4" id="rangeValue" aria-hidden="true"></output>
+                                    <!-- <div class="w-100 justify-content-center form-control-search p-0">
+                                        <div class="swiper radiusSwiper pt-2">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide radius-slide">1</div>
+                                                <div class="swiper-slide radius-slide">2</div>
+                                                <div class="swiper-slide radius-slide">3</div>
+                                                <div class="swiper-slide radius-slide">4</div>
+                                                <div class="swiper-slide radius-slide">5</div>
+                                                <div class="swiper-slide radius-slide">10</div>
+                                                <div class="swiper-slide radius-slide">15</div>
+                                                <div class="swiper-slide radius-slide">20</div>
+                                                <div class="swiper-slide radius-slide">25</div>
+                                                <div class="swiper-slide radius-slide">50</div>
+                                                <div class="swiper-slide radius-slide">100</div>
+                                            </div>
+                                            
+                                            <div class="swiper-button-next radius-next"></div>
+                                            <div class="swiper-button-prev radius-prev"></div>
+                                        </div>
+                                        <input type="hidden" id="radius-val-1" name="radius" value="1">
+                                    </div> -->
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- <h3>{{ trans('search.map') }}</h3>
+                                    <label>{!! trans('search.mapInstructions')  !!}</label> -->
+                                    <input type="hidden" id="temp-lat-1">
+                                    <input type="hidden" id="temp-lng-1">
+                                    <input type="hidden" id="temp-title-1">
+                                    <input type="hidden" id="search-areas-1" name="search-area">
+                                    <div class="">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-12 search-part_bottom_searchbox">
+                                                <!-- <div class="search-part_bottom_searchbox_inputcity_wrapper d-flex gap-2">
+                                                    <input class="search-part_bottom_searchbox_inputcity flex-fill form-control-search w-auto" id="city-search-1"
+                                                        type="text" name="" value="" placeholder="Start typing location..." >
+                                                    <button type="button"  id="add-pin-btn-1" class="search-part_bottom_searchbox_button btn-search-main w-auto" onclick="addPinFromSearch()" disabled>
+                                                        <span class="search-part_bottom_searchbox_button_text me-2">{{ trans('property.addPin') }}</span>
+                                                        <span class="search-part_bottom_searchbox_button_text me-2 "><i class="bi bi-search me-2"></i>Search</span>
+                                                    </button>
+                                                </div> -->
+                                                <div class="search-part_bottom_searchbox_inputs d-flex flex-column flex-sm-row">
+                                                    <div class="search-part_bottom_searchbox_inputs_price d-flex flex-fill gap-2 w-100">
+                                                        
+                                                        <div class="search-part_bottom_searchbox_currency_dropdown_wrapper d-flex align-items-center w-100">
+                                                            <div class="w-100">
+                                                                <select id="radius-unit-1" class="form-select form-select-sm form-select-search w-100" style="width: auto;">
+                                                                    <option value="m">Meters</option>
+                                                                    <option value="km">Kilometers</option>
+                                                                    <option value="mi">Miles</option>
+                                                                    <option value="ft">Feet</option>
+                                                                    <option value="yd">Yards</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- <h6 class="mt-4">{{ trans('property.activePin') }}:</h6> -->
+                                    <div id="pin-list-1" class="d-flex flex-wrap gap-1">
+                                    </div>
+                                    <div id="filtered-properties-list-1"></div>
+                                </div>
+                                <div class="col-md-12 p-0">
+                                    <div id="map1"></div>
+                                </div>
+                                
+                            </div>
+                            
+                            <!-- Detailed Search Link -->
+                            <div class="detailed-search-link">
+                                <a href="#">
+                                    Next
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose PropAFar Section -->
+    <section class="why-choose-section">
+        <div class="container-xxl px-3">
+            
+            
+            <!-- Features Grid -->
+            <div class="row">
+                <!-- Feature 1: Work with Us -->
+                <div class="col-lg-7 mx-auto">
+                    <div class="feature-card-modern py-4">
+                        <!-- Section Header -->
+                        <div class="feature-icon-box">
+                            <i class="bi bi-bag"></i>
+                        </div>
+                        <div class="section-header text-center mb-2">
+                            <h2 class="section-title">Buy or rent property with a local mindset</h2>
+                        </div>
+                        <p class="feature-description">With our platform, you will be capable of searching for residential, commercial, or industrial property in any country, in your own language, based on your own specific search criteria. Find real estate listings posted by individuals and real estate professionals from any foreign country. Save time and effort: browse our international property listings conveniently, safely, and without the risk of any detail being misinterpreted. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container-xxl px-3">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <h2 class="section-title text-white mb-1">Ready to Find Your Dream Property?</h2>
+                <p class="section-subtitle text-white">Join thousands of satisfied customers who found their perfect home with PropAFar</p>
+            </div>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper mediaSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 - Video -->
+                    <div class="swiper-slide">
+                        <div class="media-card video-card">
+                            <div class="video-wrapper">
+                                <video class="" muted loop playsinline controls>
+                                    <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="media-content">
+                                <h4 class="media-title">Cloudflare Video</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 - Video -->
+                    <div class="swiper-slide">
+                        <div class="media-card video-card">
+                            <div class="video-wrapper">
+                                <video class="" muted loop playsinline controls>
+                                    <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="media-content">
+                                <h4 class="media-title">Cloudflare Video</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 - Social Post (Instagram Style) -->
+                    <div class="swiper-slide">
+                        <div class="media-card social-card">
+                            <div class="social-header">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="PropAFar" class="social-avatar">
+                                <div class="social-info">
+                                    <h5>PropAFar</h5>
+                                    <p>Karachi, Pakistan</p>
+                                </div>
+                                <img src="assets/images/instagram.png" alt="facebook">
+                            </div>
+                            <div class="social-image">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Property">
+                            </div>
+                            <div class="social-actions">
+                                <div class="action-buttons">
+                                    <i class="bi bi-heart"></i>
+                                    <i class="bi bi-chat"></i>
+                                    <i class="bi bi-send"></i>
+                                </div>
+                                <i class="bi bi-bookmark"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4 class="media-title">Modern Apartment in Bahria Town</h4>
+                                <p class="time">2 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 - Social Post (Facebook Style) -->
+                    <div class="swiper-slide">
+                        <div class="media-card social-card facebook-card">
+                            <div class="social-header">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="PropAFar" class="social-avatar">
+                                <div class="social-info">
+                                    <h5>PropAFar</h5>
+                                    <p>3 hours ago · <i class="bi bi-globe"></i></p>
+                                </div>
+                                <img src="assets/images/facebook.png" alt="facebook">
+                            </div>
+                            <div class="social-image">
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Property">
+                            </div>
+                            <div class="social-stats">
+                                <div class="reactions">
+                                    <span class="reaction-icons">👍❤️😍</span>
+                                    <span>156</span>
+                                </div>
+                                <div class="comments-shares">
+                                    <span>28 comments</span>
+                                    <span>12 shares</span>
+                                </div>
+                            </div>
+                            <h4 class="media-title px-3 pt-2">Modern Apartment in Bahria Town</h4>
+                            <div class="social-actions facebook-actions">
+                                <button><i class="bi bi-hand-thumbs-up"></i> Like</button>
+                                <button><i class="bi bi-chat"></i> Comment</button>
+                                <button><i class="bi bi-share"></i> Share</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5 - Video -->
+                    <div class="swiper-slide">
+                        <div class="media-card video-card">
+                            <div class="video-wrapper">
+                                <video class="" muted loop playsinline controls>
+                                    <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="media-content">
+                                <h4 class="media-title">Cloudflare Video</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6 - Social Post -->
+                    <div class="swiper-slide">
+                        <div class="media-card social-card">
+                            <div class="social-header">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="PropAFar" class="social-avatar">
+                                <div class="social-info">
+                                    <h5>PropAFar</h5>
+                                    <p>Islamabad, Pakistan</p>
+                                </div>
+                                <img src="assets/images/instagram.png" alt="facebook">
+                            </div>
+                            <div class="social-image">
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Property">
+                            </div>
+                            <div class="social-actions">
+                                <div class="action-buttons">
+                                    <i class="bi bi-heart"></i>
+                                    <i class="bi bi-chat"></i>
+                                    <i class="bi bi-send"></i>
+                                </div>
+                                <i class="bi bi-bookmark"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4 class="media-title">Modern Apartment in Bahria Town</h4>
+                                <p class="time">5 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="properties-section set-our-updates">
+        <div class="container-xxl px-3">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <div class="mb-3 mb-lg-5">
+                <h2 class="section-title mb-0">Every New Country </h2>
+                <p class="section-subtitle m-0">Opens up a gateway to a new world</p>
+              </div>
+            </div>
+            <div class="col-lg-5 ms-auto">
+              <button class="btn btn-list-property ms-auto mb-4 mb-lg-0">
+                Search for property <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/2147744882.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">Success without compromise! </h3>
+                                <div class="property-location mt-2 pb-2">Discover property in uncharted markets in your mother tongue based on the factors that matter to you - easily and without hassle. Thanks to a wide range of filtering criteria, you can search in your own language as a foreigner and get the same search results as a local resident with a deep understanding of any given real estate market.
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/2149927603.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">Old and new properties</h3>
+                                <div class="property-location mt-2 pb-2">
+                                  Browse our site to find not only pre-owned properties abroad, but also explore undiscovered real estate projects with huge potential outside of your domestic spectrum which meet today's architectural standards and can be customized according to your personal  taste, even at the designer's desk!
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/100298.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">For industrial and commercial use</h3>
+                                <div class="property-location mt-2 pb-2">
+                                  Are you looking for premises in foreign lands, an office, or a warehouse for your business? Our platform also offers a wide range of both  industrial and commercial real estate in whichever country you are expanding. Put our platform to the test and make an impactful decision to convert your corporation to a crossborder business.
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <!-- Section Header -->
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Make your mark abroad</h2>
+            </div>
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/2148913707.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Advanced filtering options</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Listed properties are linked to specific information which may be of interest to you as a non-local property seeker; you may require additional insight about issues that matter when navigating unfamiliar foreign real estate markets (e.g. public transport options, distance to airports… etc). You can set the filtering criteria in your mother tongue and read the property profiles in your own language. Instead of searching different local websites for each specific language and country, browse and compare foreign properties in one easy-to-use central platform, saving you considerable time and effort.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 2 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6 order-lg-2">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/66526.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6 order-lg-1">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Customize currency and units of measurement</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Forget the fiddly conversions: prices are displayed in the currency of your choice, independent from the location or local currency! And the property's size, distance and other details are displayed in the unit of measurement you use, whether it's metric, English units or those used elsewhere in the world. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 3 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/clock-timezones.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Reach out at the best time!</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Our website links real estate-related supply and demand together from all over the world. The property you are looking for may be listed by someone living in another time zone. We understand the gravity of contacting an owner at an inappropriate time of day. </p>
+                        <p class="about-description">An inconvenient timing of your inquiry call in another time zone  (e.g. at night or at dawn) might easily destroy your chances of settling a deal. This is why as a registered user, the advertiser’s availability is displayed  always converted into the local time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 4 -->
+    <section class="about-section">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6 order-lg-2">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/2149554717.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6 order-lg-1">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Map view will help you find your way around</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">The map view will help you discover the particular location of a  property and what the surroundings have to offer. Alternative property prices are also covered in the related area, providing you with a useful basis for comparison.</p>
+                        <p class="about-description">This comes in particularly handy if you are not familiar with the characteristics of a certain city, area or country. The map acts as a visual clue to help you narrow down your property listings further, so that you can choose the best value for your money.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 5 -->
+    <section class="about-section mb-5">
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <!-- Left Side - Image -->
+                <div class="col-lg-6">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/2148194759.jpg" alt="Luxury Property" class="about-image">
+                    </div>
+                </div>
+                
+                <!-- Right Side - Content -->
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <!-- Title -->
+                        <h2 class="about-title">Datasheets help shortlist your favorite items</h2>
+                        
+                        <!-- Description -->
+                        <p class="about-description">Buying or renting a property, especially from abroad, requires careful consideration and is rarely done overnight. Thus, you can save your favorite finds for comparison  and overview, sort them into categories, and easily export them into a spreadsheet to give you further filtering options. This way you can narrow your search down to the best hit!  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container-custom px-3">
+            <!-- Contact Form Section -->
+            <div class="contact-form-section">
+                <!-- Left - Image -->
+                <div class="contact-image-wrapper">
+                    <img src="assets/images/photo-1600880292203-757bb62b4baf.jpg" alt="Business Meeting" class="contact-image">
+                    
+                    <!-- Overlay Icon -->
+                    <div class="image-overlay-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7v10c0 5.5 4.5 9.9 10 11 5.5-1.1 10-5.5 10-11V7l-10-5zm0 2.2l8 4v8.3c0 4.4-3.6 8-8 9-4.4-1-8-4.6-8-9V8.2l8-4zM11 7v6h2V7h-2zm0 8v2h2v-2h-2z"/>
+                            <path d="M7 10l5 3 5-3-5-3-5 3z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Right - Form -->
+                <div class="contact-form-wrapper">
+                    <h2 class="form-title mb-3">Send Us A Message</h2>
+                    
+                    <!-- Success Message -->
+                   <!--  <div class="success-message" id="successMessage">
+                        <i class="bi bi-check-circle me-2"></i>
+                        Your message has been sent successfully! We'll get back to you soon.
+                    </div> -->
+                    
+                    <!-- Contact Form -->
+                    <form id="contactForm">
+                        <!-- Name Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name*</label>
+                                <input type="text" class="form-control-custom" name="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address*</label>
+                                <input type="email" class="form-control-custom" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Type -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Main category*</label>
+                                <select class="form-control-custom" name="serviceType" required>
+                                    <option value="">Select a category</option>
+                                    <option value="buy">Buy Property</option>
+                                    <option value="sell">Sell Property</option>
+                                    <option value="rent">Rent Property</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sub-category*</label>
+                                <select class="form-control-custom" name="serviceType" required>
+                                    <option value="">Select a category</option>
+                                    <option value="buy">Buy Property</option>
+                                    <option value="sell">Sell Property</option>
+                                    <option value="rent">Rent Property</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Meeting Scheduler -->
+                        <div class="meeting-scheduler">
+                            <div class="scheduler-header">
+                                <i class="bi bi-calendar-check"></i>
+                                <span>Schedule a Meeting (Optional)</span>
+                            </div>
+                            
+                            <!-- Date & Time Pickers -->
+                            <div class="datetime-picker-group">
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Date</label>
+                                    <div class="picker-input">
+                                        <input type="date" class="form-control-custom" id="datePicker" name="meeting_date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Time</label>
+                                    <div class="picker-input">
+                                        <input type="time" class="form-control-custom" id="timePicker" name="meeting_time">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Detected Info: Timezone, Current Time & Language -->
+                            <div class="detected-info-wrapper">
+                                <div class="detected-info-item">
+                                    <i class="bi bi-globe text-success"></i>
+                                    <span>Timezone: <strong id="detectedTimezone">Loading...</strong></span>
+                                </div>
+                                <div class="detected-info-item">
+                                    <i class="bi bi-clock text-success"></i>
+                                    <span>Your Time: <strong id="currentTime">Loading...</strong></span>
+                                </div>
+                                <div class="detected-info-item">
+                                    <i class="bi bi-translate text-success"></i>
+                                    <span>Language: <strong id="detectedLanguage">Loading...</strong></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Hidden fields for detected values -->
+                            <input type="hidden" id="detectedTimezoneValue" name="detected_timezone" value="">
+                            <input type="hidden" id="detectedLanguageValue" name="detected_language" value="">
+                            
+                            <!-- Timezone Checkbox & Selector -->
+                            <div class="form-group d-flex align-items-center gap-2 mb-3">
+                                <input type="checkbox" id="if-not-timezone" class="set-input-checkbox" name="different_timezone" value="1">
+                                <label class="mb-0" for="if-not-timezone" style="cursor: pointer;">
+                                    If not with your Timezone, select different
+                                </label>
+                            </div>
+                            
+                            <div id="timezoneSelectWrapper">
+                                <div class="form-group">
+                                    <label class="form-label">Select Your Timezone</label>
+                                    <div class="picker-input">
+                                        <select class="form-control-custom" id="timezoneSelect" name="selected_timezone">
+                                            <option value="">Select Timezone</option>
+                                            
+                                            <optgroup label="Popular">
+                                                <option value="Asia/Karachi">Pakistan Standard Time (PKT) - UTC+5</option>
+                                                <option value="Asia/Dubai">UAE Standard Time (GST) - UTC+4</option>
+                                                <option value="Asia/Riyadh">Arabia Standard Time (AST) - UTC+3</option>
+                                                <option value="Europe/London">British Time (GMT/BST) - UTC+0/+1</option>
+                                                <option value="America/New_York">US Eastern Time (EST/EDT) - UTC-5/-4</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Asia">
+                                                <option value="Asia/Karachi">🇵🇰 Pakistan (Karachi) - PKT UTC+5</option>
+                                                <option value="Asia/Lahore">🇵🇰 Pakistan (Lahore) - PKT UTC+5</option>
+                                                <option value="Asia/Dubai">🇦🇪 UAE (Dubai) - GST UTC+4</option>
+                                                <option value="Asia/Riyadh">🇸🇦 Saudi Arabia (Riyadh) - AST UTC+3</option>
+                                                <option value="Asia/Kuwait">🇰🇼 Kuwait - AST UTC+3</option>
+                                                <option value="Asia/Bahrain">🇧🇭 Bahrain - AST UTC+3</option>
+                                                <option value="Asia/Qatar">🇶🇦 Qatar (Doha) - AST UTC+3</option>
+                                                <option value="Asia/Muscat">🇴🇲 Oman (Muscat) - GST UTC+4</option>
+                                                <option value="Asia/Kolkata">🇮🇳 India (Delhi) - IST UTC+5:30</option>
+                                                <option value="Asia/Dhaka">🇧🇩 Bangladesh (Dhaka) - BST UTC+6</option>
+                                                <option value="Asia/Singapore">🇸🇬 Singapore - SGT UTC+8</option>
+                                                <option value="Asia/Hong_Kong">🇭🇰 Hong Kong - HKT UTC+8</option>
+                                                <option value="Asia/Tokyo">🇯🇵 Japan (Tokyo) - JST UTC+9</option>
+                                                <option value="Asia/Shanghai">🇨🇳 China (Beijing) - CST UTC+8</option>
+                                                <option value="Asia/Seoul">🇰🇷 South Korea (Seoul) - KST UTC+9</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Europe">
+                                                <option value="Europe/London">🇬🇧 UK (London) - GMT/BST UTC+0/+1</option>
+                                                <option value="Europe/Paris">🇫🇷 France (Paris) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Berlin">🇩🇪 Germany (Berlin) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Rome">🇮🇹 Italy (Rome) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Madrid">🇪🇸 Spain (Madrid) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Amsterdam">🇳🇱 Netherlands (Amsterdam) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Brussels">🇧🇪 Belgium (Brussels) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Istanbul">🇹🇷 Turkey (Istanbul) - TRT UTC+3</option>
+                                                <option value="Europe/Moscow">🇷🇺 Russia (Moscow) - MSK UTC+3</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Americas">
+                                                <option value="America/New_York">🇺🇸 US Eastern (New York) - EST/EDT UTC-5/-4</option>
+                                                <option value="America/Chicago">🇺🇸 US Central (Chicago) - CST/CDT UTC-6/-5</option>
+                                                <option value="America/Denver">🇺🇸 US Mountain (Denver) - MST/MDT UTC-7/-6</option>
+                                                <option value="America/Los_Angeles">🇺🇸 US Pacific (LA) - PST/PDT UTC-8/-7</option>
+                                                <option value="America/Toronto">🇨🇦 Canada (Toronto) - EST/EDT UTC-5/-4</option>
+                                                <option value="America/Vancouver">🇨🇦 Canada (Vancouver) - PST/PDT UTC-8/-7</option>
+                                                <option value="America/Mexico_City">🇲🇽 Mexico (Mexico City) - CST UTC-6</option>
+                                                <option value="America/Sao_Paulo">🇧🇷 Brazil (São Paulo) - BRT UTC-3</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Australia & Pacific">
+                                                <option value="Australia/Sydney">🇦🇺 Australia (Sydney) - AEDT UTC+11</option>
+                                                <option value="Australia/Melbourne">🇦🇺 Australia (Melbourne) - AEDT UTC+11</option>
+                                                <option value="Australia/Perth">🇦🇺 Australia (Perth) - AWST UTC+8</option>
+                                                <option value="Pacific/Auckland">🇳🇿 New Zealand (Auckland) - NZDT UTC+13</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Africa">
+                                                <option value="Africa/Cairo">🇪🇬 Egypt (Cairo) - EET UTC+2</option>
+                                                <option value="Africa/Johannesburg">🇿🇦 South Africa (Johannesburg) - SAST UTC+2</option>
+                                                <option value="Africa/Lagos">🇳🇬 Nigeria (Lagos) - WAT UTC+1</option>
+                                                <option value="Africa/Nairobi">🇰🇪 Kenya (Nairobi) - EAT UTC+3</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="bi bi-globe pe-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Language Checkbox & Selector -->
+                            <div class="form-group d-flex align-items-center gap-2 mb-3">
+                                <input type="checkbox" id="if-not-language" class="set-input-checkbox" name="different_language" value="1">
+                                <label class="mb-0" for="if-not-language" style="cursor: pointer;">
+                                    If language is different from English
+                                </label>
+                            </div>
+                            
+                            <div id="languageSelectWrapper">
+                                <div class="form-group">
+                                    <label class="form-label">Select Your Preferred Language</label>
+                                    <div class="picker-input">
+                                        <select class="form-control-custom" id="languageSelect" name="selected_language">
+                                            <option value="">Select Language</option>
+                                            
+                                            <optgroup label="Popular">
+                                                <option value="en">🇬🇧 English</option>
+                                                <option value="ur">🇵🇰 Urdu (اردو)</option>
+                                                <option value="ar">🇸🇦 Arabic (العربية)</option>
+                                                <option value="es">🇪🇸 Spanish (Español)</option>
+                                                <option value="fr">🇫🇷 French (Français)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Asian Languages">
+                                                <option value="ur">🇵🇰 Urdu (اردو)</option>
+                                                <option value="ar">🇸🇦 Arabic (العربية)</option>
+                                                <option value="hi">🇮🇳 Hindi (हिंदी)</option>
+                                                <option value="bn">🇧🇩 Bengali (বাংলা)</option>
+                                                <option value="zh">🇨🇳 Chinese (中文)</option>
+                                                <option value="ja">🇯🇵 Japanese (日本語)</option>
+                                                <option value="ko">🇰🇷 Korean (한국어)</option>
+                                                <option value="th">🇹🇭 Thai (ไทย)</option>
+                                                <option value="vi">🇻🇳 Vietnamese (Tiếng Việt)</option>
+                                                <option value="id">🇮🇩 Indonesian (Bahasa Indonesia)</option>
+                                                <option value="ms">🇲🇾 Malay (Bahasa Melayu)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="European Languages">
+                                                <option value="es">🇪🇸 Spanish (Español)</option>
+                                                <option value="fr">🇫🇷 French (Français)</option>
+                                                <option value="de">🇩🇪 German (Deutsch)</option>
+                                                <option value="it">🇮🇹 Italian (Italiano)</option>
+                                                <option value="pt">🇵🇹 Portuguese (Português)</option>
+                                                <option value="ru">🇷🇺 Russian (Русский)</option>
+                                                <option value="nl">🇳🇱 Dutch (Nederlands)</option>
+                                                <option value="pl">🇵🇱 Polish (Polski)</option>
+                                                <option value="tr">🇹🇷 Turkish (Türkçe)</option>
+                                                <option value="sv">🇸🇪 Swedish (Svenska)</option>
+                                                <option value="no">🇳🇴 Norwegian (Norsk)</option>
+                                                <option value="da">🇩🇰 Danish (Dansk)</option>
+                                                <option value="fi">🇫🇮 Finnish (Suomi)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Middle Eastern">
+                                                <option value="fa">🇮🇷 Persian (فارسی)</option>
+                                                <option value="he">🇮🇱 Hebrew (עברית)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="African">
+                                                <option value="sw">🇰🇪 Swahili (Kiswahili)</option>
+                                                <option value="af">🇿🇦 Afrikaans</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="bi bi-translate pe-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label class="form-label">Your Message*</label>
+                            <textarea class="form-control-custom" name="message" placeholder="Tell us about your requirements..." required></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="text-end mt-2">
+                            <button type="submit" class="btn-submit btn btn-list-property ms-auto">
+                                Submit Now
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-xxl px-3">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="assets/images/footer_logo2.png" alt="PropAFar" style="height: 72px; filter: brightness(0) invert(1);" class="mb-3">
+                    <p style="color: rgba(255, 255, 255, 0.7);">Your trusted partner in finding the perfect property across Pakistan.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Agents</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Buy Property</a></li>
+                        <li><a href="#">Rent Property</a></li>
+                        <li><a href="#">List Property</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-12">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-facebook"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-twitter"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-instagram"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PropAFar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button (Fixed Bottom Right) -->
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-sun-fill theme-icon-light"></i>
+        <i class="bi bi-moon-fill theme-icon-dark"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places,geometry&language={{ app()->getLocale() }} "  async defer></script>
+    <script>
+        // Search tabs functionality
+        document.querySelectorAll('.search-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+      // Radio button change event
+      document.addEventListener('DOMContentLoaded', function() {
+          const radioButtons = document.querySelectorAll('input[name="propertyType"]');
+          
+          radioButtons.forEach(radio => {
+              radio.addEventListener('change', function() {
+                  const propertyType = this.value;
+                  console.log('Selected property type:', propertyType);
+                  
+                  // You can add additional functionality here
+                  // For example, update form fields based on selection
+              });
+          });
+      });
+    </script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.mediaSwiper', {
+            // Show 3 slides at a time
+            slidesPerView: 3,
+            spaceBetween: 30,
+            
+            // Enable loop
+            loop: true,
+            
+            // Auto height
+            autoHeight: false,
+            
+            // Autoplay
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            // Pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            
+            // Responsive breakpoints
+            breakpoints: {
+                // Mobile
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // Tablet
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+                // Desktop
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+    <script>
+        const PI = Math.PI || 3.141592653589793;
+        const propertyData = [{"id":7,"latitude":"32.1718931","longitude":"74.2741924","coverImage":"\/proImages\/7\/img_67a34cdd77631.jpeg","slug":"ab-dolorem-mollitia-","show_price":"71.5K PKR","property_link":"https:\/\/dev.propafar.com\/property\/ab-dolorem-mollitia-"},{"id":11,"latitude":"27.5000000","longitude":"90.5000000","coverImage":"\/img\/proimage.jpeg","slug":"dolore-perferendis-f-11","show_price":"0","property_link":"https:\/\/dev.propafar.com\/property\/dolore-perferendis-f-11"},{"id":14,"latitude":"32.0950212","longitude":"74.8678115","coverImage":"\/img\/proimage.jpeg","slug":"commodo-aut-esse-nat-14","show_price":"73.7K PKR","property_link":"https:\/\/dev.propafar.com\/property\/commodo-aut-esse-nat-14"},{"id":37,"latitude":"27.5000000","longitude":"90.5000000","coverImage":"\/img\/proimage.jpeg","slug":"new-37","show_price":"0","property_link":"https:\/\/dev.propafar.com\/property\/new-37"},{"id":71,"latitude":"32.0950212","longitude":"74.8678115","coverImage":"\/proImages\/71\/property-71.png","slug":"property-71","show_price":"9.9K PKR","property_link":"https:\/\/dev.propafar.com\/property\/property-71"},{"id":79,"latitude":"30.1789951","longitude":"71.5115264","coverImage":"\/proImages\/79\/img_693283883f732.png","slug":"property-79","show_price":"113.0K PKR","property_link":"https:\/\/dev.propafar.com\/property\/property-79"}];
+
+        const DISTANCE_UNITS = []; //`< $unitsJson ?? '[]' >`
+
+        let availableUnits = [];
+
+        class SearchMap {
+            constructor(config) {
+                // config must include:
+                // { mapId, searchInputId, radiusSliderId, unitSelectId, radiusValId,
+                //   tempLatId, tempLngId, tempTitleId, addPinBtnId, pinListId, filteredListId,
+                //   center: {lat,lng}, zoom }
+                Object.assign(this, config);
+
+                // instance state
+                this.map = null;
+                this.geocoder = null;
+                this.autocomplete = null;
+                this.infoWindow = null;
+                this.searchAreas = []; // {id, marker, circle, title}
+                this.tempSearchMarker = null;
+                this.propertyMarkers = []; // per-map property markers
+                this.allCombinedUnits = []; // local combined units
+                this.sqmConversionValue = 1;
+
+                this.init();
+                setTimeout(() => {
+                    if (typeof config.onReady === "function") {
+                        config.onReady(this);
+                    }
+                }, 50)
+            }
+
+            init() {
+                this.geocoder = new google.maps.Geocoder();
+
+                this.map = new google.maps.Map(document.getElementById(this.mapId), {
+                    center: { lat: parseFloat(this.center.lat), lng: parseFloat(this.center.lng) },
+                    zoom: this.zoom || 5
+                });
+
+                // info window per map
+                this.infoWindow = new google.maps.InfoWindow();
+
+                // setup units
+                this.setupUnits();
+
+                // setup autocomplete & UI bindings
+                this.initAutocomplete();
+                this.bindUI();
+
+                // map click to add pin
+                this.map.addListener('click', (e) => {
+                    const radiusMeters = this.getCurrentRadiusInMeters();
+                    this.addPin(e.latLng, `Manual Pin ${this.searchAreas.length + 1}`, radiusMeters);
+                });
+
+                // display properties onto this map
+                this.displayProperties();
+
+                // initial update of radius UI
+                // this.updateRadiusDisplay();
+            }
+
+            setupUnits() {
+                // base distance units from global DISTANCE_UNITS
+                this.allCombinedUnits = Array.isArray(window.DISTANCE_UNITS) ? [...window.DISTANCE_UNITS] : [
+                    { name: 'm', display: 'Meters', meterFactor: 1 },
+                    { name: 'km', display: 'Kilometers', meterFactor: 1000 },
+                    { name: 'mi', display: 'Miles', meterFactor: 1609.34 },
+                    { name: 'ft', display: 'Feet', meterFactor: 0.3048 },
+                    { name: 'yd', display: 'Yards', meterFactor: 0.9144 },
+                ];
+
+                // add DB area units when available (uses global availableUnits)
+                if (Array.isArray(window.availableUnits) && window.availableUnits.length > 0) {
+                    window.availableUnits.forEach(unit => {
+                        this.allCombinedUnits.push({
+                            name: unit.name,
+                            display: unit.name,
+                            meterFactor: parseFloat(unit.conversion_value),
+                            baseType: 'area'
+                        });
+                    });
+
+                    const sqmUnit = window.availableUnits.find(u => u.name?.toLowerCase() === 'sqm');
+                    this.sqmConversionValue = sqmUnit ? parseFloat(sqmUnit.conversion_value) : 1;
+                } else {
+                    this.sqmConversionValue = 1;
+                }
+
+                // populate unit dropdown in UI
+                const unitSelect = document.getElementById(this.unitSelectId);
+                if (unitSelect) {
+                    unitSelect.innerHTML = '';
+                    this.allCombinedUnits.forEach(u => {
+                        const opt = document.createElement('option');
+                        opt.value = u.name;
+                        opt.textContent = u.display;
+                        unitSelect.appendChild(opt);
+                    });
+                    unitSelect.value = 'm';
+                    // unitSelect.addEventListener('change', () => this.updateRadiusDisplay());
+                }
+            }
+
+            bindUI() {
+                // radius slider
+                /*const slider = document.getElementById(this.radiusSliderId);
+                if (slider) {
+                    slider.addEventListener('input', () => this.updateRadiusDisplay());
+                }*/
+
+                // add pin button
+                const addBtn = document.getElementById(this.addPinBtnId);
+                if (addBtn) {
+                    addBtn.addEventListener('click', () => this.addPinFromSearch());
+                }
+            }
+
+            initAutocomplete() {
+                const input = document.getElementById(this.searchInputId);
+                if (!input) return;
+
+                this.autocomplete = new google.maps.places.Autocomplete(input);
+                this.autocomplete.addListener('place_changed', () => this.onPlaceSelected());
+            }
+
+            onPlaceSelected() {
+                const place = this.autocomplete.getPlace();
+                const addBtn = document.getElementById(this.addPinBtnId);
+
+                if (!place || !place.geometry) {
+                    if (addBtn) addBtn.disabled = true;
+                    alert("Please select an address from suggestions.");
+                    return;
+                }
+
+                const location = place.geometry.location;
+                const title = place.formatted_address || place.name || '';
+
+                // center map
+                this.map.setCenter(location);
+
+                // set temp inputs if exist
+                const latEl = document.getElementById(this.tempLatId);
+                const lngEl = document.getElementById(this.tempLngId);
+                const titleEl = document.getElementById(this.tempTitleId);
+
+                if (latEl) latEl.value = location.lat();
+                if (lngEl) lngEl.value = location.lng();
+                if (titleEl) titleEl.value = title;
+
+                if (addBtn) addBtn.disabled = false;
+
+                // remove previous temporary marker
+                if (this.tempSearchMarker) this.tempSearchMarker.setMap(null);
+
+                // create a temporary marker on this map
+                this.tempSearchMarker = new google.maps.Marker({
+                    position: location,
+                    map: this.map,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.9,
+                        strokeColor: '#fff',
+                        strokeWeight: 1,
+                        scale: 8
+                    }
+                });
+            }
+
+            addPinFromSearch() {
+                const latEl = document.getElementById(this.tempLatId);
+                const lngEl = document.getElementById(this.tempLngId);
+                const titleEl = document.getElementById(this.tempTitleId);
+                if (!latEl || !lngEl) return;
+
+                const lat = latEl.value;
+                const lng = lngEl.value;
+                let title = titleEl ? titleEl.value : '';
+
+                if (!lat || !lng) {
+                    alert("Select a location first.");
+                    return;
+                }
+
+                title = this.truncate(title, 50);
+                const radiusMeters = this.getCurrentRadiusInMeters();
+
+                this.addPin(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)), title, radiusMeters);
+
+                // clear temp UI
+                const searchInput = document.getElementById(this.searchInputId);
+                if (searchInput) searchInput.value = '';
+                if (latEl) latEl.value = '';
+                if (lngEl) lngEl.value = '';
+                if (titleEl) titleEl.value = '';
+                const addBtn = document.getElementById(this.addPinBtnId);
+                if (addBtn) addBtn.disabled = true;
+
+                if (this.tempSearchMarker) {
+                    this.tempSearchMarker.setMap(null);
+                    this.tempSearchMarker = null;
+                }
+            }
+            addPinonLoad(areas) {
+
+                if (!Array.isArray(areas) || areas.length === 0) {
+                    console.warn("Invalid or empty areas array");
+                    return;
+                }
+
+                areas.forEach(area => {
+                    if (!area.lat || !area.lng) return;
+
+                    const position = new google.maps.LatLng(
+                        parseFloat(area.lat),
+                        parseFloat(area.lng)
+                    );
+
+                    const radiusValue = area.radius ? parseFloat(area.radius) : this.getCurrentRadiusInMeters();
+
+                    const title = this.truncate(area.title ?? "Pin", 50);
+
+                    this.addPin(position, title, radiusValue);
+                });
+
+                // Center map on first area
+                const first = areas[0];
+                this.map.setCenter(
+                    new google.maps.LatLng(parseFloat(first.lat), parseFloat(first.lng))
+                );
+            }
+
+
+            addPin(latLng, title, radiusMeters) {
+                const pinId = Date.now() + Math.floor(Math.random() * 1000);
+
+                const marker = new google.maps.Marker({
+                    position: latLng,
+                    map: this.map,
+                    title: title,
+                    draggable: true,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: '#0d6efd',
+                        fillOpacity: 0.9,
+                        strokeColor: '#fff',
+                        strokeWeight: 1,
+                        scale: 8
+                    }
+                });
+
+                const circle = new google.maps.Circle({
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    map: this.map,
+                    center: latLng,
+                    radius: radiusMeters,
+                    editable: true
+                });
+
+                // sync marker <-> circle
+                marker.addListener('drag', () => {
+                    circle.setCenter(marker.getPosition());
+                    // this.checkPropertiesInRadius();
+                    this.updateHiddenInput();
+                });
+                circle.addListener('center_changed', () => {
+                    marker.setPosition(circle.getCenter());
+                    // this.checkPropertiesInRadius();
+                    this.updateHiddenInput();
+                    this.updatePinTagRadius(pinId, circle.getRadius());
+                });
+                circle.addListener('radius_changed', () => {
+                    // this.checkPropertiesInRadius();
+                    this.updateHiddenInput();
+                    this.updatePinTagRadius(pinId, circle.getRadius());
+                });
+
+                this.searchAreas.push({ id: pinId, marker, circle, title });
+                this.addPinTagToUI(pinId, title, radiusMeters);
+                this.updateHiddenInput();
+                // this.checkPropertiesInRadius();
+            }
+
+            addPinTagToUI(pinId, title, radiusMeters) {
+                const pinList = document.getElementById(this.pinListId);
+                if (!pinList) return;
+
+                const tag = document.createElement('span');
+                tag.className = 'badge bg-secondary d-flex align-items-center me-1 mb-1';
+                tag.id = `tag-${this.mapId}-${pinId}`;
+                tag.innerHTML = `
+                    ${this.escapeHtml(title)} (<span id="tag-radius-${this.mapId}-${pinId}">${Math.round(radiusMeters)}</span> m)
+                    <button type="button" class="btn-close btn-close-white ms-2" aria-label="Remove" data-pin="${pinId}"></button>
+                `;
+
+                // handle click on close button
+                tag.querySelector('button.btn-close')?.addEventListener('click', () => {
+                    this.removePin(pinId);
+                });
+
+                pinList.appendChild(tag);
+            }
+
+            updatePinTagRadius(pinId, radiusMeters) {
+                $('#'+this.radiusValId).html(Math.round(radiusMeters));
+                const el = document.getElementById(`tag-radius-${this.mapId}-${pinId}`);
+                if (el) el.textContent = Math.round(radiusMeters);
+            }
+
+            removePin(pinId) {
+                const idx = this.searchAreas.findIndex(a => a.id === pinId);
+                if (idx >= 0) {
+                    this.searchAreas[idx].marker.setMap(null);
+                    this.searchAreas[idx].circle.setMap(null);
+                    this.searchAreas.splice(idx, 1);
+                    const node = document.getElementById(`tag-${this.mapId}-${pinId}`);
+                    if (node) node.remove();
+                    // this.checkPropertiesInRadius();
+                    this.updateHiddenInput();
+                }
+            }
+
+            displayProperties() {
+                // custom pin url (PHP asset helper)
+                const customPinUrl = './pin.png';
+
+                // create markers array for this map (do not modify global propertyData objects)
+                this.propertyMarkers = [];
+
+                propertyData.forEach(prop => {
+                    if (!prop.latitude || !prop.longitude) return;
+
+                    const marker = new google.maps.Marker({
+                        position: { lat: parseFloat(prop.latitude), lng: parseFloat(prop.longitude) },
+                        map: this.map,
+                        title: prop.show_price,
+                        icon: {
+                            url: customPinUrl,
+                            scaledSize: new google.maps.Size(80, 40)
+                        },
+                        label: {
+                            text: prop.show_price,
+                            fontSize: '12px',
+                            fontWeight: 'bold',
+                            color: '#fff'
+                        }
+                    });
+
+                    const infoContent = `
+                        <div class="info-window-content">
+                            <img src="${prop.coverImage}" alt="Property Image" style="width:100%;height:auto;">
+                            <p class="mb-1"><strong>Price: ${this.escapeHtml(prop.show_price)}</strong></p>
+                            <a href="${prop.property_link}" target="_blank" class="btn btn-sm btn-danger w-100">View Property</a>
+                        </div>
+                    `;
+
+                    marker.addListener('click', () => {
+                        this.infoWindow.setContent(infoContent);
+                        this.infoWindow.open(this.map, marker);
+                    });
+
+                    this.propertyMarkers.push({
+                        id: prop.id ?? null,
+                        marker,
+                        lat: parseFloat(prop.latitude),
+                        lng: parseFloat(prop.longitude)
+                    });
+                });
+            }
+
+            checkPropertiesInRadius() {
+                if (!Array.isArray(this.propertyMarkers)) return;
+
+                this.propertyMarkers.forEach(p => {
+                    if (!p.marker) return;
+
+                    let insideAny = false;
+                    const propLatLng = new google.maps.LatLng(p.lat, p.lng);
+
+                    this.searchAreas.forEach(area => {
+                        const distance = google.maps.geometry.spherical.computeDistanceBetween(
+                            area.circle.getCenter(),
+                            propLatLng
+                        );
+                        if (distance <= area.circle.getRadius()) insideAny = true;
+                    });
+
+                    p.marker.setOpacity(insideAny ? 1 : 0.3);
+                });
+
+                // optionally update filtered list UI if provided
+                const filteredEl = document.getElementById(this.filteredListId);
+                if (filteredEl) {
+                    const visible = this.propertyMarkers.filter(p => p.marker && p.marker.getOpacity() > 0.5);
+                    filteredEl.textContent = visible.length ? visible.map(v => v.id).join(', ') : 'No properties found.';
+                }
+            }
+            updateHiddenInput() {
+                const searchGeometry = this.searchAreas.map(area => ({
+                    lat: area.circle.getCenter().lat(),
+                    lng: area.circle.getCenter().lng(),
+                    radius: area.circle.getRadius()
+                }));
+
+                if (this.hiddenInputId) {
+                    const input = document.getElementById(this.hiddenInputId);
+                    if (input) input.value = JSON.stringify(searchGeometry);
+                }
+            }
+
+            // UI helpers for radius/unit
+            getCurrentRadiusInMeters() {
+                const slider = document.getElementById(this.radiusValId);
+                const unitSel = document.getElementById(this.unitSelectId);
+                const sliderValue = slider ? parseFloat(slider.textContent) : 1000;
+                const selectedUnit = unitSel ? unitSel.value : 'm';
+
+                // find in base distance units
+                const dist = (Array.isArray(this.allCombinedUnits) ? this.allCombinedUnits : []).find(u => u.name === selectedUnit);
+                if (dist) {
+                    return sliderValue * dist.meterFactor;
+                }
+
+                // fallback: treat as meters
+                return sliderValue;
+            }
+
+            /*updateRadiusDisplay() {
+                const slider = document.getElementById(this.radiusSliderId);
+                const radiusValSpan = document.getElementById(this.radiusValId);
+                if (!slider || !radiusValSpan) return;
+
+                const sliderValue = parseFloat(slider.value);
+                radiusValSpan.textContent = sliderValue;
+            }*/
+
+            collectAndSubmitData() {
+                const searchGeometry = this.searchAreas.map(area => ({
+                    lat: area.circle.getCenter().lat(),
+                    lng: area.circle.getCenter().lng(),
+                    radius: area.circle.getRadius()
+                }));
+
+                fetch('/test', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({ search_areas: searchGeometry })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    const out = document.getElementById(this.filteredListId);
+                    if (out) {
+                        out.textContent = data.length ? data.map(p => p.id).join(', ') : 'No properties found.';
+                    }
+                })
+                .catch(err => console.error(err));
+            }
+
+            // small helpers
+            truncate(text, length = 50) {
+                return (text || '').length <= length ? (text || '') : (text || '').substring(0, length) + '...';
+            }
+
+            escapeHtml(unsafe) {
+                if (!unsafe) return '';
+                return String(unsafe).replace(/[&<>"'`=\/]/g, function (s) {
+                    return ({
+                        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;',
+                        '`': '&#x60;', '=': '&#x3D;'
+                    })[s];
+                });
+            }
+        }
+
+        /* ------------------------------------------------------------------
+           MapManager / initialisation — create two instances map-1 and map-2
+        ------------------------------------------------------------------*/
+        window.mapInstances = window.mapInstances || {};
+
+        function initMap() {
+            // default center from PHP variables (same as your previous code)
+            const defaultCenter = { lat: "40.749933", lng:"-73.98633"  };
+
+            // Map 1 config
+            window.mapInstances['map1'] = new SearchMap({
+                mapId: 'map1',
+                searchInputId: 'city-search-1',
+                radiusSliderId: 'search-radius-1',
+                unitSelectId: 'radius-unit-1',
+                radiusValId: 'radius-val-1',
+                tempLatId: 'temp-lat-1',
+                tempLngId: 'temp-lng-1',
+                tempTitleId: 'temp-title-1',
+                addPinBtnId: 'add-pin-btn-1',
+                pinListId: 'pin-list-1',
+                hiddenInputId: 'search-areas-1',
+                center: defaultCenter,
+                zoom: 18,
+                onReady: function (mapInstance) {
+                    window.__map1_ready = true;
+                }
+            });
+        }
+
+        // expose a removePin helper, if needed externally
+        window.mapInstances.removePin = function(mapKey, pinId) {
+            const instance = window.mapInstances[mapKey];
+            if (instance) instance.removePin(pinId);
+        };
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+        // Elements
+        const timezoneCheckbox = document.getElementById('if-not-timezone');
+        const languageCheckbox = document.getElementById('if-not-language');
+        const timezoneSelectWrapper = document.getElementById('timezoneSelectWrapper');
+        const languageSelectWrapper = document.getElementById('languageSelectWrapper');
+        const timezoneSelect = document.getElementById('timezoneSelect');
+        const languageSelect = document.getElementById('languageSelect');
+        const detectedTimezoneSpan = document.getElementById('detectedTimezone');
+        const currentTimeSpan = document.getElementById('currentTime');
+        const detectedLanguageSpan = document.getElementById('detectedLanguage');
+        const detectedTimezoneValue = document.getElementById('detectedTimezoneValue');
+        const detectedLanguageValue = document.getElementById('detectedLanguageValue');
+        
+        let userTimezone = 'UTC';
+        
+        // DETECT TIMEZONE
+        function detectUserTimezone() {
+            try {
+                userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                
+                if (detectedTimezoneSpan) {
+                    detectedTimezoneSpan.textContent = userTimezone;
+                }
+                
+                if (detectedTimezoneValue) {
+                    detectedTimezoneValue.value = userTimezone;
+                }
+                
+                if (timezoneSelect) {
+                    const option = timezoneSelect.querySelector(`option[value="${userTimezone}"]`);
+                    if (option) {
+                        timezoneSelect.value = userTimezone;
+                    }
+                }
+                
+                return userTimezone;
+                
+            } catch (error) {
+                userTimezone = 'Asia/Karachi';
+                if (detectedTimezoneSpan) {
+                    detectedTimezoneSpan.textContent = userTimezone;
+                }
+                if (detectedTimezoneValue) {
+                    detectedTimezoneValue.value = userTimezone;
+                }
+                return userTimezone;
+            }
+        }
+        
+        // UPDATE CURRENT TIME (Real-time clock)
+        function updateCurrentTime() {
+            try {
+                const now = new Date();
+                
+                const timeOptions = {
+                    timeZone: userTimezone,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                };
+                
+                const dateOptions = {
+                    timeZone: userTimezone,
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                };
+                
+                const timeString = new Intl.DateTimeFormat('en-US', timeOptions).format(now);
+                const dateString = new Intl.DateTimeFormat('en-US', dateOptions).format(now);
+                
+                if (currentTimeSpan) {
+                    currentTimeSpan.textContent = `${dateString}, ${timeString}`;
+                }
+                
+            } catch (error) {
+                console.error('Error updating time:', error);
+                if (currentTimeSpan) {
+                    currentTimeSpan.textContent = new Date().toLocaleTimeString();
+                }
+            }
+        }
+        
+        // DETECT LANGUAGE
+        function detectUserLanguage() {
+            try {
+                const userLanguage = navigator.language || navigator.userLanguage;
+                const langCode = userLanguage.split('-')[0];
+                
+                const languageNames = {
+                    'en': 'English', 'ur': 'Urdu', 'ar': 'Arabic', 'es': 'Spanish',
+                    'fr': 'French', 'de': 'German', 'it': 'Italian', 'pt': 'Portuguese',
+                    'ru': 'Russian', 'zh': 'Chinese', 'ja': 'Japanese', 'ko': 'Korean',
+                    'hi': 'Hindi', 'bn': 'Bengali', 'tr': 'Turkish', 'th': 'Thai',
+                    'vi': 'Vietnamese', 'id': 'Indonesian', 'ms': 'Malay', 'nl': 'Dutch',
+                    'pl': 'Polish', 'sv': 'Swedish', 'no': 'Norwegian', 'da': 'Danish',
+                    'fi': 'Finnish', 'fa': 'Persian', 'he': 'Hebrew', 'sw': 'Swahili',
+                    'af': 'Afrikaans'
+                };
+                
+                const langName = languageNames[langCode] || 'English';
+                
+                if (detectedLanguageSpan) {
+                    detectedLanguageSpan.textContent = langName;
+                }
+                
+                if (detectedLanguageValue) {
+                    detectedLanguageValue.value = langCode;
+                }
+                
+                if (languageSelect) {
+                    const option = languageSelect.querySelector(`option[value="${langCode}"]`);
+                    if (option) {
+                        languageSelect.value = langCode;
+                    }
+                }
+                
+                return langCode;
+                
+            } catch (error) {
+                if (detectedLanguageSpan) {
+                    detectedLanguageSpan.textContent = 'English';
+                }
+                if (detectedLanguageValue) {
+                    detectedLanguageValue.value = 'en';
+                }
+                return 'en';
+            }
+        }
+        
+            // Initialize
+            detectUserTimezone();
+            detectUserLanguage();
+            updateCurrentTime();
+            
+            // Update time every second
+            setInterval(updateCurrentTime, 1000);
+            
+            // TOGGLE TIMEZONE SELECTOR
+            if (timezoneCheckbox && timezoneSelectWrapper && timezoneSelect) {
+                timezoneCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        timezoneSelectWrapper.classList.add('show');
+                        timezoneSelect.setAttribute('required', 'required');
+                    } else {
+                        timezoneSelectWrapper.classList.remove('show');
+                        timezoneSelect.removeAttribute('required');
+                    }
+                });
+            }
+            
+            // TOGGLE LANGUAGE SELECTOR
+            if (languageCheckbox && languageSelectWrapper && languageSelect) {
+                languageCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        languageSelectWrapper.classList.add('show');
+                        languageSelect.setAttribute('required', 'required');
+                    } else {
+                        languageSelectWrapper.classList.remove('show');
+                        languageSelect.removeAttribute('required');
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        // Initialize Radius Swiper
+        const radiusSwiper = new Swiper('.radiusSwiper', {
+            slidesPerView: 3,
+            centeredSlides: true,
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.radius-next',
+                prevEl: '.radius-prev',
+            },
+            on: {
+                slideChange: function() {
+                    const activeSlide = this.slides[this.activeIndex];
+                    const value = activeSlide.textContent;
+                    document.getElementById('radius-val-1').value = value;
+                    console.log('Selected radius:', value);
+                }
+            }
+        });
+    </script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+          // This is an example script, please modify as needed
+          const rangeInput = document.getElementById('range4');
+          const rangeOutput = document.getElementById('rangeValue');
+
+          // Set initial value
+          rangeOutput.textContent = rangeInput.value;
+
+          rangeInput.addEventListener('input', function() {
+            rangeOutput.textContent = this.value;
+          });
+    </script>
+    <script>
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            // Apply saved theme on page load
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                // Save preference to localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+    <script>
+        // Initialize Hero Background Swiper
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroBackgroundSwiper = new Swiper('.heroBackgroundSwiper', {
+                // Loop
+                loop: true,
+                
+                // Speed
+                speed: 1500,
+                
+                // Effect
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                
+                // Autoplay
+                // autoplay: {
+                //     delay: 5000,
+                //     disableOnInteraction: false,
+                // },
+                
+                // Pagination
+                pagination: {
+                    el: '.hero-bg-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
+</body>
+</html>

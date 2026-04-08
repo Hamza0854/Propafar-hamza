@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropAfar – Alert & Notification System</title>
+
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --red:          #dc3545;
+            --red-dark:     #b91c2c;
+            --red-light:    #fff5f5;
+            --green:        #16a34a;
+            --green-light:  #f0fdf4;
+            --orange:       #d97706;
+            --orange-light: #fffbeb;
+            --blue:         #2563eb;
+            --blue-light:   #eff6ff;
+            --dark:         #1a1a2e;
+            --grey:         #6c757d;
+            --border:       #e5e7eb;
+            --white:        #ffffff;
+            --font:         'Jost', sans-serif;
+            --shadow-lg:    0 20px 60px rgba(0,0,0,0.18);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { font-family: var(--font); background: #f7f8fa; color: var(--dark); }
+
+        /* ── Demo Page ── */
+        .demo-page   { min-height: 100vh; padding: 48px 24px; }
+        .demo-header { text-align: center; margin-bottom: 52px; }
+        .demo-header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; }
+        .demo-header h1 span { color: var(--red); }
+        .demo-header p  { font-size: 15px; color: var(--grey); margin-top: 6px; }
+        .demo-section { max-width: 820px; margin: 0 auto 40px; }
+        .demo-section-title {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--grey);
+            margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+        }
+        .btn-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .loading-demo-note { font-size: 11px; color: var(--grey); margin-top: 10px; }
+
+        /* ── Trigger Buttons ── */
+        .trigger-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border: none; border-radius: 8px;
+            font-family: var(--font); font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .trigger-btn:active { transform: scale(0.97); }
+        .trigger-btn.success { background: var(--green);  color: #fff; }
+        .trigger-btn.error   { background: var(--red);    color: #fff; }
+        .trigger-btn.warning { background: var(--orange); color: #fff; }
+        .trigger-btn.info    { background: var(--blue);   color: #fff; }
+        .trigger-btn.muted   { background: var(--grey);   color: #fff; }
+        .trigger-btn.outline-success {
+            background: transparent; color: var(--green);
+            border: 1.5px solid var(--green);
+        }
+        .trigger-btn.outline-success:hover { background: var(--green-light); }
+
+        /* ══════════════════════════════════════════
+           TOAST STAGE — fixed, full-screen, centered
+        ══════════════════════════════════════════ */
+        .pa-toast-stage {
+            position: fixed; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            /* overlay — hidden by default */
+            background: rgba(26,26,46,0);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            transition: background 0.25s ease, backdrop-filter 0.25s ease;
+        }
+        .pa-toast-stage.has-toast {
+            pointer-events: all;
+            background: rgba(26,26,46,0.45);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        /* ── Toast Card ── */
+        .pa-toast {
+            pointer-events: all;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            width: 380px;
+            max-width: calc(100vw - 32px);
+            overflow: hidden;
+            position: relative;
+            animation: toastIn 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        .pa-toast.toast-exit {
+            animation: toastOut 0.28s cubic-bezier(0.4, 0, 1, 1) both;
+        }
+        @keyframes toastIn {
+            from { opacity: 0; transform: scale(0.82) translateY(12px); }
+            to   { opacity: 1; transform: scale(1)    translateY(0); }
+        }
+        @keyframes toastOut {
+            from { opacity: 1; transform: scale(1)    translateY(0); }
+            to   { opacity: 0; transform: scale(0.88) translateY(-8px); }
+        }
+
+        .pa-toast-strip { height: 4px; width: 100%; }
+        .pa-toast.type-success .pa-toast-strip { background: var(--green);  }
+        .pa-toast.type-error   .pa-toast-strip { background: var(--red);    }
+        .pa-toast.type-warning .pa-toast-strip { background: var(--orange); }
+        .pa-toast.type-info    .pa-toast-strip { background: var(--blue);   }
+
+        .pa-toast-body {
+            display: flex; align-items: flex-start; gap: 14px;
+            padding: 20px 20px 18px;
+        }
+        .pa-toast-icon {
+            width: 42px; height: 42px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; flex-shrink: 0;
+        }
+        .pa-toast.type-success .pa-toast-icon { background: var(--green-light);  color: var(--green);  }
+        .pa-toast.type-error   .pa-toast-icon { background: var(--red-light);    color: var(--red);    }
+        .pa-toast.type-warning .pa-toast-icon { background: var(--orange-light); color: var(--orange); }
+        .pa-toast.type-info    .pa-toast-icon { background: var(--blue-light);   color: var(--blue);   }
+
+        .pa-toast-text  { flex: 1; min-width: 0; }
+        .pa-toast-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+        .pa-toast-msg   { font-size: 13px; color: var(--grey); line-height: 1.5; }
+
+        .pa-toast-close {
+            position: absolute; top: 12px; right: 12px;
+            width: 26px; height: 26px; border: none;
+            background: #f3f4f6; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--grey); cursor: pointer; transition: all 0.15s;
+        }
+        .pa-toast-close:hover { background: #e5e7eb; color: var(--dark); }
+
+        .pa-toast-progress { height: 3px; background: #e5e7eb; position: relative; overflow: hidden; }
+        .pa-toast-progress-bar {
+            position: absolute; left: 0; top: 0;
+            height: 100%; width: 100%; transform-origin: left;
+        }
+        .pa-toast.type-success .pa-toast-progress-bar { background: var(--green);  }
+        .pa-toast.type-error   .pa-toast-progress-bar { background: var(--red);    }
+        .pa-toast.type-warning .pa-toast-progress-bar { background: var(--orange); }
+        .pa-toast.type-info    .pa-toast-progress-bar { background: var(--blue);   }
+        .pa-toast-progress-bar.running { animation: progressShrink linear both; }
+        @keyframes progressShrink {
+            from { transform: scaleX(1); }
+            to   { transform: scaleX(0); }
+        }
+
+        /* ══════════════════════════════════════════
+           CONFIRM DIALOG
+        ══════════════════════════════════════════ */
+        .pa-confirm-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(26,26,46,0.55);
+            backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+            z-index: 9998;
+            display: flex; align-items: center; justify-content: center;
+            animation: backdropIn 0.22s ease both;
+        }
+        .pa-confirm-backdrop.exiting { animation: backdropOut 0.22s ease both; }
+        @keyframes backdropIn  { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes backdropOut { from { opacity: 1; } to { opacity: 0; } }
+
+        .pa-confirm-card {
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+            width: 400px;
+            max-width: calc(100vw - 32px);
+            overflow: hidden;
+            animation: toastIn 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        .pa-confirm-header {
+            padding: 28px 28px 0;
+            display: flex; flex-direction: column;
+            align-items: center; text-align: center; gap: 14px;
+        }
+        .pa-confirm-icon-ring {
+            width: 68px; height: 68px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 28px;
+        }
+        .pa-confirm-card.type-confirm .pa-confirm-icon-ring { background: #fef2f2;            color: var(--red);    }
+        .pa-confirm-card.type-warning .pa-confirm-icon-ring { background: var(--orange-light); color: var(--orange); }
+        .pa-confirm-card.type-info    .pa-confirm-icon-ring { background: var(--blue-light);   color: var(--blue);   }
+
+        .pa-confirm-title { font-size: 18px; font-weight: 700; color: var(--dark); }
+        .pa-confirm-msg   { font-size: 14px; color: var(--grey); line-height: 1.6; padding: 0 4px; }
+        .pa-confirm-body  { padding: 16px 28px 26px; }
+        .pa-confirm-actions { display: flex; gap: 10px; margin-top: 20px; }
+
+        .pa-btn {
+            flex: 1; padding: 11px 16px; border-radius: 9px;
+            font-family: var(--font); font-size: 14px; font-weight: 600;
+            border: none; cursor: pointer; transition: all 0.2s;
+        }
+        .pa-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        .pa-btn-cancel  { background: #f3f4f6; color: var(--grey); }
+        .pa-btn-cancel:hover { background: #e5e7eb; color: var(--dark); }
+
+        .pa-btn-danger  { background: var(--red); color: #fff; }
+        .pa-btn-danger:not(:disabled):hover  { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(220,53,69,0.3); }
+
+        .pa-btn-confirm { background: var(--green); color: #fff; }
+        .pa-btn-confirm:not(:disabled):hover { background: #15803d; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(22,163,74,0.3); }
+
+        .pa-btn-info    { background: var(--blue); color: #fff; }
+        .pa-btn-info:not(:disabled):hover    { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+
+        .pa-confirm-input-wrap { margin-top: 14px; }
+        .pa-confirm-input-wrap label {
+            font-size: 12px; font-weight: 600; color: var(--grey);
+            display: block; margin-bottom: 6px;
+        }
+        .pa-confirm-input-wrap input {
+            width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+            padding: 9px 12px; font-family: var(--font); font-size: 14px;
+            color: var(--dark); outline: none; transition: border-color 0.2s;
+        }
+        .pa-confirm-input-wrap input:focus { border-color: var(--red); }
+
+        /* ══════════════════════════════════════════
+           LOADING OVERLAY
+        ══════════════════════════════════════════ */
+        .pa-loading-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(26,26,46,0.4);
+            backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            z-index: 9998;
+            display: flex; align-items: center; justify-content: center;
+            animation: backdropIn 0.22s ease both;
+        }
+        .pa-loading-backdrop.exiting { animation: backdropOut 0.22s ease both; }
+
+        .pa-loading-icon {
+            width: 42px; height: 42px; border-radius: 12px;
+            background: #f3f4f6;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .pa-spinner {
+            width: 20px; height: 20px;
+            border: 2.5px solid #e5e7eb; border-top-color: var(--dark);
+            border-radius: 50%; animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Code Block ── */
+        .code-block {
+            background: #1a1a2e; border-radius: 10px; padding: 16px 20px; margin-top: 20px;
+            font-size: 12.5px; color: #a5b4fc; font-family: 'Courier New', monospace;
+            line-height: 1.8; overflow-x: auto;
+        }
+        .code-block .kw  { color: #f472b6; }
+        .code-block .fn  { color: #60a5fa; }
+        .code-block .str { color: #86efac; }
+        .code-block .cm  { color: #6b7280; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<!-- Toast Stage: always in DOM, centered via flexbox -->
+<div class="pa-toast-stage" id="paToastStage" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Demo Page -->
+<div class="demo-page">
+    <div class="demo-header">
+        <h1>PropAfar <span>Alert System</span></h1>
+        <p>Centrally displayed toast notifications &amp; confirmation dialogs — click to preview</p>
+    </div>
+
+    <!-- Toasts -->
+    <div class="demo-section">
+        <div class="demo-section-title">Toast Notifications — Auto Dismiss</div>
+        <div class="btn-grid">
+            <button class="trigger-btn success" id="btnSuccess"><i class="bi bi-check-circle-fill"></i> Success</button>
+            <button class="trigger-btn error"   id="btnError">  <i class="bi bi-x-circle-fill"></i> Error</button>
+            <button class="trigger-btn warning" id="btnWarning"><i class="bi bi-exclamation-triangle-fill"></i> Warning</button>
+            <button class="trigger-btn info"    id="btnInfo">   <i class="bi bi-info-circle-fill"></i> Info</button>
+        </div>
+    </div>
+
+    <!-- Confirms -->
+    <div class="demo-section">
+        <div class="demo-section-title">Confirmation Dialogs</div>
+        <div class="btn-grid">
+            <button class="trigger-btn error"           id="btnDelete"><i class="bi bi-trash3-fill"></i> Delete Confirm</button>
+            <button class="trigger-btn warning"         id="btnPause"> <i class="bi bi-pause-circle-fill"></i> Warning Confirm</button>
+            <button class="trigger-btn info"            id="btnSend">  <i class="bi bi-send-fill"></i> Action Confirm</button>
+            <button class="trigger-btn outline-success" id="btnSave">  <i class="bi bi-floppy2-fill"></i> Save Confirm</button>
+        </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="demo-section">
+        <div class="demo-section-title">Loading State</div>
+        <div class="btn-grid">
+            <button class="trigger-btn muted" id="btnUpload">  <i class="bi bi-cloud-upload-fill"></i> Upload Loading</button>
+            <button class="trigger-btn muted" id="btnPayment"> <i class="bi bi-credit-card-fill"></i> Payment Loading</button>
+            <button class="trigger-btn muted" id="btnSaveLoad"><i class="bi bi-floppy2-fill"></i> Save Loading</button>
+        </div>
+        <!-- <p class="loading-demo-note">
+            Loading states auto-dismiss after the set duration (demo only).
+            In production call the returned <code>dismiss()</code> function after your async operation completes.
+        </p> -->
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ════════════════════════════════════════════════════════
+   PROPAFAR ALERT SYSTEM
+   paToast(type, title, message, durationMs)
+   paConfirm(options)
+   paLoading(message, autoDismissMs) → dismiss()
+════════════════════════════════════════════════════════ */
+(function () {
+
+    var STAGE    = document.getElementById('paToastStage');
+    var DURATION = 4000;
+
+    var ICONS = {
+        success: 'bi-check-circle-fill',
+        error:   'bi-x-circle-fill',
+        warning: 'bi-exclamation-triangle-fill',
+        info:    'bi-info-circle-fill'
+    };
+
+    function dismissToast(toast) {
+        if (!toast.parentNode) return;
+        toast.classList.add('toast-exit');
+        toast.addEventListener('animationend', function () {
+            toast.remove();
+            /* remove overlay when no toasts remain */
+            if (!STAGE.querySelector('.pa-toast')) {
+                STAGE.classList.remove('has-toast');
+            }
+        }, { once: true });
+    }
+
+    function closeBackdrop(el) {
+        el.classList.add('exiting');
+        el.addEventListener('animationend', function () { el.remove(); }, { once: true });
+    }
+
+    /* ── paToast ── */
+    window.paToast = function (type, title, message, duration) {
+        var ms   = duration || DURATION;
+        var icon = ICONS[type] || ICONS.info;
+
+        var toast = document.createElement('div');
+        toast.className = 'pa-toast type-' + type;
+        toast.setAttribute('role', 'alert');
+        toast.innerHTML =
+            '<div class="pa-toast-strip"></div>' +
+            '<div class="pa-toast-body">' +
+                '<div class="pa-toast-icon"><i class="bi ' + icon + '"></i></div>' +
+                '<div class="pa-toast-text">' +
+                    '<div class="pa-toast-title">' + title   + '</div>' +
+                    '<div class="pa-toast-msg">'   + message + '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="pa-toast-progress"><div class="pa-toast-progress-bar"></div></div>' +
+            '<button class="pa-toast-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>';
+
+        STAGE.appendChild(toast);
+        STAGE.classList.add('has-toast');
+
+        var bar = toast.querySelector('.pa-toast-progress-bar');
+        bar.offsetWidth;
+        bar.classList.add('running');
+        bar.style.animationDuration = ms + 'ms';
+
+        var timer = setTimeout(function () { dismissToast(toast); }, ms);
+
+        toast.querySelector('.pa-toast-close').addEventListener('click', function () {
+            clearTimeout(timer);
+            dismissToast(toast);
+        });
+    };
+
+    /* ── paConfirm ── */
+    window.paConfirm = function (opts) {
+        var type         = opts.type         || 'confirm';
+        var icon         = opts.icon         || 'bi-question-circle-fill';
+        var title        = opts.title        || 'Are you sure?';
+        var message      = opts.message      || '';
+        var confirmText  = opts.confirmText  || 'Confirm';
+        var confirmClass = opts.confirmClass || 'pa-btn-danger';
+        var cancelText   = opts.cancelText   || 'Cancel';
+        var requireInput = opts.requireInput || null;
+        var inputLabel   = opts.inputLabel   || 'Type to confirm';
+        var onConfirm    = opts.onConfirm    || null;
+
+        var backdrop = document.createElement('div');
+        backdrop.className = 'pa-confirm-backdrop';
+
+        var inputSection = '';
+        if (requireInput) {
+            inputSection =
+                '<div class="pa-confirm-input-wrap">' +
+                    '<label>' + inputLabel + '</label>' +
+                    '<input type="text" class="js-confirm-input" placeholder="' + requireInput + '" autocomplete="off">' +
+                '</div>';
+        }
+
+        var disabledAttr = requireInput ? ' disabled' : '';
+
+        var card = document.createElement('div');
+        card.className = 'pa-confirm-card type-' + type;
+        card.innerHTML =
+            '<div class="pa-confirm-header">' +
+                '<div class="pa-confirm-icon-ring"><i class="bi ' + icon + '"></i></div>' +
+                '<div class="pa-confirm-title">' + title   + '</div>' +
+                '<div class="pa-confirm-msg">'   + message + '</div>' +
+            '</div>' +
+            '<div class="pa-confirm-body">' +
+                inputSection +
+                '<div class="pa-confirm-actions">' +
+                    '<button class="pa-btn pa-btn-cancel js-cancel">' + cancelText  + '</button>' +
+                    '<button class="pa-btn ' + confirmClass + ' js-ok"' + disabledAttr + '>' + confirmText + '</button>' +
+                '</div>' +
+            '</div>';
+
+        backdrop.appendChild(card);
+        document.body.appendChild(backdrop);
+
+        function close() { closeBackdrop(backdrop); }
+
+        card.querySelector('.js-cancel').addEventListener('click', close);
+
+        backdrop.addEventListener('click', function (e) {
+            if (e.target === backdrop) close();
+        });
+
+        if (requireInput) {
+            var input = card.querySelector('.js-confirm-input');
+            var okBtn = card.querySelector('.js-ok');
+            input.addEventListener('input', function () {
+                okBtn.disabled = (this.value.trim() !== requireInput);
+            });
+        }
+
+        card.querySelector('.js-ok').addEventListener('click', function () {
+            close();
+            if (typeof onConfirm === 'function') setTimeout(onConfirm, 200);
+        });
+
+        function onKey(e) {
+            if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onKey); }
+        }
+        document.addEventListener('keydown', onKey);
+    };
+
+    /* ── paLoading ── */
+    window.paLoading = function (message, autoDismissMs) {
+        var backdrop = document.createElement('div');
+        backdrop.className = 'pa-loading-backdrop';
+
+        var toast = document.createElement('div');
+        toast.className = 'pa-toast';
+        toast.style.pointerEvents = 'none';
+        toast.innerHTML =
+            '<div class="pa-toast-strip" style="background:var(--dark);"></div>' +
+            '<div class="pa-toast-body">' +
+                '<div class="pa-loading-icon"><div class="pa-spinner"></div></div>' +
+                '<div class="pa-toast-text">' +
+                    '<div class="pa-toast-title">' + (message || 'Please wait...') + '</div>' +
+                    '<div class="pa-toast-msg">This won\'t take long.</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="pa-toast-progress"><div class="pa-toast-progress-bar" style="background:var(--dark);"></div></div>';
+
+        backdrop.appendChild(toast);
+        document.body.appendChild(backdrop);
+
+        if (autoDismissMs) {
+            var bar = toast.querySelector('.pa-toast-progress-bar');
+            bar.offsetWidth;
+            bar.classList.add('running');
+            bar.style.animationDuration = autoDismissMs + 'ms';
+        }
+
+        function dismiss() { closeBackdrop(backdrop); }
+        if (autoDismissMs) setTimeout(dismiss, autoDismissMs);
+        return dismiss;
+    };
+
+}());
+
+/* ════════════════════════════════════════════════════════
+   BUTTON WIRING — all in JS, no inline onclick
+════════════════════════════════════════════════════════ */
+
+/* Toasts */
+document.getElementById('btnSuccess').addEventListener('click', function () {
+    paToast('success', 'Changes Saved!', 'Your settings have been updated successfully.');
+});
+document.getElementById('btnError').addEventListener('click', function () {
+    paToast('error', 'Something Went Wrong', 'Please try again or contact support if the issue persists.');
+});
+document.getElementById('btnWarning').addEventListener('click', function () {
+    paToast('warning', 'Session Expiring', 'You will be logged out in 5 minutes due to inactivity.');
+});
+document.getElementById('btnInfo').addEventListener('click', function () {
+    paToast('info', 'New Listing Available', 'A property matching your search alert has just been listed.');
+});
+
+/* Confirm: Delete with required input */
+document.getElementById('btnDelete').addEventListener('click', function () {
+    paConfirm({
+        type:         'confirm',
+        icon:         'bi-trash3-fill',
+        title:        'Delete Property Listing?',
+        message:      'This will permanently remove the listing and all associated data. This action cannot be undone.',
+        confirmText:  'Yes, Delete',
+        confirmClass: 'pa-btn-danger',
+        cancelText:   'Cancel',
+        requireInput: 'DELETE',
+        inputLabel:   'Type DELETE to confirm',
+        onConfirm: function () {
+            paToast('success', 'Listing Deleted', 'The property has been removed successfully.');
+        }
+    });
+});
+
+/* Confirm: Warning / Pause */
+document.getElementById('btnPause').addEventListener('click', function () {
+    paConfirm({
+        type:         'warning',
+        icon:         'bi-pause-circle-fill',
+        title:        'Pause This Campaign?',
+        message:      'Your banner campaign will stop displaying immediately. You can resume it at any time.',
+        confirmText:  'Yes, Pause',
+        confirmClass: 'pa-btn-danger',
+        cancelText:   'Keep Running',
+        onConfirm: function () {
+            paToast('warning', 'Campaign Paused', 'Your banner is no longer displaying.');
+        }
+    });
+});
+
+/* Confirm: Info / Send */
+document.getElementById('btnSend').addEventListener('click', function () {
+    paConfirm({
+        type:         'info',
+        icon:         'bi-send-fill',
+        title:        'Send Message?',
+        message:      'Your InMail message will be sent to the property owner. Standard messaging credits apply.',
+        confirmText:  'Send Message',
+        confirmClass: 'pa-btn-info',
+        cancelText:   'Cancel',
+        onConfirm: function () {
+            paToast('success', 'Message Sent', 'Your message has been delivered successfully.');
+        }
+    });
+});
+
+/* Confirm: Save */
+document.getElementById('btnSave').addEventListener('click', function () {
+    paConfirm({
+        type:         'info',
+        icon:         'bi-floppy2-fill',
+        title:        'Save Changes?',
+        message:      'Your privacy settings will be updated across all your active listings.',
+        confirmText:  'Save Changes',
+        confirmClass: 'pa-btn-confirm',
+        cancelText:   'Discard',
+        onConfirm: function () {
+            paToast('success', 'Settings Saved', 'All changes have been applied successfully.');
+        }
+    });
+});
+
+/* Loading */
+document.getElementById('btnUpload').addEventListener('click', function () {
+    paLoading('Uploading Banner...', 2800);
+});
+document.getElementById('btnPayment').addEventListener('click', function () {
+    paLoading('Processing Payment...', 3200);
+});
+document.getElementById('btnSaveLoad').addEventListener('click', function () {
+    paLoading('Saving Changes...', 1800);
+});
+</script>
+
+</body>
+</html>

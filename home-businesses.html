@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropAFar - Find Your Dream Property</title>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
+        <div class="container-xxl px-3">
+            <a class="navbar-brand" href="/">
+                <img src="assets/images/footer_logo2.png" alt="PropAFar">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="find-real-estate.html">Find real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offer-real-estate.html">Offer real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center justify-content-center gap-2 flex-wrap">
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon"> English
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon me-2"> English</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">German</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">Hungarian</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                      <div class="user-icon" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                          <i class="bi bi-person"></i>
+                      </div>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
+                          <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</a></li>
+                      </ul>
+                    </div>
+                    <!-- User Dropdown - LOGGED IN -->
+                    <div class="dropdown">
+                        <div class="user-avatar-trigger" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                            <img src="https://i.pravatar.cc/150?img=47" alt="User" class="user-img">
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown-header">
+                                <strong>Bianca Anderson</strong>
+                                <small class="d-block text-muted">bianca@example.com</small>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>My Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-house-door me-2"></i>My Properties</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-heart me-2"></i>Favorites</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#" class="btn btn-list-property">
+                        List a Property
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container-xxl position-relative px-3">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Hero Titles -->
+                    <div class="hero-content">
+                        <img src="assets/images/company-logo.png" alt="company logo" class="img-fluid w-50">
+                        <h1 class="hero-title">Dummy Title here</h1>
+                        <p class="hero-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    </div>
+                </div>   
+                <div class="col-lg-6 ms-auto"> 
+                    <!-- Search Box -->
+                    <div class="search-box-modern">
+                        <!-- Radio Buttons HTML -->
+                        <div class="search-tabs-modern">
+                            <div class="tab-option">
+                                <input type="radio" id="forSale" name="propertyType" value="sale" checked>
+                                <label for="forSale">
+                                    <span class="radio-icon">
+                                        <i class="bi bi-check-circle-fill checked-icon"></i>
+                                        <i class="bi bi-circle unchecked-icon"></i>
+                                    </span>
+                                    <span class="radio-text">For sale</span>
+                                </label>
+                            </div>
+                            <div class="tab-option">
+                                <input type="radio" id="toLet" name="propertyType" value="rent">
+                                <label for="toLet">
+                                    <span class="radio-icon">
+                                        <i class="bi bi-check-circle-fill checked-icon"></i>
+                                        <i class="bi bi-circle unchecked-icon"></i>
+                                    </span>
+                                    <span class="radio-text">To let</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Form -->
+                        <div class="search-form-container">
+                            <div class="row g-2 align-items-end">
+                                <!-- Keyword Search -->
+                                <div class="col-8">
+                                    <input type="text" class="form-control-search" placeholder="Enter your keyword or search phrase">
+                                </div>
+                                <!-- Search Button -->
+                                <div class="col-4">
+                                    <button class="btn-search-main">
+                                        <i class="bi bi-search me-2"></i>
+                                        Search
+                                    </button>
+                                </div>
+                                <!-- Price From -->
+                                <div class="col-lg-5 col-md-6 col-6">
+                                    <label class="search-label">Price</label>
+                                    <input type="text" class="form-control-search" placeholder="-from">
+                                </div>
+                                
+                                <!-- Price To -->
+                                <div class="col-lg-5 col-md-6 col-6">
+                                    <label class="search-label">Price</label>
+                                    <input type="text" class="form-control-search" placeholder="-to">
+                                </div>
+                                
+                                <!-- Currency -->
+                                <div class="col-lg-2 col-md-6 col-4">
+                                    <div class="lang-currency-selector">
+                                        <div class="dropdown w-100">
+                                            <button class="dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Area From -->
+                                <div class="col-lg-5 col-md-6 col-4">
+                                    <label class="search-label">Area</label>
+                                    <input type="text" class="form-control-search" placeholder="-from">
+                                </div>
+                                
+                                <!-- Area To -->
+                                <div class="col-lg-5 col-md-6 col-4">
+                                    <label class="search-label">Area</label>
+                                    <input type="text" class="form-control-search" placeholder="-to">
+                                </div>
+                                
+                                <!-- Area Unit -->
+                                <div class="col-lg-2 col-md-6 col-12">
+                                    <select class="form-select-search">
+                                        <option value="sqm">m²</option>
+                                        <option value="sqft">ft²</option>
+                                        <option value="yd">yd²</option>
+                                        <option value="marla">Marla</option>
+                                        <option value="kanal">Kanal</option>
+                                    </select>
+                                </div>
+                                
+                                
+                            </div>
+                            
+                            <!-- Detailed Search Link -->
+                            <div class="detailed-search-link">
+                                <a href="#">
+                                    Detailed search
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ═══════════════════════════════════════════
+        AGENT SLIDER SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="agents-section">
+        <div class="container-xxl">
+     
+            <!-- Header -->
+            <div class="agents-header">
+                <div class="agents-header-left">
+                    <h2 class="section-title mb-1">Our Verified Agents</h2>
+                    <p class="section-subtitle mb-2 m-0">Browse our network of certified PropAfar real estate professionals</p>
+                    <p></p>
+                </div>
+                <div class="slider-nav-btns">
+                    <button class="slider-nav-btn" id="agentPrev" aria-label="Previous">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="slider-nav-btn" id="agentNext" aria-label="Next">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+     
+            <!-- Slider -->
+            <div class="slider-outer" id="sliderOuter">
+                <div class="slider-track" id="sliderTrack">
+     
+                    <!-- Card 1 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=47" class="agent-avatar" alt="Kiss Melinda">
+                            <div class="agent-status" title="Online"></div>
+                        </div>
+                        <div class="agent-name">Kiss Melinda</div>
+                        <div class="agent-role">Sales Associate</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE">
+                            <img src="https://flagcdn.com/w40/hu.png" class="flag-img" alt="HU">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">48</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.9</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 2 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=32" class="agent-avatar" alt="Anna Kovács">
+                            <div class="agent-status" title="Online"></div>
+                        </div>
+                        <div class="agent-name">Anna Kovács</div>
+                        <div class="agent-role">Senior Agent</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/fr.png" class="flag-img" alt="FR">
+                            <img src="https://flagcdn.com/w40/hu.png" class="flag-img" alt="HU">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">62</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.8</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 3 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=15" class="agent-avatar" alt="David Müller">
+                        </div>
+                        <div class="agent-name">David Müller</div>
+                        <div class="agent-role">Property Consultant</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE">
+                            <img src="https://flagcdn.com/w40/at.png" class="flag-img" alt="AT">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">35</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.7</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 4 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=25" class="agent-avatar" alt="Sophie Martin">
+                            <div class="agent-status" title="Online"></div>
+                        </div>
+                        <div class="agent-name">Sophie Martin</div>
+                        <div class="agent-role">Luxury Specialist</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/fr.png" class="flag-img" alt="FR">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/es.png" class="flag-img" alt="ES">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">27</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">5.0</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 5 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=60" class="agent-avatar" alt="Marco Bianchi">
+                        </div>
+                        <div class="agent-name">Marco Bianchi</div>
+                        <div class="agent-role">Investment Advisor</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/it.png" class="flag-img" alt="IT">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">41</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.6</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 6 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=44" class="agent-avatar" alt="Lena Schmidt">
+                            <div class="agent-status" title="Online"></div>
+                        </div>
+                        <div class="agent-name">Lena Schmidt</div>
+                        <div class="agent-role">Rental Specialist</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/nl.png" class="flag-img" alt="NL">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">53</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.8</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 7 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=11" class="agent-avatar" alt="James Walker">
+                        </div>
+                        <div class="agent-name">James Walker</div>
+                        <div class="agent-role">Commercial Agent</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/us.png" class="flag-img" alt="US">
+                            <img src="https://flagcdn.com/w40/au.png" class="flag-img" alt="AU">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">19</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.9</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                    <!-- Card 8 -->
+                    <div class="agent-card">
+                        <div class="agent-avatar-wrap">
+                            <img src="https://i.pravatar.cc/150?img=38" class="agent-avatar" alt="Marta López">
+                            <div class="agent-status" title="Online"></div>
+                        </div>
+                        <div class="agent-name">Marta López</div>
+                        <div class="agent-role">Residential Expert</div>
+                        <div class="lang-label">Languages spoken</div>
+                        <div class="flag-strip">
+                            <img src="https://flagcdn.com/w40/es.png" class="flag-img" alt="ES">
+                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
+                            <img src="https://flagcdn.com/w40/pt.png" class="flag-img" alt="PT">
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item"><span class="stat-num">74</span><span class="stat-txt">Listings</span></div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item"><span class="stat-num">4.7</span><span class="stat-txt">Rating</span></div>
+                        </div>
+                        <button class="btn-portfolio"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</button>
+                    </div>
+     
+                </div><!-- /slider-track -->
+            </div><!-- /slider-outer -->
+     
+            <!-- Dots -->
+            <div class="slider-dots" id="sliderDots"></div>
+     
+        </div>
+    </section>
+    <!-- SALE NEAR BY -->
+    <section class="properties-section">
+        <div class="container-xxl px-3">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <div class="mb-3 mb-lg-5">
+                <h2 class="section-title mb-1">Circle portfóliója</h2>
+                <p class="section-subtitle mb-2 m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <button class="btn btn-list-property ms-auto mb-4 mb-lg-0">
+                See All <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+            <div class="col-lg-12 set-navtabs-cards">
+                <div class="row g-3">
+                    <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image">
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <!-- <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video> -->
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">   
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                    </div>
+                            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <!-- <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image"> -->
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video>
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">    
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image">
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <!-- <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video> -->
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">   
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <!-- <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image"> -->
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video>
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">    
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image">
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <!-- <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video> -->
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">   
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <!-- <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image"> -->
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video>
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">    
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image">
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <!-- <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video> -->
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">   
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-3 col-md-6">
+                                <div class="property-card">
+                                    <!-- Image/Video Container -->
+                                    <div class="property-image" data-bs-toggle="tooltip" title="Spacious family home with garden, garage, and stunning mountain view nearby">
+                                            <!-- Main Image -->
+                                            <!-- <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" 
+                                                 alt="Property" 
+                                                 class="property-main-image"> -->
+                                            
+                                            <!-- Video (Hidden by default, shows on hover if available) -->
+                                            <video class="property-video" muted loop playsinline>
+                                                <source src="assets/videos/dummy-video.mp4" type="video/mp4">
+                                            </video>
+                                            
+                                            <span class="property-badge">Property for sale</span>
+                                            
+                                            <!-- Action Icons (Top Right) -->
+                                            <div class="property-actions">
+                                                <!-- Favorite Icon -->
+                                                <button type="button" class="property-action-btn favorite-btn" 
+                                                        data-property-id="1" 
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to favorites">
+                                                    <i class="bi bi-heart-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Notification Icon -->
+                                                <button type="button" class="property-action-btn notify-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Notify me for similar">
+                                                    <i class="bi bi-bell"></i>
+                                                </button>
+                                                
+                                                <!-- Compare Icon -->
+                                                <button type="button" class="property-action-btn compare-btn" 
+                                                        data-property-id="1"
+                                                        data-bs-toggle="tooltip" 
+                                                        data-bs-placement="left" 
+                                                        title="Add to compare">
+                                                    <i class="bi bi-arrow-left-right"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Video Play Icon (Shows if video is available) -->
+                                            <div class="video-play-icon" style="display: none;">
+                                                <i class="bi bi-play-circle-fill"></i>
+                                            </div>
+                                    </div>
+                                    <a href="#" class="property-link">    
+                                        <div class="property-content">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="property-price">For sale - Main category</div>
+                                                <h3 class="property-title mb-0">35.000.000&nbsp;HUF</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                                <!-- Title with tooltip for long text (70+ characters) -->
+                                                <h3 class="property-title mb-0 property-subtitle" 
+                                                    data-bs-toggle="tooltip" 
+                                                    data-bs-placement="top" 
+                                                    title="">
+                                                    Sub category
+                                                </h3>
+                                                <p class="mb-0 text-dark">
+                                                    <i class="bi bi-info-circle text-primary" 
+                                                       data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top" 
+                                                       title="Original Price"></i> 
+                                                    (100.000 €)
+                                                </p>
+                                            </div>
+                                            <div class="property-location mt-1">
+                                                <i class="bi bi-geo-alt"></i>
+                                                DHA Phase 6, Karachi
+                                            </div>
+                                            <div class="property-features">
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    111 m²
+                                                </div>
+                                                <div class="property-feature fs-6 fw-semibold">
+                                                    1250 HUF/m²
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                </div>
+            </div>
+          </div>        
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+        COMPANY PORTFOLIO SECTION
+    ════════════════════════════════════════════ -->
+    <section class="portfolio-section">
+        <div class="container-xxl">
+            <div class="row g-0 align-items-center">
+     
+                <!-- ── LEFT: Company info ── -->
+                <div class="col-lg-5 company-col">
+     
+                    <div class="section-label">Partner Profile</div>
+     
+                    <!-- Logo -->
+                    <div class="company-logo-wrap">
+                        <div class="logo-icon">
+                            <img src="assets/images/company-logo-fav.png" alt="fav" class="img-fluid">
+                        </div>
+                        <div>
+                            <div class="logo-text">PROP<span>AFAR</span></div>
+                            <div class="logo-tagline">Properties Afar</div>
+                        </div>
+                    </div>
+     
+                    <div class="company-divider"></div>
+     
+                    <p class="company-desc">
+                        PropAfar is a borderless real estate platform connecting property seekers,
+                        landlords, and certified agents across 50+ countries — with multilingual listings,
+                        multicurrency pricing, and worldwide visibility. We make global property feel local.
+                    </p>
+     
+                    <!-- Stats -->
+                    <div class="company-stats">
+                        <div class="stat-pill">
+                            <span class="num">50+</span>
+                            <span class="lbl">Countries</span>
+                        </div>
+                        <div class="stat-pill">
+                            <span class="num">10K+</span>
+                            <span class="lbl">Listings</span>
+                        </div>
+                        <div class="stat-pill">
+                            <span class="num">15+</span>
+                            <span class="lbl">Languages</span>
+                        </div>
+                        <div class="stat-pill">
+                            <span class="num">4.9★</span>
+                            <span class="lbl">Avg. Rating</span>
+                        </div>
+                    </div>
+     
+                    <a href="#" class="btn-company-cta">
+                        <i class="bi bi-grid-3x3-gap"></i> View Full Portfolio
+                    </a>
+     
+                </div>
+     
+                <!-- ── RIGHT: Video placeholder ── -->
+                <div class="col-lg-7 video-col">
+     
+                    <div class="video-label">
+                        <i class="bi bi-play-circle-fill"></i> Corporate Introduction
+                    </div>
+     
+                    <!-- Video thumbnail -->
+                    <div class="video-thumb" onclick="handlePlay(this)">
+                        <div class="video-thumb-bg">
+                            <div class="play-btn">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="video-duration">2:34</div>
+                    </div>
+     
+                </div>
+     
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO SECTION -->
+    <section class="why-choose-section">
+        <div class="container-xxl px-3">
+            <div class="set-box-seo">
+                <div class="row">
+                    <div class="col-lg-9 mx-auto">
+                        <div class="section-header text-center">
+                            <h2 class="section-title mb-0">SEO Textbox</h2>
+                            <p class="section-subtitle">minden fontosabb kulcsszóval</p>
+                            <p class="mt-4">Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now. In built table in an rapid blush. Merits behind on afraid or warmly. Believing neglected so so allowance existence departure in. In design active temper be uneasy. Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now. In built table in an rapid blush. Merits behind on afraid or warmly. Believing neglected so so allowance existenc.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-xxl px-3">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="assets/images/footer_logo2.png" alt="PropAFar" style="height: 72px; filter: brightness(0) invert(1);" class="mb-3">
+                    <p style="color: rgba(255, 255, 255, 0.7);">Your trusted partner in finding the perfect property across Pakistan.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Agents</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Buy Property</a></li>
+                        <li><a href="#">Rent Property</a></li>
+                        <li><a href="#">List Property</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-12">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-facebook"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-twitter"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-instagram"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PropAFar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal-content">
+                <!-- Close Button -->
+                <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                
+                <!-- Modal Body -->
+                <div class="modal-body p-0">
+                    <div class="login-container">
+                        <!-- Title -->
+                        <h2 class="login-title">Login</h2>
+                        <div class="title-border"></div>
+                        
+                        <!-- Login Form -->
+                        <form id="loginForm" class="login-form">
+                            <!-- Email Field (Always visible) -->
+                            <div class="form-group-login" id="emailGroup">
+                                <input 
+                                    type="email" 
+                                    class="form-control-login" 
+                                    id="loginEmail" 
+                                    name="email" 
+                                    placeholder="Enter your email" 
+                                    required
+                                >
+                            </div>
+                            
+                            <!-- Password Field (Hidden initially) -->
+                            <div class="form-group-login" id="passwordGroup" style="display: none;">
+                                <input 
+                                    type="password" 
+                                    class="form-control-login" 
+                                    id="loginPassword" 
+                                    name="password" 
+                                    placeholder="Enter your password" 
+                                    required
+                                >
+                            </div>
+                            
+                            <!-- Forgot Password (Shown with password field) -->
+                            <div class="forgot-password-wrapper" id="forgotPasswordWrapper" style="display: none;">
+                                <a href="#" class="forgot-password-link">Forgot Password?</a>
+                            </div>
+                            
+                            <!-- Continue/Login Button -->
+                            <button type="submit" class="btn-login-submit" id="loginSubmitBtn">
+                                <span id="btnText">Continue</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- Divider -->
+                        <div class="login-divider">
+                            <span>OR</span>
+                        </div>
+                        
+                        <!-- Social Login Buttons -->
+                        <div class="social-login-buttons">
+                            <!-- Google -->
+                            <button type="button" class="btn-social-login" id="googleLogin">
+                                <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+                                    <path d="M9.003 18c2.43 0 4.467-.806 5.956-2.184l-2.909-2.258c-.806.54-1.836.86-3.047.86-2.344 0-4.328-1.584-5.036-3.711H.96v2.332C2.44 15.983 5.485 18 9.003 18z" fill="#34A853"/>
+                                    <path d="M3.964 10.712c-.18-.54-.282-1.117-.282-1.71 0-.593.102-1.17.282-1.71V4.96H.957C.347 6.175 0 7.55 0 9.002c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+                                    <path d="M9.003 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.464.891 11.426 0 9.003 0 5.485 0 2.44 2.017.96 4.958L3.967 7.29c.708-2.127 2.692-3.71 5.036-3.71z" fill="#EA4335"/>
+                                </svg>
+                                <span>Continue with Google</span>
+                            </button>
+                            
+                            <!-- Facebook -->
+                            <button type="button" class="btn-social-login" id="facebookLogin">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                <span>Continue with Facebook</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Terms -->
+                        <p class="login-terms">By registering, you agree to our terms.</p>
+                        
+                        <!-- Sign Up Link -->
+                        <div class="signup-link-wrapper">
+                            <span>Don't have an account?</span>
+                            <a href="#" class="signup-link">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGNUP MODAL -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content login-modal-content">
+                <!-- Close Button -->
+                <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                
+                <!-- Modal Body -->
+                <div class="modal-body p-0">
+                    <div class="login-container">
+                        <!-- Title -->
+                        <h2 class="login-title">Sign Up</h2>
+                        <div class="title-border"></div>
+                        
+                        <!-- Signup Form -->
+                        <form id="signupForm" class="login-form">
+                            <!-- Name Row -->
+                            <div class="form-row-signup">
+                                <div class="form-group-login">
+                                    <input 
+                                        type="text" 
+                                        class="form-control-login" 
+                                        name="first_name" 
+                                        placeholder="First Name" 
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group-login">
+                                    <input 
+                                        type="text" 
+                                        class="form-control-login" 
+                                        name="last_name" 
+                                        placeholder="Last Name" 
+                                        required
+                                    >
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="form-group-login">
+                                <input 
+                                    type="email" 
+                                    class="form-control-login" 
+                                    id="signupEmail" 
+                                    name="email" 
+                                    placeholder="Email Address" 
+                                    required
+                                >
+                            </div>
+                            
+                            <!-- Password -->
+                            <div class="form-group-login">
+                                <div class="password-input-wrapper">
+                                    <input 
+                                        type="password" 
+                                        class="form-control-login" 
+                                        id="signupPassword" 
+                                        name="password" 
+                                        placeholder="Password (min. 8 characters)" 
+                                        required
+                                    >
+                                    <i class="bi bi-eye-slash toggle-password" data-target="signupPassword"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Confirm Password -->
+                            <div class="form-group-login">
+                                <div class="password-input-wrapper">
+                                    <input 
+                                        type="password" 
+                                        class="form-control-login" 
+                                        id="signupPasswordConfirm" 
+                                        name="password_confirmation" 
+                                        placeholder="Confirm Password" 
+                                        required
+                                    >
+                                    <i class="bi bi-eye-slash toggle-password" data-target="signupPasswordConfirm"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Terms & Conditions -->
+                            <div class="form-check-wrapper">
+                                <input 
+                                    type="checkbox" 
+                                    class="form-check-input-custom" 
+                                    id="agreeTerms" 
+                                    name="agree_terms" 
+                                    required
+                                >
+                                <label class="form-check-label-custom" for="agreeTerms">
+                                    I agree to the <a href="#" target="_blank">Terms & Conditions</a> and <a href="#" target="_blank">Privacy Policy</a>
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn-login-submit">
+                                <span>Create Account</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </form>
+                        
+                        <!-- Divider -->
+                        <div class="login-divider">
+                            <span>OR</span>
+                        </div>
+                        
+                        <!-- Social Login Buttons -->
+                        <div class="social-login-buttons">
+                            <!-- Google -->
+                            <button type="button" class="btn-social-login" id="googleSignup">
+                                <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+                                    <path d="M9.003 18c2.43 0 4.467-.806 5.956-2.184l-2.909-2.258c-.806.54-1.836.86-3.047.86-2.344 0-4.328-1.584-5.036-3.711H.96v2.332C2.44 15.983 5.485 18 9.003 18z" fill="#34A853"/>
+                                    <path d="M3.964 10.712c-.18-.54-.282-1.117-.282-1.71 0-.593.102-1.17.282-1.71V4.96H.957C.347 6.175 0 7.55 0 9.002c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+                                    <path d="M9.003 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.464.891 11.426 0 9.003 0 5.485 0 2.44 2.017.96 4.958L3.967 7.29c.708-2.127 2.692-3.71 5.036-3.71z" fill="#EA4335"/>
+                                </svg>
+                                <span>Continue with Google</span>
+                            </button>
+                            
+                            <!-- Facebook -->
+                            <button type="button" class="btn-social-login" id="facebookSignup">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                <span>Continue with Facebook</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Terms -->
+                        <p class="login-terms">By registering, you agree to our terms and privacy policy.</p>
+                        
+                        <!-- Login Link -->
+                        <div class="signup-link-wrapper">
+                            <span>Already have an account?</span>
+                            <a href="#" class="signup-link" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button (Fixed Bottom Right) -->
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-sun-fill theme-icon-light"></i>
+        <i class="bi bi-moon-fill theme-icon-dark"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Search tabs functionality
+        document.querySelectorAll('.search-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+      // Radio button change event
+      document.addEventListener('DOMContentLoaded', function() {
+          const radioButtons = document.querySelectorAll('input[name="propertyType"]');
+          
+          radioButtons.forEach(radio => {
+              radio.addEventListener('change', function() {
+                  const propertyType = this.value;
+                  console.log('Selected property type:', propertyType);
+                  
+                  // You can add additional functionality here
+                  // For example, update form fields based on selection
+              });
+          });
+      });
+    </script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+        // Bell Notification Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const notificationBell = document.getElementById('notificationBell');
+            const notificationStatus = document.getElementById('notificationStatus');
+            
+            if (notificationBell && notificationStatus) {
+                notificationBell.addEventListener('click', function() {
+                    // Check if browser supports notifications
+                    if (!('Notification' in window)) {
+                        alert('This browser does not support notifications');
+                        return;
+                    }
+                    
+                    // Request permission
+                    Notification.requestPermission().then(function(permission) {
+                        if (permission === 'granted') {
+                            // Permission granted
+                            notificationStatus.classList.add('enabled');
+                            notificationStatus.innerHTML = '<i class="bi bi-check-circle-fill"></i><span>Notifications enabled! You\'ll get updates on new properties</span>';
+                            
+                            // Show test notification
+                            new Notification('PropAFar Notifications', {
+                                body: 'You will now receive property updates!',
+                                icon: '/path/to/your/logo.png',
+                                badge: '/path/to/your/badge.png'
+                            });
+                            
+                            // Save preference to localStorage
+                            localStorage.setItem('propafar_notifications', 'enabled');
+                            
+                        } else if (permission === 'denied') {
+                            notificationStatus.innerHTML = '<i class="bi bi-x-circle-fill"></i><span>Notifications blocked. Please enable in browser settings</span>';
+                        } else {
+                            notificationStatus.innerHTML = '<i class="bi bi-info-circle"></i><span>Notification permission pending</span>';
+                        }
+                    });
+                });
+                
+                // Check if already enabled
+                if (localStorage.getItem('propafar_notifications') === 'enabled') {
+                    notificationStatus.classList.add('enabled');
+                    notificationStatus.innerHTML = '<i class="bi bi-check-circle-fill"></i><span>Notifications are enabled</span>';
+                }
+            }
+            
+            // Favorite Button Toggle
+            document.querySelectorAll('.favorite-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    this.blur();
+                    // Here you would save to database/localStorage
+                    console.log('Favorite toggled');
+                });
+            });
+            // Notification Button Toggle
+            document.querySelectorAll('.notify-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    this.blur();
+                    // Toggle icon
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('bi-bell');
+                        icon.classList.add('bi-bell-fill');
+                    } else {
+                        icon.classList.remove('bi-bell-fill');
+                        icon.classList.add('bi-bell');
+                    }
+                    
+                    console.log('Notification toggled');
+                });
+            });
+
+            // Compare Button Toggle
+            document.querySelectorAll('.compare-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.blur();
+                    this.classList.toggle('active');
+                    
+                    console.log('Compare toggled');
+                });
+            });
+        });
+    </script>
+    <script>
+        // ============================================
+        // LOGIN MODAL JAVASCRIPT
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const loginForm = document.getElementById('loginForm');
+            const loginEmail = document.getElementById('loginEmail');
+            const passwordGroup = document.getElementById('passwordGroup');
+            const loginPassword = document.getElementById('loginPassword');
+            const forgotPasswordWrapper = document.getElementById('forgotPasswordWrapper');
+            const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+            const btnText = document.getElementById('btnText');
+            
+            let emailEntered = false;
+            
+            // Email input - Show password field after valid email
+            if (loginEmail) {
+                loginEmail.addEventListener('blur', function() {
+                    const email = this.value.trim();
+                    
+                    // Simple email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (emailRegex.test(email) && !emailEntered) {
+                        // Show password field
+                        passwordGroup.style.display = 'block';
+                        forgotPasswordWrapper.style.display = 'block';
+                        btnText.textContent = 'Login';
+                        emailEntered = true;
+                        
+                        // Focus on password
+                        setTimeout(() => {
+                            loginPassword.focus();
+                        }, 300);
+                    }
+                });
+                
+                // Reset if email is changed
+                loginEmail.addEventListener('input', function() {
+                    if (emailEntered && this.value.trim() === '') {
+                        passwordGroup.style.display = 'none';
+                        forgotPasswordWrapper.style.display = 'none';
+                        btnText.textContent = 'Continue';
+                        emailEntered = false;
+                    }
+                });
+            }
+            
+            // Form Submission
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = loginEmail.value.trim();
+                    const password = loginPassword.value.trim();
+                    
+                    // If only email is filled, validate and show password
+                    if (email && !emailEntered) {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (emailRegex.test(email)) {
+                            passwordGroup.style.display = 'block';
+                            forgotPasswordWrapper.style.display = 'block';
+                            btnText.textContent = 'Login';
+                            emailEntered = true;
+                            loginPassword.focus();
+                        } else {
+                            alert('Please enter a valid email address');
+                        }
+                        return;
+                    }
+                    
+                    // If both are filled, submit to Laravel
+                    if (email && password) {
+                        // Here Laravel will handle the submission
+                        // The form will submit normally to your Laravel route
+                        console.log('Submitting to Laravel:', { email, password });
+                        
+                        // Let Laravel handle the actual submission
+                        // Remove e.preventDefault() in production or submit via AJAX
+                        
+                        // Example AJAX (Optional):
+                        /*
+                        fetch('/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                            },
+                            body: JSON.stringify({ email, password })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                window.location.href = data.redirect;
+                            } else {
+                                alert(data.message);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                        */
+                        
+                        // For now, just submit the form normally
+                        this.submit();
+                    }
+                });
+            }
+            
+            // Social Login Handlers
+            document.getElementById('googleLogin')?.addEventListener('click', function() {
+                // Redirect to Google OAuth
+                window.location.href = '/auth/google';
+            });
+            
+            document.getElementById('facebookLogin')?.addEventListener('click', function() {
+                // Redirect to Facebook OAuth
+                window.location.href = '/auth/facebook';
+            });
+            
+            // Reset form when modal is closed
+            const loginModal = document.getElementById('loginModal');
+            if (loginModal) {
+                loginModal.addEventListener('hidden.bs.modal', function() {
+                    loginForm?.reset();
+                    passwordGroup.style.display = 'none';
+                    forgotPasswordWrapper.style.display = 'none';
+                    btnText.textContent = 'Continue';
+                    emailEntered = false;
+                });
+            }
+        });
+    </script>
+    <script>
+        // Play video on hover - ADD THIS TO YOUR EXISTING JS
+        document.querySelectorAll('.property-card').forEach(card => {
+            const video = card.querySelector('.property-video');
+            
+            if (video) {
+                card.addEventListener('mouseenter', function() {
+                    video.play();
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    video.pause();
+                    video.currentTime = 0; // Reset to start
+                });
+            }
+        });
+    </script>
+    <script>
+        // ============================================
+        // SIGNUP MODAL JAVASCRIPT
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const signupForm = document.getElementById('signupForm');
+            
+            // Toggle Password Visibility
+            document.querySelectorAll('.toggle-password').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        this.classList.remove('bi-eye-slash');
+                        this.classList.add('bi-eye');
+                    } else {
+                        input.type = 'password';
+                        this.classList.remove('bi-eye');
+                        this.classList.add('bi-eye-slash');
+                    }
+                });
+            });
+        });
+
+        // Show success message
+        function showSignupSuccessMessage() {
+            const successMessage = document.getElementById('signupSuccessMessage');
+            if (successMessage) {
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }
+        }
+    </script>
+    <script>
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            // Apply saved theme on page load
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                // Save preference to localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+    <script>
+        // Initialize Saved Properties Swiper
+        const savedPropertiesSwiper = new Swiper('.savedPropertiesSwiper', {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            
+            // Autoplay
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            
+            // Navigation
+            navigation: {
+                nextEl: '.saved-next',
+                prevEl: '.saved-prev',
+            },
+            
+            // Pagination
+            pagination: {
+                el: '.saved-pagination',
+                clickable: true,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // Mobile
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // Tablet
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+                // Desktop
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                }
+            },
+        });
+    </script>
+
+    <script>
+        (function () {
+            var track    = document.getElementById('sliderTrack');
+            var outer    = document.getElementById('sliderOuter');
+            var dotsWrap = document.getElementById('sliderDots');
+            var btnPrev  = document.getElementById('agentPrev');
+            var btnNext  = document.getElementById('agentNext');
+         
+            var cards        = track.querySelectorAll('.agent-card');
+            var totalCards   = cards.length;
+            var currentIndex = 0;
+         
+            /* How many cards are visible depends on viewport */
+            function visibleCount() {
+                var w = outer.offsetWidth;
+                if (w >= 1200) return 5;
+                if (w >= 992)  return 4;
+                if (w >= 768)  return 3;
+                if (w >= 480)  return 2;
+                return 1;
+            }
+         
+            function maxIndex() {
+                return Math.max(0, totalCards - visibleCount());
+            }
+         
+            /* Card width including gap */
+            function cardStep() {
+                if (!cards[0]) return 0;
+                var gap = 20; /* matches CSS gap */
+                return cards[0].offsetWidth + gap;
+            }
+         
+            /* Build dots — one per "page" */
+            function buildDots() {
+                dotsWrap.innerHTML = '';
+                var pages = Math.ceil(totalCards / visibleCount());
+                for (var i = 0; i < pages; i++) {
+                    var dot = document.createElement('button');
+                    dot.className = 'sdot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Page ' + (i + 1));
+                    dot.setAttribute('data-page', i);
+                    dot.addEventListener('click', (function(page) {
+                        return function() {
+                            goTo(page * visibleCount());
+                        };
+                    })(i));
+                    dotsWrap.appendChild(dot);
+                }
+            }
+         
+            function updateDots() {
+                var vc    = visibleCount();
+                var page  = Math.floor(currentIndex / vc);
+                var dots  = dotsWrap.querySelectorAll('.sdot');
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('active', i === page);
+                });
+            }
+         
+            function goTo(idx) {
+                currentIndex = Math.max(0, Math.min(idx, maxIndex()));
+                track.style.transform = 'translateX(-' + (currentIndex * cardStep()) + 'px)';
+                updateDots();
+                /* Button states */
+                btnPrev.style.opacity = currentIndex === 0 ? '0.4' : '1';
+                btnNext.style.opacity = currentIndex >= maxIndex() ? '0.4' : '1';
+            }
+         
+            btnPrev.addEventListener('click', function() { goTo(currentIndex - 1); });
+            btnNext.addEventListener('click', function() { goTo(currentIndex + 1); });
+         
+            /* Touch swipe */
+            var touchStartX = 0;
+            outer.addEventListener('touchstart', function(e) {
+                touchStartX = e.touches[0].clientX;
+            }, { passive: true });
+            outer.addEventListener('touchend', function(e) {
+                var diff = touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) goTo(currentIndex + (diff > 0 ? 1 : -1));
+            }, { passive: true });
+         
+            /* Rebuild on resize */
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    buildDots();
+                    goTo(0);
+                }, 120);
+            });
+         
+            /* Init */
+            buildDots();
+            goTo(0);
+         
+        }());
+    </script>
+    <script>
+        /* Replace .video-thumb-bg with an actual iframe on play click */
+        function handlePlay(thumbEl) {
+            var bg = thumbEl.querySelector('.video-thumb-bg');
+            /* In production: replace the line below with your YouTube/Vimeo embed URL */
+            var videoUrl = 'https://www.youtube.com/embed/D0UnqGm_miA?si=zBCPDLWvfQqBPJbx';
+            bg.innerHTML =
+                '<iframe src="' + videoUrl + '" ' +
+                'style="position:absolute;inset:0;width:100%;height:100%;border:none;" ' +
+                'allow="autoplay; fullscreen" allowfullscreen></iframe>';
+            thumbEl.style.cursor = 'default';
+            thumbEl.onclick = null;
+        }
+    </script>
+</body>
+</html>

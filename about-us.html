@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropAFar - Offer Your Dream Property</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
+        <div class="container-xxl px-3">
+            <a class="navbar-brand" href="/">
+                <img src="assets/images/footer_logo2.png" alt="PropAFar">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="find-real-estate.html">Find real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="offer-real-estate.html">Offer real estate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about-us.html">About Us</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon"> PKR
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="PKR" class="flag-icon me-2"> PKR</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="USD" class="flag-icon me-2"> USD</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/ae.png" alt="AED" class="flag-icon me-2"> AED</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lang-currency-selector">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon"> English
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon me-2"> English</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">German</a></li>
+                                <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w40/pk.png" alt="Urdu" class="flag-icon me-2">Hungarian</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                      <div class="user-icon" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                          <i class="bi bi-person"></i>
+                      </div>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="/login">Login</a></li>
+                          <li><a class="dropdown-item" href="/signup">Sign up</a></li>
+                      </ul>
+                  </div>
+                    
+                    <a href="/list-property" class="btn btn-list-property">
+                        List a Property
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section hero-section-about">
+        <div class="hero-overlay"></div>
+        <div class="container-xxl px-3">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mx-auto">
+                    <!-- Hero Titles -->
+                    <div class="hero-content">
+                        <h1 class="hero-title">Introducing  XXXúj weboldal domainXXX</h1>
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div>
+                                    <p class="hero-subtitle">Discover simplified access and countlesss opportunities which span borders and time zones in the international real estate market. This website offers an incredible  new perspective on the real estate market, should you be selling, renting, buying, or leasing a residential, commercial, or industrial property, both at home and abroad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="properties-section bg-white set-our-updates">
+        <div class="container-xxl px-3">
+          <div class="row align-items-center">
+            <div class="col-lg-12">
+              <div class="mb-3 mb-lg-5">
+                <h2 class="section-title mb-1 text-center">Get in touch for more ideas</h2>
+              </div>
+            </div>
+          </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/2149954896.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">Get creative with your property listing</h3>
+                                <div class="property-location mt-2">
+                                    Are you looking for options to make your listing stand out from the crowd as a property manager, real estate agent, or contractor?
+                                </div>
+                                <div class="property-location mt-2">
+                                    How about reaching a large international audience all over the world with our targeted banner ads?
+                                </div>
+                                <div class="property-location mt-2">
+                                    Pick a package that best matches your specific needs!
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/144653.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">Open to tailor-made collaborations</h3>
+                                <div class="property-location mt-2 pb-2">Got a bright idea related to the real estate market? We offer a large and growing platform! Feel free to share your innovative ideas. We will try our best to find you the best  option with the widest reach.
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="assets/images/2149622886.jpg">
+                        </div>
+                        <div class="property-content">
+                            <div>
+                                <h3 class="property-title">How can we be even better?</h3>
+                                <div class="property-location mt-2 pb-2">Your opinion and feedback are important to us. Whether it's a suggestion for a new feature for our website, a typo you noticed, or a bug, please feel free to share your thoughts by referring to the typo or by providing us with a screenshot of the technical error. Thank you!
+                                </div>
+                            </div>
+                            <div class="property-features">
+                              <div class="detailed-search-link mt-2">
+                                <a href="#">
+                                    Read More
+                                    <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container-custom px-3">
+            <!-- Contact Form Section -->
+            <div class="contact-form-section">
+                <!-- Left - Image -->
+                <div class="contact-image-wrapper">
+                    <img src="assets/images/photo-1600880292203-757bb62b4baf.jpg" alt="Business Meeting" class="contact-image">
+                    
+                    <!-- Overlay Icon -->
+                    <div class="image-overlay-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7v10c0 5.5 4.5 9.9 10 11 5.5-1.1 10-5.5 10-11V7l-10-5zm0 2.2l8 4v8.3c0 4.4-3.6 8-8 9-4.4-1-8-4.6-8-9V8.2l8-4zM11 7v6h2V7h-2zm0 8v2h2v-2h-2z"/>
+                            <path d="M7 10l5 3 5-3-5-3-5 3z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Right - Form -->
+                <div class="contact-form-wrapper">
+                    <h2 class="form-title mb-3">Send Us A Message</h2>
+                    
+                    <!-- Success Message -->
+                   <!--  <div class="success-message" id="successMessage">
+                        <i class="bi bi-check-circle me-2"></i>
+                        Your message has been sent successfully! We'll get back to you soon.
+                    </div> -->
+                    
+                    <!-- Contact Form -->
+                    <form id="contactForm">
+                        <!-- Name Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name*</label>
+                                <input type="text" class="form-control-custom" name="firstName" placeholder="First Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address*</label>
+                                <input type="email" class="form-control-custom" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Type -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Main category*</label>
+                                <select class="form-control-custom" name="serviceType" required>
+                                    <option value="">Select a category</option>
+                                    <option value="buy">Buy Property</option>
+                                    <option value="sell">Sell Property</option>
+                                    <option value="rent">Rent Property</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Sub-category*</label>
+                                <select class="form-control-custom" name="serviceType" required>
+                                    <option value="">Select a category</option>
+                                    <option value="buy">Buy Property</option>
+                                    <option value="sell">Sell Property</option>
+                                    <option value="rent">Rent Property</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Meeting Scheduler -->
+                        <div class="meeting-scheduler">
+                            <div class="scheduler-header">
+                                <i class="bi bi-calendar-check"></i>
+                                <span>Schedule a Meeting (Optional)</span>
+                            </div>
+                            
+                            <!-- Date & Time Pickers -->
+                            <div class="datetime-picker-group">
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Date</label>
+                                    <div class="picker-input">
+                                        <input type="date" class="form-control-custom" id="datePicker" name="meeting_date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Time</label>
+                                    <div class="picker-input">
+                                        <input type="time" class="form-control-custom" id="timePicker" name="meeting_time">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Detected Info: Timezone, Current Time & Language -->
+                            <div class="detected-info-wrapper">
+                                <div class="detected-info-item">
+                                    <i class="bi bi-globe text-success"></i>
+                                    <span>Timezone: <strong id="detectedTimezone">Loading...</strong></span>
+                                </div>
+                                <div class="detected-info-item">
+                                    <i class="bi bi-clock text-success"></i>
+                                    <span>Your Time: <strong id="currentTime">Loading...</strong></span>
+                                </div>
+                                <div class="detected-info-item">
+                                    <i class="bi bi-translate text-success"></i>
+                                    <span>Language: <strong id="detectedLanguage">Loading...</strong></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Hidden fields for detected values -->
+                            <input type="hidden" id="detectedTimezoneValue" name="detected_timezone" value="">
+                            <input type="hidden" id="detectedLanguageValue" name="detected_language" value="">
+                            
+                            <!-- Timezone Checkbox & Selector -->
+                            <div class="form-group d-flex align-items-center gap-2 mb-3">
+                                <input type="checkbox" id="if-not-timezone" class="set-input-checkbox" name="different_timezone" value="1">
+                                <label class="mb-0" for="if-not-timezone" style="cursor: pointer;">
+                                    If not with your Timezone, select different
+                                </label>
+                            </div>
+                            
+                            <div id="timezoneSelectWrapper">
+                                <div class="form-group">
+                                    <label class="form-label">Select Your Timezone</label>
+                                    <div class="picker-input">
+                                        <select class="form-control-custom" id="timezoneSelect" name="selected_timezone">
+                                            <option value="">Select Timezone</option>
+                                            
+                                            <optgroup label="Popular">
+                                                <option value="Asia/Karachi">Pakistan Standard Time (PKT) - UTC+5</option>
+                                                <option value="Asia/Dubai">UAE Standard Time (GST) - UTC+4</option>
+                                                <option value="Asia/Riyadh">Arabia Standard Time (AST) - UTC+3</option>
+                                                <option value="Europe/London">British Time (GMT/BST) - UTC+0/+1</option>
+                                                <option value="America/New_York">US Eastern Time (EST/EDT) - UTC-5/-4</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Asia">
+                                                <option value="Asia/Karachi">🇵🇰 Pakistan (Karachi) - PKT UTC+5</option>
+                                                <option value="Asia/Lahore">🇵🇰 Pakistan (Lahore) - PKT UTC+5</option>
+                                                <option value="Asia/Dubai">🇦🇪 UAE (Dubai) - GST UTC+4</option>
+                                                <option value="Asia/Riyadh">🇸🇦 Saudi Arabia (Riyadh) - AST UTC+3</option>
+                                                <option value="Asia/Kuwait">🇰🇼 Kuwait - AST UTC+3</option>
+                                                <option value="Asia/Bahrain">🇧🇭 Bahrain - AST UTC+3</option>
+                                                <option value="Asia/Qatar">🇶🇦 Qatar (Doha) - AST UTC+3</option>
+                                                <option value="Asia/Muscat">🇴🇲 Oman (Muscat) - GST UTC+4</option>
+                                                <option value="Asia/Kolkata">🇮🇳 India (Delhi) - IST UTC+5:30</option>
+                                                <option value="Asia/Dhaka">🇧🇩 Bangladesh (Dhaka) - BST UTC+6</option>
+                                                <option value="Asia/Singapore">🇸🇬 Singapore - SGT UTC+8</option>
+                                                <option value="Asia/Hong_Kong">🇭🇰 Hong Kong - HKT UTC+8</option>
+                                                <option value="Asia/Tokyo">🇯🇵 Japan (Tokyo) - JST UTC+9</option>
+                                                <option value="Asia/Shanghai">🇨🇳 China (Beijing) - CST UTC+8</option>
+                                                <option value="Asia/Seoul">🇰🇷 South Korea (Seoul) - KST UTC+9</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Europe">
+                                                <option value="Europe/London">🇬🇧 UK (London) - GMT/BST UTC+0/+1</option>
+                                                <option value="Europe/Paris">🇫🇷 France (Paris) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Berlin">🇩🇪 Germany (Berlin) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Rome">🇮🇹 Italy (Rome) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Madrid">🇪🇸 Spain (Madrid) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Amsterdam">🇳🇱 Netherlands (Amsterdam) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Brussels">🇧🇪 Belgium (Brussels) - CET/CEST UTC+1/+2</option>
+                                                <option value="Europe/Istanbul">🇹🇷 Turkey (Istanbul) - TRT UTC+3</option>
+                                                <option value="Europe/Moscow">🇷🇺 Russia (Moscow) - MSK UTC+3</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Americas">
+                                                <option value="America/New_York">🇺🇸 US Eastern (New York) - EST/EDT UTC-5/-4</option>
+                                                <option value="America/Chicago">🇺🇸 US Central (Chicago) - CST/CDT UTC-6/-5</option>
+                                                <option value="America/Denver">🇺🇸 US Mountain (Denver) - MST/MDT UTC-7/-6</option>
+                                                <option value="America/Los_Angeles">🇺🇸 US Pacific (LA) - PST/PDT UTC-8/-7</option>
+                                                <option value="America/Toronto">🇨🇦 Canada (Toronto) - EST/EDT UTC-5/-4</option>
+                                                <option value="America/Vancouver">🇨🇦 Canada (Vancouver) - PST/PDT UTC-8/-7</option>
+                                                <option value="America/Mexico_City">🇲🇽 Mexico (Mexico City) - CST UTC-6</option>
+                                                <option value="America/Sao_Paulo">🇧🇷 Brazil (São Paulo) - BRT UTC-3</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Australia & Pacific">
+                                                <option value="Australia/Sydney">🇦🇺 Australia (Sydney) - AEDT UTC+11</option>
+                                                <option value="Australia/Melbourne">🇦🇺 Australia (Melbourne) - AEDT UTC+11</option>
+                                                <option value="Australia/Perth">🇦🇺 Australia (Perth) - AWST UTC+8</option>
+                                                <option value="Pacific/Auckland">🇳🇿 New Zealand (Auckland) - NZDT UTC+13</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Africa">
+                                                <option value="Africa/Cairo">🇪🇬 Egypt (Cairo) - EET UTC+2</option>
+                                                <option value="Africa/Johannesburg">🇿🇦 South Africa (Johannesburg) - SAST UTC+2</option>
+                                                <option value="Africa/Lagos">🇳🇬 Nigeria (Lagos) - WAT UTC+1</option>
+                                                <option value="Africa/Nairobi">🇰🇪 Kenya (Nairobi) - EAT UTC+3</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="bi bi-globe pe-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Language Checkbox & Selector -->
+                            <div class="form-group d-flex align-items-center gap-2 mb-3">
+                                <input type="checkbox" id="if-not-language" class="set-input-checkbox" name="different_language" value="1">
+                                <label class="mb-0" for="if-not-language" style="cursor: pointer;">
+                                    If language is different from English
+                                </label>
+                            </div>
+                            
+                            <div id="languageSelectWrapper">
+                                <div class="form-group">
+                                    <label class="form-label">Select Your Preferred Language</label>
+                                    <div class="picker-input">
+                                        <select class="form-control-custom" id="languageSelect" name="selected_language">
+                                            <option value="">Select Language</option>
+                                            
+                                            <optgroup label="Popular">
+                                                <option value="en">🇬🇧 English</option>
+                                                <option value="ur">🇵🇰 Urdu (اردو)</option>
+                                                <option value="ar">🇸🇦 Arabic (العربية)</option>
+                                                <option value="es">🇪🇸 Spanish (Español)</option>
+                                                <option value="fr">🇫🇷 French (Français)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Asian Languages">
+                                                <option value="ur">🇵🇰 Urdu (اردو)</option>
+                                                <option value="ar">🇸🇦 Arabic (العربية)</option>
+                                                <option value="hi">🇮🇳 Hindi (हिंदी)</option>
+                                                <option value="bn">🇧🇩 Bengali (বাংলা)</option>
+                                                <option value="zh">🇨🇳 Chinese (中文)</option>
+                                                <option value="ja">🇯🇵 Japanese (日本語)</option>
+                                                <option value="ko">🇰🇷 Korean (한국어)</option>
+                                                <option value="th">🇹🇭 Thai (ไทย)</option>
+                                                <option value="vi">🇻🇳 Vietnamese (Tiếng Việt)</option>
+                                                <option value="id">🇮🇩 Indonesian (Bahasa Indonesia)</option>
+                                                <option value="ms">🇲🇾 Malay (Bahasa Melayu)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="European Languages">
+                                                <option value="es">🇪🇸 Spanish (Español)</option>
+                                                <option value="fr">🇫🇷 French (Français)</option>
+                                                <option value="de">🇩🇪 German (Deutsch)</option>
+                                                <option value="it">🇮🇹 Italian (Italiano)</option>
+                                                <option value="pt">🇵🇹 Portuguese (Português)</option>
+                                                <option value="ru">🇷🇺 Russian (Русский)</option>
+                                                <option value="nl">🇳🇱 Dutch (Nederlands)</option>
+                                                <option value="pl">🇵🇱 Polish (Polski)</option>
+                                                <option value="tr">🇹🇷 Turkish (Türkçe)</option>
+                                                <option value="sv">🇸🇪 Swedish (Svenska)</option>
+                                                <option value="no">🇳🇴 Norwegian (Norsk)</option>
+                                                <option value="da">🇩🇰 Danish (Dansk)</option>
+                                                <option value="fi">🇫🇮 Finnish (Suomi)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="Middle Eastern">
+                                                <option value="fa">🇮🇷 Persian (فارسی)</option>
+                                                <option value="he">🇮🇱 Hebrew (עברית)</option>
+                                            </optgroup>
+                                            
+                                            <optgroup label="African">
+                                                <option value="sw">🇰🇪 Swahili (Kiswahili)</option>
+                                                <option value="af">🇿🇦 Afrikaans</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="bi bi-translate pe-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label class="form-label">Your Message*</label>
+                            <textarea class="form-control-custom" name="message" placeholder="Tell us about your requirements..." required></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="text-end mt-2">
+                            <button type="submit" class="btn-submit btn btn-list-property ms-auto">
+                                Submit Now
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-xxl px-3">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="assets/images/footer_logo2.png" alt="PropAFar" style="height: 72px; filter: brightness(0) invert(1);" class="mb-3">
+                    <p style="color: rgba(255, 255, 255, 0.7);">Your trusted partner in finding the perfect property across Pakistan.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Agents</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Buy Property</a></li>
+                        <li><a href="#">Rent Property</a></li>
+                        <li><a href="#">List Property</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-12">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="d-flex gap-3">
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-facebook"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-twitter"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-instagram"></i></a>
+                        <a href="#" style="color: rgba(255, 255, 255, 0.7); font-size: 1.5rem;"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PropAFar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button (Fixed Bottom Right) -->
+    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-sun-fill theme-icon-light"></i>
+        <i class="bi bi-moon-fill theme-icon-dark"></i>
+    </button>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Search tabs functionality
+        document.querySelectorAll('.search-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+        // Elements
+        const timezoneCheckbox = document.getElementById('if-not-timezone');
+        const languageCheckbox = document.getElementById('if-not-language');
+        const timezoneSelectWrapper = document.getElementById('timezoneSelectWrapper');
+        const languageSelectWrapper = document.getElementById('languageSelectWrapper');
+        const timezoneSelect = document.getElementById('timezoneSelect');
+        const languageSelect = document.getElementById('languageSelect');
+        const detectedTimezoneSpan = document.getElementById('detectedTimezone');
+        const currentTimeSpan = document.getElementById('currentTime');
+        const detectedLanguageSpan = document.getElementById('detectedLanguage');
+        const detectedTimezoneValue = document.getElementById('detectedTimezoneValue');
+        const detectedLanguageValue = document.getElementById('detectedLanguageValue');
+        
+        let userTimezone = 'UTC';
+        
+        // DETECT TIMEZONE
+        function detectUserTimezone() {
+            try {
+                userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                
+                if (detectedTimezoneSpan) {
+                    detectedTimezoneSpan.textContent = userTimezone;
+                }
+                
+                if (detectedTimezoneValue) {
+                    detectedTimezoneValue.value = userTimezone;
+                }
+                
+                if (timezoneSelect) {
+                    const option = timezoneSelect.querySelector(`option[value="${userTimezone}"]`);
+                    if (option) {
+                        timezoneSelect.value = userTimezone;
+                    }
+                }
+                
+                return userTimezone;
+                
+            } catch (error) {
+                userTimezone = 'Asia/Karachi';
+                if (detectedTimezoneSpan) {
+                    detectedTimezoneSpan.textContent = userTimezone;
+                }
+                if (detectedTimezoneValue) {
+                    detectedTimezoneValue.value = userTimezone;
+                }
+                return userTimezone;
+            }
+        }
+        
+        // UPDATE CURRENT TIME (Real-time clock)
+        function updateCurrentTime() {
+            try {
+                const now = new Date();
+                
+                const timeOptions = {
+                    timeZone: userTimezone,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                };
+                
+                const dateOptions = {
+                    timeZone: userTimezone,
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                };
+                
+                const timeString = new Intl.DateTimeFormat('en-US', timeOptions).format(now);
+                const dateString = new Intl.DateTimeFormat('en-US', dateOptions).format(now);
+                
+                if (currentTimeSpan) {
+                    currentTimeSpan.textContent = `${dateString}, ${timeString}`;
+                }
+                
+            } catch (error) {
+                console.error('Error updating time:', error);
+                if (currentTimeSpan) {
+                    currentTimeSpan.textContent = new Date().toLocaleTimeString();
+                }
+            }
+        }
+        
+        // DETECT LANGUAGE
+        function detectUserLanguage() {
+            try {
+                const userLanguage = navigator.language || navigator.userLanguage;
+                const langCode = userLanguage.split('-')[0];
+                
+                const languageNames = {
+                    'en': 'English', 'ur': 'Urdu', 'ar': 'Arabic', 'es': 'Spanish',
+                    'fr': 'French', 'de': 'German', 'it': 'Italian', 'pt': 'Portuguese',
+                    'ru': 'Russian', 'zh': 'Chinese', 'ja': 'Japanese', 'ko': 'Korean',
+                    'hi': 'Hindi', 'bn': 'Bengali', 'tr': 'Turkish', 'th': 'Thai',
+                    'vi': 'Vietnamese', 'id': 'Indonesian', 'ms': 'Malay', 'nl': 'Dutch',
+                    'pl': 'Polish', 'sv': 'Swedish', 'no': 'Norwegian', 'da': 'Danish',
+                    'fi': 'Finnish', 'fa': 'Persian', 'he': 'Hebrew', 'sw': 'Swahili',
+                    'af': 'Afrikaans'
+                };
+                
+                const langName = languageNames[langCode] || 'English';
+                
+                if (detectedLanguageSpan) {
+                    detectedLanguageSpan.textContent = langName;
+                }
+                
+                if (detectedLanguageValue) {
+                    detectedLanguageValue.value = langCode;
+                }
+                
+                if (languageSelect) {
+                    const option = languageSelect.querySelector(`option[value="${langCode}"]`);
+                    if (option) {
+                        languageSelect.value = langCode;
+                    }
+                }
+                
+                return langCode;
+                
+            } catch (error) {
+                if (detectedLanguageSpan) {
+                    detectedLanguageSpan.textContent = 'English';
+                }
+                if (detectedLanguageValue) {
+                    detectedLanguageValue.value = 'en';
+                }
+                return 'en';
+            }
+        }
+        
+            // Initialize
+            detectUserTimezone();
+            detectUserLanguage();
+            updateCurrentTime();
+            
+            // Update time every second
+            setInterval(updateCurrentTime, 1000);
+            
+            // TOGGLE TIMEZONE SELECTOR
+            if (timezoneCheckbox && timezoneSelectWrapper && timezoneSelect) {
+                timezoneCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        timezoneSelectWrapper.classList.add('show');
+                        timezoneSelect.setAttribute('required', 'required');
+                    } else {
+                        timezoneSelectWrapper.classList.remove('show');
+                        timezoneSelect.removeAttribute('required');
+                    }
+                });
+            }
+            
+            // TOGGLE LANGUAGE SELECTOR
+            if (languageCheckbox && languageSelectWrapper && languageSelect) {
+                languageCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        languageSelectWrapper.classList.add('show');
+                        languageSelect.setAttribute('required', 'required');
+                    } else {
+                        languageSelectWrapper.classList.remove('show');
+                        languageSelect.removeAttribute('required');
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            // Apply saved theme on page load
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                
+                // Save preference to localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

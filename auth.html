@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropAfar – Login Authentication</title>
+
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Jost -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           PROPAFAR TOKENS
+        ═══════════════════════════════════════════════ */
+        :root {
+            --red:       #dc3545;
+            --red-dark:  #b91c2c;
+            --dark:      #1a1a2e;
+            --grey:      #6c757d;
+            --border:    #e0e0e0;
+            --input-bg:  #ffffff;
+            --font:      'Jost', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font);
+            /* fake hero background so the modal looks in-context */
+            background: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=80') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Dark hero overlay behind modal (same as live site) */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 0;
+        }
+
+        /* ═══════════════════════════════════════════════
+           MODAL CARD — matches existing Login/Signup style
+        ═══════════════════════════════════════════════ */
+        .auth-modal {
+            position: relative;
+            z-index: 1;
+            background: #ffffff;
+            border-radius: 16px;
+            width: 410px;
+            max-width: calc(100vw - 24px);
+            padding: 36px 40px 32px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+        }
+
+        /* Close button */
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #555;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+            transition: color 0.15s;
+        }
+        .modal-close:hover { color: var(--red); }
+
+        /* ── Title block ── */
+        .modal-title-block {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .modal-title-block h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--red);
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        /* Red underline — same style as Login/Signup */
+        .modal-title-block .title-line {
+            width: 60px;
+            height: 2px;
+            background: var(--red);
+            margin: 0 auto 14px;
+            border-radius: 2px;
+        }
+
+        .modal-title-block .subtitle {
+            font-size: 13.5px;
+            color: var(--grey);
+            line-height: 1.55;
+        }
+
+        .modal-title-block .subtitle strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* ── Method selector pills ── */
+        .method-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .method-tab {
+            flex: 1;
+            padding: 9px 10px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: #fff;
+            font-family: var(--font);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--grey);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .method-tab:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .method-tab.active {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+        }
+
+        /* ── OTP input group ── */
+        .otp-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .otp-boxes {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .otp-box {
+            width: 52px;
+            height: 58px;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            background: var(--input-bg);
+            font-family: var(--font);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            /* hide browser number spinners */
+            -moz-appearance: textfield;
+        }
+        .otp-box::-webkit-outer-spin-button,
+        .otp-box::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+        .otp-box:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+        }
+
+        .otp-box.filled {
+            border-color: var(--dark);
+            background: #fafafa;
+        }
+
+        .otp-box.error-state {
+            border-color: var(--red);
+            background: #fff5f5;
+            animation: shake 0.35s ease;
+        }
+
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            20%      { transform: translateX(-6px); }
+            40%      { transform: translateX(6px); }
+            60%      { transform: translateX(-4px); }
+            80%      { transform: translateX(4px); }
+        }
+
+        /* ── Timer & resend ── */
+        .otp-timer-row {
+            text-align: center;
+            font-size: 13px;
+            color: var(--grey);
+            margin-bottom: 22px;
+        }
+
+        .otp-timer-row .timer-count {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .otp-timer-row .timer-count.expired {
+            color: var(--red);
+        }
+
+        .resend-link {
+            background: none;
+            border: none;
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--red);
+            cursor: pointer;
+            padding: 0;
+            text-decoration: underline;
+            transition: opacity 0.2s;
+        }
+
+        .resend-link:disabled {
+            color: var(--grey);
+            text-decoration: none;
+            cursor: not-allowed;
+        }
+
+        /* ── Primary CTA button — dark pill, arrow ── */
+        .btn-auth-primary {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: none;
+            background: var(--dark);
+            color: #fff;
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.2s, transform 0.15s;
+            margin-bottom: 16px;
+        }
+
+        .btn-auth-primary:hover {
+            background: #111;
+            transform: translateY(-1px);
+        }
+
+        .btn-auth-primary:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-auth-primary .arrow-icon {
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .btn-auth-primary:hover:not(:disabled) .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* ── Divider — same as existing modals ── */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 4px 0 16px;
+            color: var(--grey);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Back to login link ── */
+        .back-link {
+            text-align: center;
+            font-size: 13px;
+            color: var(--grey);
+            margin-bottom: 0;
+        }
+
+        .back-link a {
+            color: var(--red);
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .back-link a:hover { text-decoration: underline; }
+
+        /* ── Inline error message ── */
+        .otp-error-msg {
+            text-align: center;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--red);
+            margin-bottom: 14px;
+            min-height: 18px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .otp-error-msg.visible { opacity: 1; }
+
+        /* ── Success tick overlay (shows briefly on correct code) ── */
+        .success-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.96);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .success-overlay.show { opacity: 1; pointer-events: all; }
+
+        .success-circle {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            color: #16a34a;
+            animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to   { transform: scale(1);   opacity: 1; }
+        }
+
+        .success-overlay h4 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .success-overlay p {
+            font-size: 13.5px;
+            color: var(--grey);
+        }
+
+        /* ── Trust badge row ── */
+        .trust-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 20px;
+        }
+
+        .trust-row i { font-size: 14px; color: #16a34a; }
+
+        /* ── Section panels (one per method) ── */
+        .auth-panel { display: none; }
+        .auth-panel.active { display: block; }
+
+        /* ── Authenticator app instructions ── */
+        .app-instruction {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .app-instruction i {
+            font-size: 22px;
+            color: var(--red);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .app-instruction p {
+            font-size: 13px;
+            color: var(--grey);
+            line-height: 1.55;
+            margin: 0;
+        }
+        .app-instruction p strong { color: var(--dark); }
+
+        /* ── Single long input (backup code) ── */
+        .backup-input {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            padding: 14px 20px;
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: center;
+            letter-spacing: 4px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            margin-bottom: 18px;
+        }
+        .backup-input:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(220,53,69,0.12);
+        }
+        .backup-input::placeholder {
+            letter-spacing: 1px;
+            font-size: 13px;
+            color: #c0c0c0;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════════════════════════════════
+         AUTHENTICATION MODAL
+    ════════════════════════════════════════════════ -->
+    <div class="auth-modal">
+
+        <!-- Success overlay (shown on correct code entry) -->
+        <div class="success-overlay" id="successOverlay">
+            <div class="success-circle">
+                <i class="bi bi-check-lg"></i>
+            </div>
+            <h4>Verified!</h4>
+            <p>Redirecting you to your account…</p>
+        </div>
+
+        <!-- Close -->
+        <button class="modal-close" aria-label="Close" onclick="window.history.back()">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <!-- Title -->
+        <div class="modal-title-block">
+            <h2>Authentication</h2>
+            <div class="title-line"></div>
+            <p class="subtitle">
+                Verifying identity for<br>
+                <strong id="userEmail">user@example.com</strong>
+            </p>
+        </div>
+
+        <!-- Method selector tabs -->
+        <div class="method-tabs">
+            <button class="method-tab active" data-panel="sms" onclick="switchMethod(this, 'sms')">
+                <i class="bi bi-phone"></i> SMS Code
+            </button>
+            <button class="method-tab" data-panel="app" onclick="switchMethod(this, 'app')">
+                <i class="bi bi-shield-lock"></i> Auth App
+            </button>
+            <button class="method-tab" data-panel="backup" onclick="switchMethod(this, 'backup')">
+                <i class="bi bi-key"></i> Backup
+            </button>
+        </div>
+
+        <!-- ── PANEL 1: SMS / Email OTP ── -->
+        <div class="auth-panel active" id="panel-sms">
+
+            <p class="otp-label">Enter the 6-digit code sent to your phone</p>
+
+            <div class="otp-boxes" id="otpBoxesSms">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+            </div>
+
+            <div class="otp-error-msg" id="errorSms"></div>
+
+            <div class="otp-timer-row">
+                Code expires in&nbsp;<span class="timer-count" id="timerSms">2:00</span>
+                &nbsp;·&nbsp;
+                <button class="resend-link" id="resendSms" disabled onclick="resendCode('sms')">Resend</button>
+            </div>
+
+            <button class="btn-auth-primary" id="btnSms" disabled onclick="verifyOtp('sms')">
+                Verify &amp; Login <i class="bi bi-arrow-right arrow-icon"></i>
+            </button>
+
+        </div>
+
+        <!-- ── PANEL 2: Authenticator App ── -->
+        <div class="auth-panel" id="panel-app">
+
+            <div class="app-instruction">
+                <i class="bi bi-shield-check"></i>
+                <p>Open your <strong>authenticator app</strong> (Google Authenticator, Authy, etc.) and enter the <strong>6-digit code</strong> shown for PropAfar.</p>
+            </div>
+
+            <p class="otp-label">Enter the 6-digit code from your app</p>
+
+            <div class="otp-boxes" id="otpBoxesApp">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+                <input class="otp-box" type="number" maxlength="1" inputmode="numeric" placeholder="·">
+            </div>
+
+            <div class="otp-error-msg" id="errorApp"></div>
+
+            <div class="otp-timer-row" style="margin-bottom:22px;">
+                Codes refresh every&nbsp;<span class="timer-count" id="timerApp">30s</span>
+            </div>
+
+            <button class="btn-auth-primary" id="btnApp" disabled onclick="verifyOtp('app')">
+                Verify &amp; Login <i class="bi bi-arrow-right arrow-icon"></i>
+            </button>
+
+        </div>
+
+        <!-- ── PANEL 3: Backup Code ── -->
+        <div class="auth-panel" id="panel-backup">
+
+            <div class="app-instruction">
+                <i class="bi bi-key-fill"></i>
+                <p>Enter one of your <strong>8-character backup codes</strong> saved when you enabled 2FA. Each code can only be used once.</p>
+            </div>
+
+            <input
+                class="backup-input"
+                type="text"
+                id="backupInput"
+                maxlength="8"
+                placeholder="Enter backup code"
+                oninput="onBackupInput(this)"
+                autocomplete="off"
+                spellcheck="false"
+            >
+
+            <div class="otp-error-msg" id="errorBackup"></div>
+
+            <button class="btn-auth-primary" id="btnBackup" disabled onclick="verifyBackup()">
+                Verify &amp; Login <i class="bi bi-arrow-right arrow-icon"></i>
+            </button>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="auth-divider">↓ HAVING TROUBLE? ↓</div>
+
+        <!-- Back link -->
+        <p class="back-link">
+            Wrong account? <a href="#">Back to Login</a>
+        </p>
+
+        <!-- Trust badge -->
+        <div class="trust-row">
+            <i class="bi bi-shield-fill-check"></i>
+            Secured with 256-bit encryption
+        </div>
+
+    </div><!-- /auth-modal -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    /* ════════════════════════════════════════════════
+       METHOD SWITCHER
+    ════════════════════════════════════════════════ */
+    function switchMethod(tab, panelId) {
+        document.querySelectorAll('.method-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.auth-panel').forEach(function(p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.getElementById('panel-' + panelId).classList.add('active');
+        clearErrors();
+    }
+
+    function clearErrors() {
+        document.querySelectorAll('.otp-error-msg').forEach(function(el) {
+            el.textContent = '';
+            el.classList.remove('visible');
+        });
+        document.querySelectorAll('.otp-box').forEach(function(b) { b.classList.remove('error-state'); });
+    }
+
+    /* ════════════════════════════════════════════════
+       OTP BOX KEYBOARD NAVIGATION
+    ════════════════════════════════════════════════ */
+    function initOtpBoxes(containerId, btnId) {
+        var boxes = document.querySelectorAll('#' + containerId + ' .otp-box');
+        var btn   = document.getElementById(btnId);
+
+        boxes.forEach(function(box, idx) {
+            box.addEventListener('input', function() {
+                /* keep only last digit */
+                var val = this.value.replace(/\D/g, '').slice(-1);
+                this.value = val;
+
+                if (val) {
+                    this.classList.add('filled');
+                    this.classList.remove('error-state');
+                    if (idx < boxes.length - 1) boxes[idx + 1].focus();
+                } else {
+                    this.classList.remove('filled');
+                }
+
+                /* enable button when all filled */
+                var allFilled = Array.from(boxes).every(function(b) { return b.value.length === 1; });
+                btn.disabled = !allFilled;
+            });
+
+            box.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && idx > 0) {
+                    boxes[idx - 1].focus();
+                    boxes[idx - 1].value = '';
+                    boxes[idx - 1].classList.remove('filled');
+                    btn.disabled = true;
+                }
+                /* allow only digits */
+                if (!/^\d$/.test(e.key) && !['Backspace','Tab','ArrowLeft','ArrowRight'].includes(e.key)) {
+                    e.preventDefault();
+                }
+            });
+
+            /* select all on focus so re-typing is easy */
+            box.addEventListener('focus', function() { this.select(); });
+
+            /* paste support */
+            box.addEventListener('paste', function(e) {
+                e.preventDefault();
+                var pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '');
+                pasted.split('').forEach(function(ch, i) {
+                    if (boxes[i]) {
+                        boxes[i].value = ch;
+                        boxes[i].classList.add('filled');
+                    }
+                });
+                var last = Math.min(pasted.length, boxes.length) - 1;
+                if (last >= 0) boxes[last].focus();
+                var allFilled = Array.from(boxes).every(function(b) { return b.value.length === 1; });
+                btn.disabled = !allFilled;
+            });
+        });
+    }
+
+    initOtpBoxes('otpBoxesSms', 'btnSms');
+    initOtpBoxes('otpBoxesApp', 'btnApp');
+
+    /* ════════════════════════════════════════════════
+       VERIFY OTP (SMS / APP)
+       Demo: code "123456" = success, anything else = error
+    ════════════════════════════════════════════════ */
+    function verifyOtp(method) {
+        var containerId = 'otpBoxes' + method.charAt(0).toUpperCase() + method.slice(1);
+        var boxes    = document.querySelectorAll('#' + containerId + ' .otp-box');
+        var errorEl  = document.getElementById('error' + method.charAt(0).toUpperCase() + method.slice(1));
+        var code     = Array.from(boxes).map(function(b) { return b.value; }).join('');
+
+        clearErrors();
+
+        if (code === '123456') {
+            showSuccess();
+        } else {
+            errorEl.textContent = 'Incorrect code. Please try again.';
+            errorEl.classList.add('visible');
+            boxes.forEach(function(b) { b.classList.add('error-state'); b.value = ''; b.classList.remove('filled'); });
+            document.getElementById('btn' + method.charAt(0).toUpperCase() + method.slice(1)).disabled = true;
+            boxes[0].focus();
+        }
+    }
+
+    /* ════════════════════════════════════════════════
+       BACKUP CODE
+    ════════════════════════════════════════════════ */
+    function onBackupInput(input) {
+        input.value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+        document.getElementById('btnBackup').disabled = input.value.length < 8;
+        clearErrors();
+    }
+
+    function verifyBackup() {
+        var val     = document.getElementById('backupInput').value.trim();
+        var errorEl = document.getElementById('errorBackup');
+
+        /* Demo: "ABCD1234" = success */
+        if (val.toUpperCase() === 'ABCD1234') {
+            showSuccess();
+        } else {
+            errorEl.textContent = 'Invalid backup code. Each code can only be used once.';
+            errorEl.classList.add('visible');
+            document.getElementById('backupInput').style.borderColor = 'var(--red)';
+        }
+    }
+
+    /* ════════════════════════════════════════════════
+       SUCCESS STATE
+    ════════════════════════════════════════════════ */
+    function showSuccess() {
+        document.getElementById('successOverlay').classList.add('show');
+        /* In production: redirect after brief delay */
+        setTimeout(function() {
+            alert('Redirecting to dashboard… (hook your Laravel redirect here)');
+        }, 1800);
+    }
+
+    /* ════════════════════════════════════════════════
+       SMS COUNTDOWN TIMER
+    ════════════════════════════════════════════════ */
+    (function startTimer() {
+        var seconds  = 120;
+        var timerEl  = document.getElementById('timerSms');
+        var resendEl = document.getElementById('resendSms');
+
+        var interval = setInterval(function() {
+            seconds--;
+            var m = Math.floor(seconds / 60);
+            var s = seconds % 60;
+            timerEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+
+            if (seconds <= 0) {
+                clearInterval(interval);
+                timerEl.textContent = '0:00';
+                timerEl.classList.add('expired');
+                resendEl.disabled = false;
+            }
+        }, 1000);
+    }());
+
+    /* ════════════════════════════════════════════════
+       AUTHENTICATOR APP TOTP COUNTER (30s refresh visual)
+    ════════════════════════════════════════════════ */
+    (function totpTimer() {
+        var timerEl = document.getElementById('timerApp');
+        function tick() {
+            var remaining = 30 - (Math.floor(Date.now() / 1000) % 30);
+            timerEl.textContent = remaining + 's';
+            if (remaining <= 5) {
+                timerEl.classList.add('expired');
+            } else {
+                timerEl.classList.remove('expired');
+            }
+        }
+        tick();
+        setInterval(tick, 1000);
+    }());
+
+    /* ════════════════════════════════════════════════
+       RESEND CODE
+    ════════════════════════════════════════════════ */
+    function resendCode(method) {
+        var resendBtn = document.getElementById('resend' + method.charAt(0).toUpperCase() + method.slice(1));
+        var timerEl   = document.getElementById('timer'  + method.charAt(0).toUpperCase() + method.slice(1));
+
+        resendBtn.disabled = true;
+        timerEl.classList.remove('expired');
+
+        var seconds = 120;
+        timerEl.textContent = '2:00';
+
+        var interval = setInterval(function() {
+            seconds--;
+            var m = Math.floor(seconds / 60);
+            var s = seconds % 60;
+            timerEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+            if (seconds <= 0) {
+                clearInterval(interval);
+                timerEl.textContent = '0:00';
+                timerEl.classList.add('expired');
+                resendBtn.disabled = false;
+            }
+        }, 1000);
+
+        /* In production: call your resend API here */
+        alert('A new code has been sent to your phone.');
+    }
+
+    /* Pre-fill email from URL param or session (demo) */
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('email')) {
+        document.getElementById('userEmail').textContent = params.get('email');
+    }
+    </script>
+
+</body>
+</html>
