@@ -153,12 +153,12 @@
         }
         
         .btn-list-property {
-            background-color: var(--primary-red);
-            color: var(--white);
+            background-color: transparent;
+            color: #dd2328;
+            border: 2px solid #DD2328;
             font-weight: 600;
-            padding: 0.6rem 1.1rem;
+            padding: 0.47rem 1.1rem;
             border-radius: 8px;
-            border: none;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -469,9 +469,9 @@
 /* Search Button */
 .btn-search-main {
     width: 100%;
-    padding: 0.575rem 1.5rem;
-    background-color: #DD2328;
-    color: #fff;
+    padding: 0.475rem 1.5rem;
+    background-color: #fff;
+    color: #DD2328;
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -481,10 +481,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid #DD2328;
 }
 
 .btn-search-main:hover {
-    background-color: #c01f23;
+    background-color: #DD2328;
+    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(221, 35, 40, 0.3);
 }
@@ -499,7 +501,7 @@
     color: #DD2328;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9375rem;
+    font-size: 16px;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -4352,7 +4354,7 @@ body.dark-mode .feature-column {
         ══════════════════════════════════════ */
         .agents-section {
             background: var(--white);
-            padding: 52px 0 56px;
+            padding: 18px 0 18px;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
@@ -4361,10 +4363,11 @@ body.dark-mode .feature-column {
         .agents-header {
             display: flex;
             align-items: flex-end;
-            justify-content: space-between;
-            margin-bottom: 36px;
+            justify-content: end;
+            margin-bottom: 14px;
             gap: 16px;
             flex-wrap: wrap;
+            display: none;
         }
         
         
@@ -4721,20 +4724,20 @@ body.dark-mode .feature-column {
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            padding: 10px 22px;
-            background: var(--red);
-            color: var(--white);
-            border: none;
+            padding: 9px 18px;
+            background: transparent;
+            color: #DD2328;
+            border: 2px solid #DD2328;
             border-radius: 8px;
             font-family: var(--font);
-            font-size: 13.5px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.2s ease, transform 0.15s ease;
             text-decoration: none;
         }
         .btn-company-cta:hover {
-            background: var(--red-dark);
+            background: #DD2328;
             transform: translateY(-1px);
             color: var(--white);
         }
@@ -4868,7 +4871,10 @@ body.dark-mode .feature-column {
             font-size: 12px;
             color: var(--grey);
         }
- 
+        .set-hero-business {
+            min-height: auto;
+            padding: 18px 0 18px;
+        }
         /* ════════════════════════════════════════
            RESPONSIVE
         ════════════════════════════════════════ */

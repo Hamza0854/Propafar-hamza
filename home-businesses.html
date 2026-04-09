@@ -105,14 +105,14 @@
         </div>
     </nav>
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section set-hero-business">
         <div class="hero-overlay"></div>
         <div class="container-xxl position-relative px-3">
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <!-- Hero Titles -->
                     <div class="hero-content">
-                        <img src="assets/images/company-logo.png" alt="company logo" class="img-fluid w-50">
+                        <img src="assets/images/company-logo.png" alt="company logo" class="img-fluid w-75 mb-1 mb-lg-5">
                         <h1 class="hero-title">Dummy Title here</h1>
                         <p class="hero-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     </div>
@@ -233,11 +233,11 @@
      
             <!-- Header -->
             <div class="agents-header">
-                <div class="agents-header-left">
+                <!-- <div class="agents-header-left">
                     <h2 class="section-title mb-1">Our Verified Agents</h2>
                     <p class="section-subtitle mb-2 m-0">Browse our network of certified PropAfar real estate professionals</p>
                     <p></p>
-                </div>
+                </div> -->
                 <div class="slider-nav-btns">
                     <button class="slider-nav-btn" id="agentPrev" aria-label="Previous">
                         <i class="bi bi-chevron-left"></i>
@@ -1980,6 +1980,10 @@
             var totalCards   = cards.length;
             var currentIndex = 0;
          
+            /* ── Auto-scroll config ── */
+            var AUTO_DELAY  = 3000;   /* ms between each auto-slide */
+            var autoTimer   = null;
+         
             /* How many cards are visible depends on viewport */
             function visibleCount() {
                 var w = outer.offsetWidth;
@@ -1997,7 +2001,7 @@
             /* Card width including gap */
             function cardStep() {
                 if (!cards[0]) return 0;
-                var gap = 20; /* matches CSS gap */
+                var gap = 20;
                 return cards[0].offsetWidth + gap;
             }
          
@@ -2013,6 +2017,7 @@
                     dot.addEventListener('click', (function(page) {
                         return function() {
                             goTo(page * visibleCount());
+                            resetAuto(); /* restart timer after manual dot click */
                         };
                     })(i));
                     dotsWrap.appendChild(dot);
@@ -2020,49 +2025,89 @@
             }
          
             function updateDots() {
-                var vc    = visibleCount();
-                var page  = Math.floor(currentIndex / vc);
-                var dots  = dotsWrap.querySelectorAll('.sdot');
+                var vc   = visibleCount();
+                var page = Math.floor(currentIndex / vc);
+                var dots = dotsWrap.querySelectorAll('.sdot');
                 dots.forEach(function(d, i) {
                     d.classList.toggle('active', i === page);
                 });
             }
          
             function goTo(idx) {
-                currentIndex = Math.max(0, Math.min(idx, maxIndex()));
+                /* Loop back to start when end is reached, loop to end when going back past start */
+                if (idx > maxIndex()) {
+                    idx = 0;
+                } else if (idx < 0) {
+                    idx = maxIndex();
+                }
+                currentIndex = idx;
                 track.style.transform = 'translateX(-' + (currentIndex * cardStep()) + 'px)';
                 updateDots();
-                /* Button states */
-                btnPrev.style.opacity = currentIndex === 0 ? '0.4' : '1';
+                btnPrev.style.opacity = currentIndex === 0        ? '0.4' : '1';
                 btnNext.style.opacity = currentIndex >= maxIndex() ? '0.4' : '1';
             }
          
-            btnPrev.addEventListener('click', function() { goTo(currentIndex - 1); });
-            btnNext.addEventListener('click', function() { goTo(currentIndex + 1); });
+            /* ── Auto-scroll ── */
+            function startAuto() {
+                autoTimer = setInterval(function () {
+                    /* Loop: when at last position, jump back to 0 */
+                    var next = currentIndex + 1;
+                    if (next > maxIndex()) next = 0;
+                    goTo(next);
+                }, AUTO_DELAY);
+            }
+         
+            function stopAuto() {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+         
+            function resetAuto() {
+                stopAuto();
+                startAuto();
+            }
+         
+            /* ── Manual controls — reset auto-timer after interaction ── */
+            btnPrev.addEventListener('click', function () {
+                goTo(currentIndex - 1);
+                resetAuto();
+            });
+            btnNext.addEventListener('click', function () {
+                goTo(currentIndex + 1);
+                resetAuto();
+            });
+         
+            /* Pause on hover, resume on leave */
+            outer.addEventListener('mouseenter', stopAuto);
+            outer.addEventListener('mouseleave', startAuto);
          
             /* Touch swipe */
             var touchStartX = 0;
-            outer.addEventListener('touchstart', function(e) {
+            outer.addEventListener('touchstart', function (e) {
                 touchStartX = e.touches[0].clientX;
+                stopAuto();
             }, { passive: true });
-            outer.addEventListener('touchend', function(e) {
+            outer.addEventListener('touchend', function (e) {
                 var diff = touchStartX - e.changedTouches[0].clientX;
                 if (Math.abs(diff) > 40) goTo(currentIndex + (diff > 0 ? 1 : -1));
+                startAuto();
             }, { passive: true });
          
             /* Rebuild on resize */
             var resizeTimer;
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
+                resizeTimer = setTimeout(function () {
                     buildDots();
                     goTo(0);
+                    resetAuto();
                 }, 120);
             });
          
             /* Init */
             buildDots();
             goTo(0);
+            startAuto();
          
         }());
     </script>
