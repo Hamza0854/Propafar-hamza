@@ -106,14 +106,14 @@
         .icon-btn {
             flex: 1; min-width: 30px;
             height: 32px;
-            border: 1.5px solid var(--border);
+            border: 1.5px solid var(--red);
             border-radius: 7px;
             background: var(--white);
             display: flex; align-items: center; justify-content: center;
-            font-size: 14px; color: var(--grey);
+            font-size: 14px; color: var(--red);
             cursor: pointer; transition: all 0.18s;
         }
-        .icon-btn:hover { border-color: var(--red); color: var(--red); background: #fff5f5; }
+        .icon-btn:hover { border-color: var(--red); color: var(--white); background: var(--red); }
 
         /* Nav tabs */
         .nav-tab-link {
@@ -368,14 +368,19 @@
         }
         .vcard-icon-btn {
             width: 30px; height: 30px;
-            border-radius: 6px; background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 6px; background: rgba(255,255,255,1);
+            border: 1.5px solid var(--red);
             display: flex; align-items: center; justify-content: center;
             font-size: 13px; color: rgba(255,255,255,0.8);
             cursor: pointer; transition: background 0.15s;
         }
-        .vcard-icon-btn:hover { background: rgba(255,255,255,0.3); }
-
+        .vcard-icon-btn i {
+            color: var(--red);
+        }
+        .vcard-icon-btn:hover { background: var(--red);color: var(--white); }
+        .vcard-icon-btn:hover i {
+            color: var(--white);
+        }
         /* vCard body */
         .vcard-body { padding: 12px 14px; }
         .vcard-note {
@@ -390,13 +395,13 @@
         /* CTA buttons grid */
         .vcard-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
         .btn-v-outline {
-            padding: 9px 8px; border: 1.5px solid var(--border);
+            padding: 9px 8px; border: 1.5px solid var(--red);
             border-radius: 7px; background: var(--white);
             font-family: var(--font); font-size: 13px; font-weight: 600;
-            color: var(--dark); cursor: pointer; transition: all 0.18s;
+            color: var(--red); cursor: pointer; transition: all 0.18s;
             display: flex; align-items: center; justify-content: center; gap: 6px;
         }
-        .btn-v-outline:hover { border-color: var(--red); color: var(--red); }
+        .btn-v-outline:hover { border-color: var(--red); color: var(--white);background: var(--red); }
         .btn-v-solid {
             padding: 9px 8px; border: none;
             border-radius: 7px; background: var(--red);
@@ -774,9 +779,14 @@
                         <div class="meta-row"><span class="ml">Area</span><span class="mv">70.21 m²</span></div>
                         <div class="meta-row"><span class="ml">Price/m²</span><span class="mv">500,000 HUF</span></div>
                     </div>
-                    <div class="price-line text-end">
-                        <p class="price-main">35,000,000 HUF</p>
-                        <p class="price-sub">(≈ €90,000 EUR)</p>
+                    <div class="price-line text-end border-0 pt-0">
+                        <div class="meta-row">
+                            <span class="ml">Price</span>
+                            <div>
+                                <p class="price-main">35,000,000 HUF</p>
+                                <p class="price-sub">(≈ €90,000 EUR)</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Icon action buttons — INSIDE left col per Figma -->
@@ -942,7 +952,7 @@
 
                                 <!-- Description snippet -->
                                 <p class="vcard-desc">
-                                    István fills in the property description and the agent manages all inquiries through the PropAfar inbox. Verified agent profile.
+                                    Agents Accepted
                                 </p>
 
                                 <!-- CTA buttons -->
@@ -950,7 +960,7 @@
                                     <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalContact">
                                         <i class="bi bi-envelope"></i> Inmail
                                     </button>
-                                    <button class="btn-v-solid" data-bs-toggle="modal" data-bs-target="#modalBookCall">
+                                    <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalBookCall">
                                         <i class="bi bi-telephone-fill"></i> Book a Call
                                     </button>
                                     <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalContact">
