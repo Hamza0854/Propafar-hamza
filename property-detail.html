@@ -720,10 +720,13 @@
                         justify-content: center;
                         margin-top: 6px;
                         cursor: pointer;
+                        background: #6c757d;
+                        border-radius: 7px;
+                        min-height: 34px;
                     }
                     .desc-toggle i {
                         font-size: 22px;
-                        color: #dd2328;          /* green chevron as in screenshot */
+                        color: #fff;          /* green chevron as in screenshot */
                         font-weight: 900;
                         transition: transform 0.35s ease;
                         filter: drop-shadow(0 1px 3px rgba(22,163,74,0.25));
@@ -739,6 +742,16 @@
             .set-lightbox-gallery-ad {
                 flex-direction: column;
             }
+        }
+        .tooltip .tooltip-inner {
+            max-width: 280px;
+            background-color: #502305;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Jost", sans-serif;
+        }
+        .flex-grow-1 {
+            flex-grow: 1;
         }
     </style>
 </head>
@@ -804,11 +817,21 @@
 
                     <!-- Icon action buttons — INSIDE left col per Figma -->
                     <div class="icon-row">
-                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalFavourite" title="Favourite"><i class="bi bi-heart"></i></button>
-                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalShare"    title="Share"><i class="bi bi-share"></i></button>
-                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalQR"       title="QR Code"><i class="bi bi-qr-code"></i></button>
-                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalPDF"      title="Download PDF"><i class="bi bi-file-pdf"></i></button>
-                        <button class="icon-btn" data-bs-toggle="modal" data-bs-target="#modalReport"   title="Report"><i class="bi bi-flag"></i></button>
+                        <div data-bs-toggle="tooltip" title="Favourite" class="flex-grow-1">
+                            <button class="icon-btn w-100" data-bs-toggle="modal" data-bs-target="#modalFavourite" title="Favourite"><i class="bi bi-heart"></i></button>
+                        </div>
+                        <div data-bs-toggle="tooltip" title="Share" class="flex-grow-1">
+                            <button class="icon-btn w-100" data-bs-toggle="modal" data-bs-target="#modalShare"  title="Share"><i class="bi bi-share"></i></button>
+                        </div>
+                        <div data-bs-toggle="tooltip" title="QR Code" class="flex-grow-1">
+                            <button class="icon-btn w-100" data-bs-toggle="modal" data-bs-target="#modalQR" title="QR Code"><i class="bi bi-qr-code"></i></button>
+                        </div>
+                        <div data-bs-toggle="tooltip" title="Download PDF" class="flex-grow-1">
+                            <button class="icon-btn w-100" data-bs-toggle="modal" data-bs-target="#modalPDF" title="Download PDF"><i class="bi bi-file-pdf"></i></button>
+                        </div>
+                        <div data-bs-toggle="tooltip" title="Report" class="flex-grow-1">
+                            <button class="icon-btn w-100" data-bs-toggle="modal" data-bs-target="#modalReport" title="Report"><i class="bi bi-flag"></i></button>
+                        </div>
                     </div>
                 </div>
 
@@ -937,28 +960,28 @@
                                 <div class="vcard-hdr-right">
                                     <div>
                                         
-                                        <div class="vcard-name">Kiss Melinda</div>
+                                        <div class="vcard-name"> Kiss Melinda</div>
                                         <div class="vcard-role mb-0">értékesítő munkatársa</div>
                                     </div>
                                     <div>
                                         <!-- Brand name like "Circle" in Figma -->
-                                        <div class="vcard-brand">
+                                        <div class="vcard-brand" data-bs-toggle="tooltip" data-bs-title="Brand Logo">
                                             <img src="https://7c6b6aykjh.ufs.sh/f/iPhT0launHLIoHZbGaxcpTCAyJQxX1L9Rjt7eqYrDFOd8HU3" alt="logo" class="rounded-2" height="35px">
                                         </div>
                                     </div>
                                     <div>
                                         <div class="vcard-flags mt-1">
-                                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN">
-                                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE">
-                                            <img src="https://flagcdn.com/w40/hu.png" class="flag-img" alt="HU">
-                                            <img src="https://flagcdn.com/w40/fr.png" class="flag-img" alt="FR">
+                                            <img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="EN" data-bs-toggle="tooltip" data-bs-title="UK">
+                                            <img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE" data-bs-toggle="tooltip" data-bs-title="DE">
+                                            <img src="https://flagcdn.com/w40/hu.png" class="flag-img" alt="HU" data-bs-toggle="tooltip" data-bs-title="HU">
+                                            <img src="https://flagcdn.com/w40/fr.png" class="flag-img" alt="FR" data-bs-toggle="tooltip" data-bs-title="FR">
                                         </div>
                                     </div>
                                 </div>
                                 <!-- QR + Share icons in header -->
                                 <div class="vcard-hdr-icons">
-                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalQR" title="QR Code"><i class="bi bi-qr-code"></i></div>
-                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalShareVcard" title="Share"><i class="bi bi-share"></i></div>
+                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalQR" title="QR Code"><i class="bi bi-qr-code" data-bs-toggle="tooltip" data-bs-title="QR"></i></div>
+                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalShareVcard" title="Share"><i class="bi bi-share" data-bs-toggle="tooltip" data-bs-title="Share"></i></div>
                                 </div>
                             </div>
 
@@ -1064,16 +1087,17 @@
                     <div class="section-title"><i class="bi bi-text-paragraph"></i> Description</div>
                     <!-- Collapsible description wrapper -->
                     <div class="desc-collapse" id="descCollapse">
-                        <p class="desc-text">
-                            This stunning property sits atop one of Budapest's most prestigious streets, offering panoramic
-                            views of the Danube and the historic city skyline. The beautifully restored castle-style residence
-                            combines original architectural details with modern comfort — featuring high ceilings, restored
-                            parquet floors, and an expansive wraparound terrace.
+                        <p class="desc-text mb-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet varius cursus, nisl erat facilisis sapien, vitae convallis nulla augue et magna. Integer feugiat, lectus non faucibus cursus, purus odio pretium tortor, nec interdum magna mi a urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec id nibh sed libero suscipit ultrices. Cras vehicula, elit vel dignissim tincidunt, mauris lorem volutpat risus, at tristique lorem sem sed quam.
                         </p>
-                        <p class="desc-text mt-2">
-                            The open-plan living area flows seamlessly into a fully equipped kitchen with premium appliances.
-                            Three spacious bedrooms and two modern bathrooms complete this exceptional home. The building
-                            offers 24-hour concierge service, underground parking, and a private gym.
+                        <p class="desc-text mb-2">
+                            Praesent ac ligula eget sapien consequat gravida. Curabitur non odio sed justo vulputate aliquam. Phasellus vel ipsum id velit tincidunt vestibulum. Aliquam erat volutpat. Aenean nec libero nec neque cursus faucibus. Suspendisse potenti. Nulla facilisi. Vivamus vitae turpis nec velit fermentum dictum. Duis at nisl sit amet velit placerat blandit. Quisque euismod urna non nunc varius, vitae facilisis augue tristique.
+                        </p>
+                        <p class="desc-text mb-2">
+                            Nam id magna in lorem dictum feugiat. Integer gravida orci sit amet ligula cursus, non faucibus dui tincidunt. Fusce interdum sapien vel augue congue, in elementum tortor placerat. Etiam sed orci vel libero interdum tempus. Proin ac metus at sapien laoreet tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum nec risus nec libero pretium sollicitudin.
+                        </p>
+                        <p class="desc-text mb-2">
+                            Mauris non sem vel tortor malesuada tincidunt. Donec id est nec mauris vulputate varius. Phasellus vitae sapien at turpis convallis suscipit. Sed vehicula, lorem a varius pretium, justo risus dictum est, vitae gravida lacus purus a odio. Integer suscipit mi sed lorem gravida, in tincidunt erat luctus. Nulla facilisi. Donec id lorem vitae erat dignissim imperdiet.
                         </p>
                         <!-- Fade overlay — hidden when expanded -->
                         <div class="desc-fade" id="descFade"></div>
@@ -1608,7 +1632,9 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <script>
         /* ══════ TIMEZONE SETUP ══════ */
         var TZ_ADVERTISER = 'Europe/Budapest';
@@ -1904,6 +1930,14 @@
         });
         document.getElementById('gallerySlides').style.cursor = 'zoom-in';
     </script>
-
+    <script>
+        // Initialize ALL tooltips on the page at once
+        document.addEventListener('DOMContentLoaded', function () {
+            var tooltipEls = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            tooltipEls.forEach(function (el) {
+                new bootstrap.Tooltip(el);
+            });
+        });
+    </script>
 </body>
 </html>
