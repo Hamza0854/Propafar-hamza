@@ -161,7 +161,7 @@
         .map-frame {
             border-radius: 0 0 var(--radius) var(--radius);
             overflow: hidden;
-            height: 288px;
+            height: 455px;
             background: #e5e7eb;
             display: flex; align-items: center; justify-content: center;
             color: var(--grey); font-size: 13px; gap: 8px;
@@ -792,7 +792,7 @@
                         <div class="meta-row"><span class="ml">Area</span><span class="mv">70.21 m²</span></div>
                         <div class="meta-row"><span class="ml">Price/m²</span><span class="mv">500,000 HUF</span></div>
                     </div>
-                    <div class="price-line text-end border-0 pt-0">
+                    <div class="price-line text-end py-1">
                         <div class="meta-row">
                             <span class="ml">Price</span>
                             <div>
@@ -958,7 +958,7 @@
                                 <!-- QR + Share icons in header -->
                                 <div class="vcard-hdr-icons">
                                     <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalQR" title="QR Code"><i class="bi bi-qr-code"></i></div>
-                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalShare" title="Share"><i class="bi bi-share"></i></div>
+                                    <div class="vcard-icon-btn" data-bs-toggle="modal" data-bs-target="#modalShareVcard" title="Share"><i class="bi bi-share"></i></div>
                                 </div>
                             </div>
 
@@ -982,7 +982,7 @@
                                     <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalBookCall">
                                         <i class="bi bi-telephone-fill"></i> Book a Call
                                     </button>
-                                    <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalContact">
+                                    <button class="btn-v-outline" data-bs-toggle="modal" data-bs-target="#modalBookCall">
                                         <i class="bi bi-journal-check"></i> Appointment 
                                     </button>
                                 </div>
@@ -1094,38 +1094,53 @@
                     </div>
                 </div>
 
+                
+            </div><!-- /col-lg-9 -->
+
+            <div class="col-lg-12">
                 <!-- Similar Properties -->
                 <div class="section-card">
                     <div class="section-title"><i class="bi bi-houses"></i> Similar Properties for Sale</div>
                     <div class="row g-3">
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-2">
                             <div class="sim-card">
                                 <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&q=80" alt="">
                                 <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Apartment</div></div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-2">
                             <div class="sim-card">
                                 <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=300&q=80" alt="">
                                 <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Townhouse</div></div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-2">
                             <div class="sim-card">
                                 <img src="https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=300&q=80" alt="">
                                 <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Villa</div></div>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-2">
                             <div class="sim-card">
                                 <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=300&q=80" alt="">
                                 <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Manor</div></div>
                             </div>
                         </div>
+                        <div class="col-6 col-md-2">
+                            <div class="sim-card">
+                                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=300&q=80" alt="">
+                                <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Townhouse</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <div class="sim-card">
+                                <img src="https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=300&q=80" alt="">
+                                <div class="sim-body"><div class="sim-price">82,000,000 HUF</div><div class="sim-sub">For Sale · Villa</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-            </div><!-- /col-lg-9 -->
+            </div><!-- /col-lg-12 -->
 
         </div><!-- /main row -->
     </div><!-- /container-xxl -->
@@ -1134,7 +1149,37 @@
     <!-- ═══════════════════════════════════
          MODALS
     ═══════════════════════════════════ -->
-
+    <!-- 0. Share -->
+    <div class="modal fade" id="modalShareVcard" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-share-fill"></i> Share Vcard</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label">Copy link</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="shareUrl" value="https://propafar.com/vcard/013695" readonly>
+                        <button class="btn btn-secondary btn-sm px-3" onclick="copyLink()"><i class="bi bi-copy"></i></button>
+                    </div>
+                    <label class="form-label">Send to email</label>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="recipient@email.com">
+                        <button style="background:var(--red);color:#fff;border:none;padding:0 14px;border-radius:0 7px 7px 0;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;">Send</button>
+                    </div>
+                    <label class="form-label">Share on</label>
+                    <div class="share-icons">
+                        <div class="sh-icon sh-fb"><i class="bi bi-facebook"></i></div>
+                        <div class="sh-icon sh-tw"><i class="bi bi-twitter-x"></i></div>
+                        <div class="sh-icon sh-wa"><i class="bi bi-whatsapp"></i></div>
+                        <div class="sh-icon sh-em"><i class="bi bi-envelope-fill"></i></div>
+                        <div class="sh-icon sh-li"><i class="bi bi-linkedin"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 1. Share -->
     <div class="modal fade" id="modalShare" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -1328,7 +1373,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="bi bi-telephone-fill"></i> Book a Call</h5>
+                    <h5 class="modal-title"><i class="bi bi-telephone-fill"></i> Book a Call/Appointment</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -1338,7 +1383,7 @@
                         <div class="sdot" id="sd3"></div>
                         <div class="sdot" id="sd4"></div>
                     </div>
-
+     
                     <!-- Step 1 -->
                     <div id="bS1">
                         <p style="font-size:13px;color:var(--grey);margin-bottom:12px;">How would you like to connect?</p>
@@ -1351,7 +1396,7 @@
                             <div><h6>Phone Call</h6><p>Speak directly with the agent</p></div>
                         </div>
                     </div>
-
+     
                     <!-- Step 2: Calendar -->
                     <div id="bS2" style="display:none;">
                         <p style="font-size:13px;color:var(--grey);margin-bottom:8px;">Select a date:</p>
@@ -1368,26 +1413,70 @@
                             <div class="day-row" id="calDays"></div>
                         </div>
                     </div>
-
-                    <!-- Step 3: Time -->
+     
+                    <!-- Step 3: Time — dual timezone -->
                     <div id="bS3" style="display:none;">
-                        <p style="font-size:13px;color:var(--grey);margin-bottom:4px;">Available times for <strong id="selDateLbl">—</strong>:</p>
-                        <div class="time-grid">
-                            <div class="t-slot" onclick="pickT(this)">09:00</div>
-                            <div class="t-slot" onclick="pickT(this)">09:30</div>
-                            <div class="t-slot off">10:00</div>
-                            <div class="t-slot" onclick="pickT(this)">10:30</div>
-                            <div class="t-slot" onclick="pickT(this)">11:00</div>
-                            <div class="t-slot off">11:30</div>
-                            <div class="t-slot" onclick="pickT(this)">12:00</div>
-                            <div class="t-slot" onclick="pickT(this)">13:00</div>
-                            <div class="t-slot" onclick="pickT(this)">14:00</div>
-                            <div class="t-slot off">14:30</div>
-                            <div class="t-slot" onclick="pickT(this)">15:00</div>
-                            <div class="t-slot" onclick="pickT(this)">16:00</div>
+     
+                        <!-- Header: date + timezone toggle -->
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap;">
+                            <p style="font-size:13px;color:var(--grey);margin:0;">
+                                Available times for <strong id="selDateLbl" style="color:var(--dark);">—</strong>
+                            </p>
+                            <!-- Timezone toggle pills -->
+                            <div style="display:flex;gap:4px;background:#f3f4f6;border-radius:8px;padding:3px;">
+                                <button id="tzBtnAdvertiser"
+                                    onclick="switchTz('advertiser')"
+                                    style="padding:4px 10px;border:none;border-radius:6px;font-family:var(--font);font-size:11px;font-weight:700;cursor:pointer;background:var(--red);color:#fff;transition:all 0.2s;">
+                                    Advertiser
+                                </button>
+                                <button id="tzBtnYours"
+                                    onclick="switchTz('yours')"
+                                    style="padding:4px 10px;border:none;border-radius:6px;font-family:var(--font);font-size:11px;font-weight:700;cursor:pointer;background:transparent;color:var(--grey);transition:all 0.2s;">
+                                    Your Time
+                                </button>
+                            </div>
                         </div>
+     
+                        <!-- Timezone info strip -->
+                        <div style="display:flex;gap:8px;margin-bottom:12px;">
+     
+                            <!-- Advertiser TZ badge -->
+                            <div id="tzBadgeAdvertiser"
+                                 style="flex:1;background:#fff5f5;border:1.5px solid rgba(221,35,40,0.2);border-radius:8px;padding:7px 10px;display:flex;align-items:center;gap:7px;">
+                                <i class="bi bi-person-fill" style="color:var(--red);font-size:14px;flex-shrink:0;"></i>
+                                <div>
+                                    <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.5px;">Advertiser</div>
+                                    <div style="font-size:12px;font-weight:600;color:var(--dark);" id="tzAdvertiserLabel">Europe/Budapest (CET+1)</div>
+                                </div>
+                            </div>
+     
+                            <!-- User TZ badge -->
+                            <div id="tzBadgeYours"
+                                 style="flex:1;background:#f3f4f6;border:1.5px solid var(--border);border-radius:8px;padding:7px 10px;display:flex;align-items:center;gap:7px;opacity:0.55;">
+                                <i class="bi bi-geo-alt-fill" style="color:var(--grey);font-size:14px;flex-shrink:0;"></i>
+                                <div>
+                                    <div style="font-size:10px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:0.5px;">Your Time</div>
+                                    <div style="font-size:12px;font-weight:600;color:var(--dark);" id="tzYoursLabel">Detecting…</div>
+                                </div>
+                            </div>
+     
+                        </div>
+     
+                        <!-- Time slots grid — slots show both TZs as sub-label -->
+                        <div class="time-grid" id="tzTimeGrid">
+                            <!-- Filled by JS based on active timezone -->
+                        </div>
+     
+                        <!-- Note -->
+                        <p style="font-size:11px;color:var(--grey);margin-top:10px;margin-bottom:0;">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Times shown in
+                            <strong id="tzActiveLabel" style="color:var(--dark);">Advertiser's timezone</strong>.
+                            Toggle above to see your local time.
+                        </p>
+     
                     </div>
-
+     
                     <!-- Step 4: Confirm -->
                     <div id="bS4" style="display:none;">
                         <div class="confirm-box">
@@ -1403,7 +1492,7 @@
                         <label class="form-label">Phone</label>
                         <input type="tel" class="form-control" placeholder="+1 234 567 890">
                     </div>
-
+     
                     <!-- Step 5: Success -->
                     <div id="bS5" style="display:none;">
                         <div class="success-block">
@@ -1521,11 +1610,104 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        /* ══════ TIMEZONE SETUP ══════ */
+        var TZ_ADVERTISER = 'Europe/Budapest';
+        var TZ_USER       = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+        var TZ_ACTIVE     = 'advertiser';
+         
+        var SLOT_CONFIG = [
+            { time:'09:00', off:false }, { time:'09:30', off:false },
+            { time:'10:00', off:true  }, { time:'10:30', off:false },
+            { time:'11:00', off:false }, { time:'11:30', off:true  },
+            { time:'12:00', off:false }, { time:'13:00', off:false },
+            { time:'14:00', off:false }, { time:'14:30', off:true  },
+            { time:'15:00', off:false }, { time:'16:00', off:false }
+        ];
+         
+        function convertSlotToUserTz(timeStr, dateStr) {
+            try {
+                var dt = new Date(dateStr + ' ' + timeStr + ':00');
+                var userStr = new Intl.DateTimeFormat('en-GB', {
+                    timeZone: TZ_USER,
+                    hour: '2-digit', minute: '2-digit', hour12: false
+                }).format(dt);
+                return userStr;
+            } catch(e) { return timeStr; }
+        }
+         
+        function renderTimeSlots() {
+            var grid    = document.getElementById('tzTimeGrid');
+            if (!grid) return;
+            var dateStr = bDate || 'February 12, 2026';
+            grid.innerHTML = '';
+            var isSameTz = (TZ_ADVERTISER === TZ_USER);
+         
+            SLOT_CONFIG.forEach(function(slot) {
+                var div = document.createElement('div');
+                div.className = 't-slot' + (slot.off ? ' off' : '');
+         
+                var advTime  = slot.time;
+                var userTime = convertSlotToUserTz(slot.time, dateStr);
+                var greyCol  = slot.off ? '#d1d5db' : 'var(--grey)';
+         
+                if (TZ_ACTIVE === 'advertiser') {
+                    div.innerHTML =
+                        '<span style="display:block;font-size:13px;font-weight:700;line-height:1.2;">' + advTime + '</span>' +
+                        (!isSameTz ? '<span style="display:block;font-size:10px;color:' + greyCol + ';font-weight:500;margin-top:1px;">' + userTime + ' <span style="font-size:9px;opacity:0.65;">you</span></span>' : '');
+                } else {
+                    div.innerHTML =
+                        '<span style="display:block;font-size:13px;font-weight:700;line-height:1.2;">' + userTime + '</span>' +
+                        (!isSameTz ? '<span style="display:block;font-size:10px;color:' + greyCol + ';font-weight:500;margin-top:1px;">' + advTime + ' <span style="font-size:9px;opacity:0.65;">adv</span></span>' : '');
+                }
+         
+                if (!slot.off) {
+                    (function(s, el) {
+                        el.onclick = function() { pickT(el, s.time); };
+                    })(slot, div);
+                }
+                grid.appendChild(div);
+            });
+        }
+         
+        function switchTz(which) {
+            TZ_ACTIVE = which;
+            var btnAdv   = document.getElementById('tzBtnAdvertiser');
+            var btnYours = document.getElementById('tzBtnYours');
+            var badgeAdv = document.getElementById('tzBadgeAdvertiser');
+            var badgeYou = document.getElementById('tzBadgeYours');
+            var noteEl   = document.getElementById('tzActiveLabel');
+            if (!btnAdv) return;
+         
+            if (which === 'advertiser') {
+                btnAdv.style.background='var(--red)';   btnAdv.style.color='#fff';
+                btnYours.style.background='transparent'; btnYours.style.color='var(--grey)';
+                badgeAdv.style.opacity='1'; badgeYou.style.opacity='0.55';
+                if(noteEl) noteEl.textContent = "Advertiser's timezone";
+            } else {
+                btnYours.style.background='var(--red)'; btnYours.style.color='#fff';
+                btnAdv.style.background='transparent';   btnAdv.style.color='var(--grey)';
+                badgeYou.style.opacity='1'; badgeAdv.style.opacity='0.55';
+                if(noteEl) noteEl.textContent = 'Your local timezone';
+            }
+            renderTimeSlots();
+        }
+         
+        function initTzLabels() {
+            var el = document.getElementById('tzYoursLabel');
+            if (!el) return;
+            var offset    = -new Date().getTimezoneOffset();
+            var h         = Math.floor(Math.abs(offset) / 60);
+            var m         = Math.abs(offset) % 60;
+            var sign      = offset >= 0 ? '+' : '-';
+            var offsetStr = 'UTC' + sign + h + (m ? ':' + (m < 10 ? '0' : '') + m : '');
+            el.textContent = TZ_USER + ' (' + offsetStr + ')';
+        }
+         
         /* ══════ BOOKING ══════ */
         var bSt=1, bType='', bDate='', bTime='';
         var moY=2026, moM=1;
         var moNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
-
+         
         function bNext(){
             if(bSt===1&&!bType){alert('Please choose a contact method.');return;}
             if(bSt===2&&!bDate){alert('Please select a date.');return;}
@@ -1534,7 +1716,7 @@
             goBS(bSt+1);
         }
         function bPrev(){if(bSt>1)goBS(bSt-1);}
-
+         
         function goBS(n){
             for(var i=1;i<=5;i++){var el=document.getElementById('bS'+i);if(el)el.style.display=(i===n)?'block':'none';}
             bSt=n;
@@ -1542,15 +1724,21 @@
             document.getElementById('bBtnBack').style.display=(n>1&&n<5)?'inline-block':'none';
             document.getElementById('bBtnNext').style.display=n<5?'inline-block':'none';
             document.getElementById('bBtnNext').innerHTML=n===4?'<i class="bi bi-check-circle me-1"></i> Confirm Booking':'Next <i class="bi bi-arrow-right ms-1"></i>';
-            if(n===2)buildCal();
+            if(n===2) buildCal();
+            if(n===3){ initTzLabels(); renderTimeSlots(); }
             if(n===4){document.getElementById('cType').textContent=bType==='personal'?'Personal Visit':'Phone Call';document.getElementById('cDate').textContent=bDate;document.getElementById('cTime').textContent=bTime;}
         }
-
+         
         function pickBType(t,el){bType=t;document.querySelectorAll('.book-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
-        function pickT(el){document.querySelectorAll('.t-slot:not(.off)').forEach(function(t){t.classList.remove('sel');});el.classList.add('sel');bTime=el.textContent;}
-
+         
+        function pickT(el, timeVal){
+            document.querySelectorAll('#tzTimeGrid .t-slot:not(.off)').forEach(function(t){t.classList.remove('sel');});
+            el.classList.add('sel');
+            bTime = timeVal || el.querySelector('span') && el.querySelector('span').textContent || el.textContent.trim().split('\n')[0].trim();
+        }
+         
         function chMo(d){moM+=d;if(moM>11){moM=0;moY++;}if(moM<0){moM=11;moY--;}buildCal();}
-
+         
         function buildCal(){
             document.getElementById('moLabel').textContent=moNames[moM]+' '+moY;
             var grid=document.getElementById('calDays');grid.innerHTML='';
@@ -1565,16 +1753,21 @@
                 var today=(d===12&&moM===1&&moY===2026);
                 cell.className='cal-day'+(off?' off':'')+(today?' today':'');
                 cell.textContent=d;
-                if(!off){(function(day){cell.onclick=function(){
-                    document.querySelectorAll('.cal-day').forEach(function(c){c.classList.remove('sel');});
-                    cell.classList.add('sel');
-                    bDate=moNames[moM]+' '+day+', '+moY;
-                    document.getElementById('selDateLbl').textContent=bDate;
-                };})(d);}
+                if(!off){
+                    /* IIFE captures both day AND cell correctly — fixes the "always selects 28" bug */
+                    (function(capturedCell, capturedDay){
+                        capturedCell.onclick = function(){
+                            document.querySelectorAll('.cal-day').forEach(function(c){c.classList.remove('sel');});
+                            capturedCell.classList.add('sel');
+                            bDate = moNames[moM]+' '+capturedDay+', '+moY;
+                            document.getElementById('selDateLbl').textContent = bDate;
+                        };
+                    })(cell, d);
+                }
                 grid.appendChild(cell);
             }
         }
-
+         
         document.getElementById('modalBookCall').addEventListener('hidden.bs.modal',function(){
             bSt=1;bType='';bDate='';bTime='';
             goBS(1);
