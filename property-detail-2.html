@@ -721,6 +721,7 @@
                         cursor: pointer;
                         background: #6c757d;
                         border-radius: 7px;
+                        transition: .2s;
                         min-height: 34px;
                     }
                     .desc-toggle i {
@@ -732,6 +733,10 @@
                     }
                     .desc-toggle i.flipped {
                         transform: rotate(180deg);
+                    }
+                    .desc-toggle:hover {
+                        background-color: #dd2328;
+                        transition: .2s;
                     }
         .set-lightbox-gallery-ad {
             display: flex;
@@ -1030,7 +1035,7 @@
                         <div class="desc-fade" id="descFade"></div>
                     </div>
                     <!-- Expand / collapse toggle -->
-                    <div class="desc-toggle" id="descToggle" onclick="toggleDesc()">
+                    <div class="desc-toggle" data-bs-toggle="modal" data-bs-target="#modalDescription">
                         <i class="bi bi-chevron-down" id="descArrow"></i>
                     </div>
                 </div>
@@ -1097,6 +1102,31 @@
     <!-- ═══════════════════════════════════
          MODALS
     ═══════════════════════════════════ -->
+    <!-- Description -->
+    <div class="modal fade" id="modalDescription" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-fonts"></i> Description</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="desc-text mb-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet varius cursus, nisl erat facilisis sapien, vitae convallis nulla augue et magna. Integer feugiat, lectus non faucibus cursus, purus odio pretium tortor, nec interdum magna mi a urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec id nibh sed libero suscipit ultrices. Cras vehicula, elit vel dignissim tincidunt, mauris lorem volutpat risus, at tristique lorem sem sed quam.
+                        </p>
+                        <p class="desc-text mb-2">
+                            Praesent ac ligula eget sapien consequat gravida. Curabitur non odio sed justo vulputate aliquam. Phasellus vel ipsum id velit tincidunt vestibulum. Aliquam erat volutpat. Aenean nec libero nec neque cursus faucibus. Suspendisse potenti. Nulla facilisi. Vivamus vitae turpis nec velit fermentum dictum. Duis at nisl sit amet velit placerat blandit. Quisque euismod urna non nunc varius, vitae facilisis augue tristique.
+                        </p>
+                        <p class="desc-text mb-2">
+                            Nam id magna in lorem dictum feugiat. Integer gravida orci sit amet ligula cursus, non faucibus dui tincidunt. Fusce interdum sapien vel augue congue, in elementum tortor placerat. Etiam sed orci vel libero interdum tempus. Proin ac metus at sapien laoreet tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum nec risus nec libero pretium sollicitudin.
+                        </p>
+                        <p class="desc-text mb-2">
+                            Mauris non sem vel tortor malesuada tincidunt. Donec id est nec mauris vulputate varius. Phasellus vitae sapien at turpis convallis suscipit. Sed vehicula, lorem a varius pretium, justo risus dictum est, vitae gravida lacus purus a odio. Integer suscipit mi sed lorem gravida, in tincidunt erat luctus. Nulla facilisi. Donec id lorem vitae erat dignissim imperdiet.
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 0. Share -->
     <div class="modal fade" id="modalShareVcard" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
