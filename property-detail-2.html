@@ -32,7 +32,7 @@
             font-family: var(--font);
             background: var(--bg);
             color: var(--dark);
-            font-size: 14px;
+            font-size: 15px;
         }
         a { text-decoration: none; color: inherit; }
 
@@ -723,9 +723,13 @@
                         border-radius: 7px;
                         transition: .2s;
                         min-height: 34px;
+                        gap: 6px;
+                        font-size: 12px;
+                        font-weight: 500;
+                        color: #fff;
                     }
                     .desc-toggle i {
-                        font-size: 22px;
+                        font-size: 18px;
                         color: #fff;          /* green chevron as in screenshot */
                         font-weight: 900;
                         transition: transform 0.35s ease;
@@ -756,6 +760,33 @@
         }
         .flex-grow-1 {
             flex-grow: 1;
+        }
+        .set-mt-32 {
+            margin-top: 32px;
+        }
+        .set-box-seo {
+            background-color: #fafbfb;
+            padding: 52px 32px;
+            border-radius: 18px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            text-align: center;
+        }
+        .section-title-seo {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--dark-grey, #404041);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6c757d;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6c757d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
     </style>
 </head>
@@ -864,7 +895,7 @@
                     </div>
                 </div>
                 <div class="left-card bg-transparent shadow-none">
-                    <div class="ad-vertical ms-auto">
+                    <div class="ad-vertical ms-auto set-mt-32">
                         <span class="ad-label-tag">Advertisement</span>
                         <i class="bi bi-badge-ad" style="font-size:26px;color:rgba(0,0,0,0.5);"></i>
                         <div class="ad-size-pill">300 × 600 px</div>
@@ -1036,7 +1067,7 @@
                     </div>
                     <!-- Expand / collapse toggle -->
                     <div class="desc-toggle" data-bs-toggle="modal" data-bs-target="#modalDescription">
-                        <i class="bi bi-chevron-down" id="descArrow"></i>
+                        <i class="bi bi-chevron-down" id="descArrow"></i> Show full description
                     </div>
                 </div>
 
@@ -1095,6 +1126,26 @@
                     </div>
                 </div>
             </div><!-- /col-lg-12 -->
+
+            <div class="col-lg-12">
+                <!-- SEO SECTION -->
+                <div class="why-choose-section">
+                    <div class="container-xxl g-0">
+                        <div class="set-box-seo">
+                            <div class="row">
+                                <div class="col-lg-9 mx-auto">
+                                    <div class="section-header text-center">
+                                        <h2 class="section-title-seo mb-0 justify-content-center">SEO Textbox</h2>
+                                        <p class="section-subtitle">minden fontosabb kulcsszóval</p>
+                                        <p class="mt-4">Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now. In built table in an rapid blush. Merits behind on afraid or warmly. Believing neglected so so allowance existence departure in. In design active temper be uneasy. Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now. In built table in an rapid blush. Merits behind on afraid or warmly. Believing neglected so so allowance existenc.</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div><!-- /main row -->
     </div><!-- /container-xxl -->
 
