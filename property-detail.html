@@ -790,6 +790,25 @@
             margin: 0 auto;
             line-height: 1.7;
         }
+        .ad-vertical {
+            max-width: 100%;
+        }
+        @media only screen and (max-width: 480px) {
+            .section-title-seo {
+                font-size: 22px;
+            }
+            .vcard-avatar {
+                width: 52px;
+                height: 52px;
+            }
+            .vcard-hdr-right {
+                gap: 4px;
+                flex-wrap: wrap;
+            }
+            .vcard-hdr {
+                gap: 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -976,7 +995,11 @@
                         <div class="ad-vertical">
                             <span class="ad-label-tag">Advertisement</span>
                             <i class="bi bi-badge-ad" style="font-size:26px;color:rgba(0,0,0,0.5);"></i>
-                            <div class="ad-size-pill">300 × 600 px</div>
+                            <div class="ad-size-pill">
+                                300 × 600 px Desktop
+                                <br>
+                                300 × 300 px Mobile
+                            </div>
                             <small>Large Skyscraper (Half-page)</small>
                         </div>
                     </div>
@@ -1112,7 +1135,11 @@
                         <div class="ad-vertical">
                             <span class="ad-label-tag">Advertisement</span>
                             <i class="bi bi-badge-ad" style="font-size:26px;color:rgba(0,0,0,0.5);"></i>
-                            <div class="ad-size-pill">300 × 600 px</div>
+                            <div class="ad-size-pill">
+                                300 × 600 px Desktop
+                                <br>
+                                300 × 300 px Mobile
+                            </div>
                             <small>Large Skyscraper (Half-page)</small>
                         </div>
                     </div>
@@ -1149,9 +1176,13 @@
                 <!-- Panorama Ad -->
                 <div class="panorama-ad">
                     <span class="ad-label-tag">Advertisement</span>
-                    <i class="bi bi-badge-ad" style="font-size:20px;opacity:0.3;"></i>
+                    <!-- <i class="bi bi-badge-ad" style="font-size:20px;opacity:0.3;"></i> -->
                     <div class="text-center">
-                        <div class="ad-size-pill">980 × 120 px — Panorama Banner</div>
+                        <div class="ad-size-pill">
+                            980 × 120 px — Panorama Banner Desktop
+                            <br>
+                            350 x 120 px — Panorama Banner Mobile
+                        </div>
                         <div style="font-size:10px;margin-top:3px;color:rgba(0,0,0,0.3);">Your ad placeholder</div>
                     </div>
                 </div>
